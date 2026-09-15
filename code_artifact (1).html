@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كتلة أردننا | كلية الإعلام - جامعة اليرموك</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#094e77',
+              800: '#0d3856',
+              900: '#0b273d',
+              dark: '#071828'
+            },
+            jordanRed: {
+              DEFAULT: '#b91c1c',
+              hover: '#991b1b',
+              light: '#fef2f2'
+            },
+            jordanGold: {
+              DEFAULT: '#d97706',
+              light: '#fef3c7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .glass-nav {
+      background: rgba(7, 24, 40, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    /* Hide number spinners */
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+    .hero-pattern {
+      background-color: #071828;
+      background-image: radial-gradient(rgba(2, 132, 199, 0.18) 1px, transparent 1px), radial-gradient(rgba(185, 28, 28, 0.12) 1px, #071828 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Top Navigation Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Branding -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-800 flex items-center justify-center shadow-lg shadow-brand-500/30 border border-white/20 group-hover:scale-105 transition">
+            <i class="fa-solid fa-graduation-cap text-2xl text-white"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-1.5">
+              كتلة أُردنّنا
+              <span class="w-2 h-2 rounded-full bg-jordanRed inline-block animate-pulse"></span>
+            </span>
+            <span class="text-xs text-sky-300 font-semibold">كلية الإعلام • جامعة اليرموك</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu Links -->
+        <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a href="#hero" class="px-3.5 py-2 rounded-lg text-sm font-bold text-slate-200 hover:text-white hover:bg-white/10 transition">الرئيسية</a>
+          <a href="#about" class="px-3.5 py-2 rounded-lg text-sm font-bold text-slate-200 hover:text-white hover:bg-white/10 transition">من نحن</a>
+          <a href="#goals" class="px-3.5 py-2 rounded-lg text-sm font-bold text-slate-200 hover:text-white hover:bg-white/10 transition">أهدافنا وقيمنا</a>
+          <a href="#calculator" class="px-3.5 py-2 rounded-lg text-sm font-bold text-sky-300 hover:text-sky-200 hover:bg-white/10 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-calculator text-xs"></i>
+            <span>حاسبة المعدل</span>
+          </a>
+          <a href="#team" class="px-3.5 py-2 rounded-lg text-sm font-bold text-slate-200 hover:text-white hover:bg-white/10 transition">فريق العمل</a>
+          <a href="#contact" class="px-3.5 py-2 rounded-lg text-sm font-bold text-slate-200 hover:text-white hover:bg-white/10 transition">تواصل معنا</a>
+        </nav>
+
+        <!-- Call to Action Button -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="#calculator" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-jordanRed to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold text-sm shadow-md hover:shadow-red-600/30 transition flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>احسب معدلك</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex md:hidden">
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-white p-2 rounded-lg hover:bg-white/10 focus:outline-none">
+            <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 border-b border-white/10 px-4 pt-2 pb-6 space-y-2">
+      <a href="#hero" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-200 hover:bg-white/10">الرئيسية</a>
+      <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-200 hover:bg-white/10">عن الكتلة</a>
+      <a href="#goals" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-200 hover:bg-white/10">الأهداف والقيم</a>
+      <a href="#calculator" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-bold text-sky-300 hover:bg-white/10 flex items-center gap-2">
+        <i class="fa-solid fa-calculator"></i>
+        <span>حاسبة المعدل التراكمي</span>
+      </a>
+      <a href="#team" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-200 hover:bg-white/10">الهيئة الإدارية وفريق العمل</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-bold text-slate-200 hover:bg-white/10">تواصل معنا</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-pattern text-white overflow-hidden">
+    <!-- Ambient Glow Effects -->
+    <div class="absolute top-1/4 -right-20 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 -left-20 w-80 h-80 bg-jordanRed/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Texts -->
+        <div class="lg:col-span-7 text-center lg:text-right space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs sm:text-sm font-bold text-sky-200 shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>لجنة كلية الإعلام • مسيرة العمل الطلابي 2026 - 2027</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+            عِـلـمٌ فـي القـاعـات..
+            <span class="block bg-gradient-to-r from-sky-300 via-sky-100 to-white bg-clip-text text-transparent">
+              إنتـمـاءٌ فـي السـاحـات
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            مساعدة طلبة كلية الإعلام وإيجاد حلول مستمرة لاحتياجاتهم الأكاديمية والعملية، والدفاع عن حقوقهم الطلابية، وترسيخ بيئة جامعية واعية تسهم في صقل مهارات قادة إعلام المستقبل في جامعة اليرموك.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+            <a href="#calculator" class="px-7 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-brand-dark font-extrabold text-base shadow-xl shadow-sky-500/25 transition duration-200 flex items-center gap-2">
+              <i class="fa-solid fa-calculator"></i>
+              <span>حاسبة المعدل التراكمي (100)</span>
+            </a>
+            <a href="#brochure" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-base backdrop-blur-sm transition flex items-center gap-2">
+              <i class="fa-solid fa-book-bookmark text-sky-300"></i>
+              <span>تصفح مطوية الكتلة</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center">
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-white">100%</div>
+              <div class="text-xs text-slate-400 font-semibold">خدمة طلبة الإعلام</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-sky-300">+2000</div>
+              <div class="text-xs text-slate-400 font-semibold">طالب وطالبة بالكلية</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-jordanRed">24/7</div>
+              <div class="text-xs text-slate-400 font-semibold">إرشاد ومتابعة دائمة</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            <div class="absolute inset-0 bg-gradient-to-tr from-sky-500 to-jordanRed rounded-3xl blur-2xl opacity-20 -rotate-3"></div>
+            
+            <div class="relative bg-brand-900/90 border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md space-y-6">
+              <div class="flex items-center justify-between border-b border-white/10 pb-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-xl bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-300">
+                    <i class="fa-solid fa-bullhorn text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-white">صوت الطالب الأكاديمي</h3>
+                    <p class="text-xs text-slate-400">إعلام • إذاعة وتلفزيون • صحافة • علاقات عامة</p>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-md bg-jordanRed/30 border border-jordanRed/50 text-red-300 text-xs font-bold">اليرموك</span>
+              </div>
+
+              <!-- Feature Highlights -->
+              <div class="space-y-3.5">
+                <div class="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5 hover:border-sky-400/30 transition">
+                  <i class="fa-solid fa-shield-halved text-sky-400 mt-1"></i>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">التمثيل الطلابي العادل</h4>
+                    <p class="text-xs text-slate-300">نقل صوت الطلبة إلى عمادة الكلية وإدارتها بكل أمانة ومسؤولية.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5 hover:border-sky-400/30 transition">
+                  <i class="fa-solid fa-graduation-cap text-amber-400 mt-1"></i>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">الإرشاد الأكاديمي والخطط</h4>
+                    <p class="text-xs text-slate-300">مساعدة الطلبة في تنزيل المواد، احتساب المعدلات، ومعادلة الساعات.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5 hover:border-sky-400/30 transition">
+                  <i class="fa-solid fa-handshake-angle text-emerald-400 mt-1"></i>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">ورش عمل وتدريب ميداني</h4>
+                    <p class="text-xs text-slate-300">دورات تدريبية متخصصة في التصوير، المونتاج، الصحافة والتقديم الإذاعي.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Banner -->
+              <div class="p-3.5 rounded-xl bg-gradient-to-r from-brand-700/60 to-brand-800/60 border border-white/10 text-center">
+                <span class="text-xs font-bold text-sky-200">
+                  <i class="fa-solid fa-quote-right ml-1 opacity-60"></i>
+                  أردنّنا.. منكم ولكم، عونكم المستمر في رحلتكم الجامعية
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Strategic Vision Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-600 font-extrabold text-sm uppercase tracking-wider bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-100">
+          من نحن؟
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4">
+          صوت الحق الأكاديمي لطلبة الإعلام
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+          كتلة وطنية طلابية تمثل طلبة جامعة اليرموك، تؤمن بأن الطالب هو الركيزة الأساسية للعملية التعليمية ومستقبل الوطن، ونسعى في كلية الإعلام لنكون مظلة العمل والإنجاز الطلابي.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-7 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-700 flex items-center justify-center text-2xl mb-5">
+            <i class="fa-solid fa-flag-checkered"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">الانطلاقة والرسالة</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            انطلقت كتلة أردننا لتكون مساحة للحوار والتعلم والعمل المشترك بين الطلبة وإدارة الكلية، والدفاع عن تطلعاتهم ومواجهة أي تحديات تعترض طريقهم الأكاديمي.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-7 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-jordanRed/10 text-jordanRed flex items-center justify-center text-2xl mb-5">
+            <i class="fa-solid fa-compass"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">رؤيتنا الاستراتيجية</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            أن نكون نموذجاً طلابياً ريادياً في كلية الإعلام وجامعة اليرموك عبر بيئة إعلامية واعية وممكنة سياسياً وثقافياً وأكاديمياً، لتمكين الطالب ليكون شريكاً في صناعة القرار.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-7 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 md:col-span-2 lg:col-span-1">
+          <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl mb-5">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">الخطة الجامعية (2026 - 2027)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            توسيع نطاق البرامج التدريبية الميدانية في الاستوديوهات، توفير ملازم وملخصات معتمدة، وتأسيس شبكة تواصل رقمية مباشرة لحل مشاكل التسجيل فوراً.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Goals & Core Values Section -->
+  <section id="goals" class="py-20 bg-slate-100/70 border-y border-slate-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-jordanRed font-extrabold text-sm uppercase tracking-wider bg-red-50 px-3.5 py-1.5 rounded-full border border-red-100">
+          مبادئنا الراسخة
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4">
+          قيمنا وأهدافنا للعمل الطلابي
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+          نرتكز على قيم أصيلة توجه كل مبادرة أو خطوة نتخذها داخل قاعات وميادين جامعة اليرموك.
+        </p>
+      </div>
+
+      <!-- Values Grid (5 Core Values from User's Brochure) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mb-16">
+        
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center hover:shadow-md transition">
+          <div class="w-12 h-12 mx-auto rounded-full bg-sky-100 text-brand-600 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm sm:text-base">التميز الأكاديمي</h4>
+          <p class="text-xs text-slate-500 mt-1">الارتقاء بالتحصيل العلمي</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center hover:shadow-md transition">
+          <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm sm:text-base">الانتماء</h4>
+          <p class="text-xs text-slate-500 mt-1">للأردن ولجامعة اليرموك</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center hover:shadow-md transition">
+          <div class="w-12 h-12 mx-auto rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm sm:text-base">التمثيل العادل</h4>
+          <p class="text-xs text-slate-500 mt-1">صوت كل طالب بلا استثناء</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center hover:shadow-md transition">
+          <div class="w-12 h-12 mx-auto rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-users-viewfinder"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm sm:text-base">المسؤولية</h4>
+          <p class="text-xs text-slate-500 mt-1">أمانة الخدمة والمتابعة</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center hover:shadow-md transition col-span-2 sm:col-span-1">
+          <div class="w-12 h-12 mx-auto rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-3">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm sm:text-base">العمل الجماعي</h4>
+          <p class="text-xs text-slate-500 mt-1">قوة الاتحاد وروح الفريق</p>
+        </div>
+
+      </div>
+
+      <!-- Major Work Pillars (4 Pillars) -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        <h3 class="text-2xl font-black text-slate-900 mb-6 text-center sm:text-right flex items-center justify-center sm:justify-start gap-2.5">
+          <i class="fa-solid fa-cubes text-brand-600"></i>
+          <span>محاور العمل الرئيسية للكتلة في كلية الإعلام:</span>
+        </h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <span class="text-xs font-black text-brand-600 bg-sky-100 px-2 py-0.5 rounded">محور 01</span>
+            <h4 class="font-bold text-slate-800 text-base">التمكين والتوعية الطلابية</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">تعزيز وعي الطلبة بحقوقهم، وتطوير الحس السياسي والإعلامي الواعي.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <span class="text-xs font-black text-brand-600 bg-sky-100 px-2 py-0.5 rounded">محور 02</span>
+            <h4 class="font-bold text-slate-800 text-base">النهوض الأكاديمي والخدمي</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">توفير الدعم بالخطط الدراسية وتسهيل حل مشاكل الشعب والمواد المغلقة.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <span class="text-xs font-black text-brand-600 bg-sky-100 px-2 py-0.5 rounded">محور 03</span>
+            <h4 class="font-bold text-slate-800 text-base">المبادرات والأنشطة الطلابية</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">تنظيم فعاليات إعلامية، معارض تصوير، ومسابقات تنافسية هادفة.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 space-y-2">
+            <span class="text-xs font-black text-brand-600 bg-sky-100 px-2 py-0.5 rounded">محور 04</span>
+            <h4 class="font-bold text-slate-800 text-base">الشراكة بالتمثيل الفاعل</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">بناء شراكات مستمرة مع مجتمع الجامعة وعمادة شؤون الطلبة.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Brochure & Guide Section (Solving the PDF / Image Display Issue) -->
+  <section id="brochure" class="py-20 bg-brand-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-sky-300 font-extrabold text-sm uppercase tracking-wider bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20">
+          إصدارات ومطبوعات
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black mt-3 mb-4">
+          مطوية كتلة أردننا - كلية الإعلام
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          دليلك الأكاديمي والتعريفي الشامل حول مسيرتنا، أهدافنا، وخطة العمل في الكلية.
+        </p>
+      </div>
+
+      <!-- Interactive Brochure Viewer Mockup -->
+      <div class="bg-white/5 border border-white/15 rounded-3xl p-6 sm:p-10 backdrop-blur-md">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <!-- Brochure Details -->
+          <div class="space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-jordanRed/30 border border-jordanRed/40 text-red-300 text-xs font-bold">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>النسخة الرقمية المعتمدة للطلبة</span>
+            </div>
+            
+            <h3 class="text-2xl sm:text-3xl font-black text-white">
+              عِلمٌ في القاعات.. إنتماءٌ في الساحات
+            </h3>
+            
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              تحتوي المطوية على ملخص شامل لرسالة الكتلة، نصائح استرشادية لطلبة كلية الإعلام المستجدين والقدامى، كيفية الاستفادة من مرافق واستوديوهات الكلية، وقنوات التواصل المباشرة مع أعضاء اللجنة.
+            </p>
+
+            <ul class="space-y-2.5 text-sm text-slate-200">
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-circle-check text-sky-400"></i>
+                <span>خطط استرشادية ومفاتيح المواد الصعبة</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-circle-check text-sky-400"></i>
+                <span>مواعيد فترات السحب والإضافة والامتحانات</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <i class="fa-solid fa-circle-check text-sky-400"></i>
+                <span>دليل التواصل مع منسقي الأقسام والمواد</span>
+              </li>
+            </ul>
+
+            <div class="pt-3 flex flex-wrap gap-3">
+              <button onclick="openBrochureModal()" class="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-brand-dark font-extrabold text-sm transition flex items-center gap-2">
+                <i class="fa-solid fa-eye"></i>
+                <span>معاينة صفحات المطوية</span>
+              </button>
+              <a href="#contact" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>طلب نسخة ورقية</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Brochure Preview Cards (Fixed visual layout) -->
+          <div class="grid grid-cols-2 gap-4">
+            <div onclick="openBrochureModal()" class="cursor-pointer group relative bg-brand-800 rounded-2xl overflow-hidden border border-white/20 shadow-xl transition-all duration-300 group-hover:border-sky-400">
+              <div class="p-6 text-center space-y-4">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-white/10 flex items-center justify-center text-sky-300 text-2xl group-hover:scale-110 transition">
+                  <i class="fa-solid fa-newspaper"></i>
+                </div>
+                <div>
+                  <h4 class="font-black text-white text-base">الغلاف والرسالة</h4>
+                  <p class="text-xs text-sky-200/80 mt-1">الصفحة 1</p>
+                </div>
+                <span class="inline-block text-xs font-bold text-sky-400 bg-sky-950/60 px-3 py-1 rounded-full border border-sky-400/30">
+                  انقر للمعاينة
+                </span>
+              </div>
+            </div>
+
+            <div onclick="openBrochureModal()" class="cursor-pointer group relative bg-brand-800 rounded-2xl overflow-hidden border border-white/20 shadow-xl transition-all duration-300 group-hover:border-sky-400">
+              <div class="p-6 text-center space-y-4">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-white/10 flex items-center justify-center text-amber-300 text-2xl group-hover:scale-110 transition">
+                  <i class="fa-solid fa-list-ol"></i>
+                </div>
+                <div>
+                  <h4 class="font-black text-white text-base">الأهداف والمحاور</h4>
+                  <p class="text-xs text-amber-200/80 mt-1">الصفحة 2</p>
+                </div>
+                <span class="inline-block text-xs font-bold text-amber-400 bg-amber-950/60 px-3 py-1 rounded-full border border-amber-400/30">
+                  انقر للمعاينة
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fully Integrated GPA Calculator (من 100) -->
+  <section id="calculator" class="py-20 bg-slate-50 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-black border border-brand-200 mb-3">
+          <i class="fa-solid fa-calculator"></i>
+          <span>الخدمة الأكاديمية الأولى</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-3">
+          حاسبة المعدل الأكاديمي (من 100%)
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          وفقاً للنظام الرقمي المعتمد في جامعة اليرموك والجامعات الأردنية، احسب معدلك الفصلي أو التراكمي المتوقع بدقة متناهية.
+        </p>
+      </div>
+
+      <!-- Calculator Main Card -->
+      <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+        
+        <!-- Calculator Tab Switcher -->
+        <div class="flex border-b border-slate-200 bg-slate-100/80 p-2 gap-2">
+          <button id="calc-tab-sem" onclick="setCalcMode('semester')" 
+            class="flex-1 py-3 px-4 rounded-xl text-center font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 bg-white text-brand-900 shadow-sm">
+            <i class="fa-solid fa-book-open"></i>
+            <span>المعدل الفصلي فقط</span>
+          </button>
+          <button id="calc-tab-cum" onclick="setCalcMode('cumulative')" 
+            class="flex-1 py-3 px-4 rounded-xl text-center font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-brand-900 hover:bg-white/50">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>المعدل التراكمي الشامل</span>
+          </button>
+        </div>
+
+        <div class="p-5 sm:p-8 space-y-6">
+
+          <!-- Cumulative Prior Stats Inputs (Visible only in Cumulative mode) -->
+          <div id="cum-inputs-wrap" class="hidden bg-sky-50/80 border border-sky-100 rounded-2xl p-5 space-y-4">
+            <div class="flex items-center gap-2 text-brand-900 font-bold text-sm sm:text-base">
+              <i class="fa-solid fa-clock-rotate-left text-sky-600"></i>
+              <span>بيانات ما قبل هذا الفصل (المسجلة في بوابتك):</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1.5">
+                  المعدل التراكمي السابق (من 100)
+                </label>
+                <div class="relative">
+                  <input type="number" id="prev-gpa" step="0.01" min="0" max="100" placeholder="مثال: 76.50"
+                    class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 pl-8 text-slate-800 font-bold text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none text-left" dir="ltr">
+                  <span class="absolute left-3 top-2.5 text-slate-400 font-bold text-sm">%</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-600 mb-1.5">
+                  إجمالي الساعات المقطوعة والناجحة سابقاً
+                </label>
+                <div class="relative">
+                  <input type="number" id="prev-hours" step="1" min="0" placeholder="مثال: 45"
+                    class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 pl-12 text-slate-800 font-bold text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none text-left" dir="ltr">
+                  <span class="absolute left-3 top-2.5 text-slate-400 text-xs font-bold">ساعة</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Courses Table Header -->
+          <div class="flex items-center justify-between">
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-brand-600"></i>
+              <span>مواد الفصل الحالي:</span>
+            </h3>
+            <span class="text-xs text-slate-500 font-semibold">العلامة من 100</span>
+          </div>
+
+          <!-- Courses Container -->
+          <div id="courses-list" class="space-y-3">
+            <!-- Dynamic rows will be inserted here -->
+          </div>
+
+          <!-- Add Course & Reset Action Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <button type="button" onclick="addNewCourse()" 
+              class="flex-1 py-2.5 px-4 bg-sky-50 text-brand-700 hover:bg-sky-100 border border-sky-200 font-bold rounded-xl text-sm transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-plus-circle text-base"></i>
+              <span>إضافة مادة دراسية أخرى</span>
+            </button>
+            <button type="button" onclick="clearCalculator()" 
+              class="py-2.5 px-4 bg-slate-100 text-slate-600 hover:bg-slate-200 font-semibold rounded-xl text-sm transition flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>إعادة ضبط</span>
+            </button>
+          </div>
+
+          <!-- Calculate Button -->
+          <div class="pt-2">
+            <button type="button" onclick="processCalculation()" 
+              class="w-full py-4 px-6 bg-brand-dark hover:bg-brand-900 active:scale-[0.99] text-white font-black text-lg rounded-2xl shadow-xl shadow-brand-950/20 transition flex items-center justify-center gap-2.5">
+              <i class="fa-solid fa-calculator text-sky-400"></i>
+              <span id="btn-calc-title">احسب المعدل الفصلي</span>
+            </button>
+          </div>
+
+          <!-- Calculation Results Box -->
+          <div id="calc-results" class="hidden border border-slate-200 rounded-2xl p-5 sm:p-7 bg-slate-50/90 space-y-6 transition-all duration-300">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+              <div class="flex items-center gap-2 font-bold text-slate-800 text-base">
+                <i class="fa-solid fa-graduation-cap text-amber-500 text-lg"></i>
+                <span>النتيجة الأكاديمية الرسمية</span>
+              </div>
+              <span id="res-badge" class="px-3.5 py-1 rounded-full text-xs font-black">--</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <div class="text-xs text-slate-500 font-bold mb-1">المعدل الفصلي المتوقع</div>
+                <div id="out-sem-gpa" class="text-2xl sm:text-3xl font-black text-slate-800">--</div>
+              </div>
+
+              <div id="cum-result-card" class="bg-sky-50 p-4 rounded-xl border border-sky-200 shadow-sm">
+                <div class="text-xs text-brand-800 font-bold mb-1">المعدل التراكمي الجديد</div>
+                <div id="out-cum-gpa" class="text-2xl sm:text-3xl font-black text-brand-900">--</div>
+              </div>
+
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <div class="text-xs text-slate-500 font-bold mb-1">مجموع الساعات الكلي</div>
+                <div id="out-hours" class="text-2xl sm:text-3xl font-black text-slate-800">--</div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 text-center">
+              <p id="res-narrative" class="text-sm font-bold text-slate-700 leading-relaxed"></p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Grade Legend Table Bar -->
+        <div class="bg-slate-100 border-t border-slate-200 px-6 py-3.5 text-center text-xs text-slate-500 flex items-center justify-between flex-wrap gap-2">
+          <span class="font-bold text-slate-700">سلم التقديرات:</span>
+          <span>ممتاز (≥84%)</span>
+          <span>جيد جداً (76 - 83.9%)</span>
+          <span>جيد (68 - 75.9%)</span>
+          <span>مقبول (60 - 67.9%)</span>
+          <span class="text-rose-600 font-bold">إنذار (&lt;60%)</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Team & Leadership Section (حل سؤالك عن وضع أعضاء اللجنة والقائمين على الموقع) -->
+  <section id="team" class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-600 font-extrabold text-sm uppercase tracking-wider bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-100">
+          فريق العمل
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4">
+          أعضاء لجنة كلية الإعلام والقائمين على المنصة
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+          نخبة من طلبة كلية الإعلام المتطوعين لخدمتكم وتمثيلكم على مدار الساعة.
+        </p>
+      </div>
+
+      <!-- Leadership Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        
+        <!-- Member 1 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-tr from-brand-700 to-brand-900 p-1 shadow-md">
+            <div class="w-full h-full rounded-full bg-slate-200 flex items-center justify-center text-brand-900 text-3xl font-black">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">منسق لجنة الكلية</h3>
+          <p class="text-xs font-semibold text-brand-600 mb-2">ممثل كلية الإعلام</p>
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-brand-100 text-brand-800">
+            إذاعة وتلفزيون
+          </span>
+          <div class="flex justify-center gap-3 mt-4 text-slate-400">
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-tr from-jordanRed to-red-800 p-1 shadow-md">
+            <div class="w-full h-full rounded-full bg-slate-200 flex items-center justify-center text-jordanRed text-3xl font-black">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">مسؤول اللجنة الأكاديمية</h3>
+          <p class="text-xs font-semibold text-jordanRed mb-2">متابعة الشعب والخطط</p>
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+            الصحافة والإعلام الرقمي
+          </span>
+          <div class="flex justify-center gap-3 mt-4 text-slate-400">
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-tr from-sky-500 to-brand-600 p-1 shadow-md">
+            <div class="w-full h-full rounded-full bg-slate-200 flex items-center justify-center text-sky-700 text-3xl font-black">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">مطور المنصة والموقع</h3>
+          <p class="text-xs font-semibold text-sky-700 mb-2">الدعم التقني والتطوير</p>
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-sky-100 text-brand-900">
+            لجنة الإعلام الرقمي
+          </span>
+          <div class="flex justify-center gap-3 mt-4 text-slate-400">
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-brands fa-github text-lg"></i></a>
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-brands fa-linkedin text-lg"></i></a>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-tr from-amber-500 to-amber-700 p-1 shadow-md">
+            <div class="w-full h-full rounded-full bg-slate-200 flex items-center justify-center text-amber-700 text-3xl font-black">
+              <i class="fa-solid fa-camera-retro"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">مسؤول الأنشطة والتوثيق</h3>
+          <p class="text-xs font-semibold text-amber-700 mb-2">التغطيات والمعارض</p>
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-900">
+            العلاقات العامة والإعلان
+          </span>
+          <div class="flex justify-center gap-3 mt-4 text-slate-400">
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-brands fa-instagram text-lg"></i></a>
+            <a href="#contact" class="hover:text-brand-600 transition"><i class="fa-solid fa-envelope text-lg"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Join the team banner -->
+      <div class="bg-gradient-to-r from-brand-900 to-brand-800 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1 text-center sm:text-right">
+          <h4 class="text-xl font-black">هل ترغب بالانضمام للجنة كلية الإعلام؟</h4>
+          <p class="text-slate-300 text-sm">أبواب التطوع والمشاركة مفتوحة دائماً لجميع طلبة كلية الإعلام في جامعة اليرموك.</p>
+        </div>
+        <a href="#contact" class="px-6 py-3 rounded-xl bg-jordanRed hover:bg-red-700 text-white font-bold text-sm shadow-md transition whitespace-nowrap">
+          انضم إلينا الآن
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact & Social Media Channels -->
+  <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-600 font-extrabold text-sm uppercase tracking-wider bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-100">
+          قنوات الاتصال
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4">
+          تواصل مع كتلة أردننا في كلية الإعلام
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+          لديك استفسار، مشكلة في تسجيل مادة، أو مقترح؟ فريقنا متواجد دائماً للرد عليك ومساعدتك.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Social Channels & Details -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+            <h3 class="text-xl font-bold text-slate-900">تابعنا على المنصات الرسمية</h3>
+            
+            <div class="space-y-4">
+              <a href="https://instagram.com" target="_blank" class="flex items-center gap-4 p-3.5 rounded-2xl bg-slate-50 hover:bg-pink-50 border border-slate-200/80 hover:border-pink-200 transition group">
+                <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center text-2xl group-hover:scale-105 transition">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-800 text-sm">حساب الإنستغرام الرسمي</h4>
+                  <p class="text-xs text-slate-500">تغطيات يومية وأخبار الكلية</p>
+                </div>
+              </a>
+
+              <a href="https://facebook.com" target="_blank" class="flex items-center gap-4 p-3.5 rounded-2xl bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition group">
+                <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl group-hover:scale-105 transition">
+                  <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-800 text-sm">صفحة الفيسبوك</h4>
+                  <p class="text-xs text-slate-500">بيانات رسمية وتحديثات التسجيل</p>
+                </div>
+              </a>
+
+              <a href="https://t.me" target="_blank" class="flex items-center gap-4 p-3.5 rounded-2xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 hover:border-sky-200 transition group">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl group-hover:scale-105 transition">
+                  <i class="fa-brands fa-telegram"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-800 text-sm">قناة التلغرام الأكاديمية</h4>
+                  <p class="text-xs text-slate-500">ملازم، ملفات، وأسئلة سنوات سابقة</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex items-center gap-3 text-slate-600 text-xs">
+              <i class="fa-solid fa-location-dot text-jordanRed text-base"></i>
+              <span>مبنى كلية الإعلام، ساحة الكلية، جامعة اليرموك، إربد، الأردن</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Inquiry Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">أرسل استفسارك أو مشكلتك الأكاديمية</h3>
+            <p class="text-xs text-slate-500 mb-6">سيتم تحويل رسالتك إلى ممثل القسم المختص للتواصل معك فوراً.</p>
+
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1.5">الاسم الكامل</label>
+                  <input type="text" required placeholder="اسم الطالب" 
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1.5">الرقم الجامعي</label>
+                  <input type="text" placeholder="2022xxxx" 
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1.5">التخصص</label>
+                  <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                    <option>الصحافة والإعلام الرقمي</option>
+                    <option>الإذاعة والتلفزيون</option>
+                    <option>العلاقات العامة والإعلان</option>
+                    <option>تخصص آخر من الجامعة</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1.5">رقم الهاتف / الواتساب</label>
+                  <input type="tel" required placeholder="07xxxxxxxx" 
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">نص الاستفسار أو الملاحظة</label>
+                <textarea rows="4" required placeholder="اكتب ما تحتاجه وسنكون معك خطوة بخطوة..."
+                  class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+              </div>
+
+              <button type="submit" 
+                class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-black text-sm shadow-md hover:shadow-brand-600/30 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>إرسال الاستفسار الآن</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-dark text-white border-t border-white/10 pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white">
+            <i class="fa-solid fa-graduation-cap text-xl"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-lg text-white">كتلة أردننا • كلية الإعلام</h4>
+            <p class="text-xs text-slate-400">جامعة اليرموك - إربد، المملكة الأردنية الهاشمية</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-sm text-slate-300 font-semibold">
+          <a href="#hero" class="hover:text-white transition">الرئيسية</a>
+          <a href="#about" class="hover:text-white transition">عن الكتلة</a>
+          <a href="#calculator" class="hover:text-white transition">حاسبة المعدل</a>
+          <a href="#team" class="hover:text-white transition">اللجنة</a>
+          <a href="#contact" class="hover:text-white transition">اتصل بنا</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 كتلة أردننا - كلية الإعلام. جميع الحقوق محفوظة لطلبة جامعة اليرموك.</p>
+        <p class="flex items-center gap-1.5">
+          <span>صُنع بعناية لخدمة الطلبة</span>
+          <i class="fa-solid fa-heart text-jordanRed"></i>
+          <span>عِلمٌ في القاعات .. إنتماءٌ في الساحات</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Brochure Reader Modal -->
+  <div id="brochure-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-slate-200 animate-in fade-in zoom-in duration-200">
+      
+      <div class="bg-brand-900 text-white p-5 flex items-center justify-between">
+        <div class="flex items-center gap-2 font-bold text-base">
+          <i class="fa-solid fa-book-open text-sky-400"></i>
+          <span>مطوية كتلة أردننا - كلية الإعلام</span>
+        </div>
+        <button onclick="closeBrochureModal()" class="text-slate-300 hover:text-white p-1 text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
+        <!-- Page 1 Content -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between text-xs font-bold text-brand-700">
+            <span>القسم الأول: الهوية والرسالة</span>
+            <span class="bg-sky-100 px-2 py-0.5 rounded">ص 1</span>
+          </div>
+          <h4 class="text-lg font-black text-slate-900">عِلمٌ في القاعات .. إنتماءٌ في الساحات</h4>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            انطلاقة الكتلة تمثل صلة وصل متينة بين الطلبة وإدارة الكلية، لترسيخ الوعي الطلابي والعمل بروح الفريق الواحد في سبيل بناء مجتمع أكاديمي حر وواعٍ.
+          </p>
+        </div>
+
+        <!-- Page 2 Content -->
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between text-xs font-bold text-brand-700">
+            <span>القسم الثاني: محاور العمل الأكاديمي</span>
+            <span class="bg-sky-100 px-2 py-0.5 rounded">ص 2</span>
+          </div>
+          <h4 class="text-lg font-black text-slate-900">الخطة الاستراتيجية للعام الجامعي 2026 / 2027</h4>
+          <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside">
+            <li>تعزيز المشاركة الطلابية في الحياة الجامعية والحوارية.</li>
+            <li>تنفيذ برامج أكاديمية وتدريبية لتنمية مهارات الإعلام.</li>
+            <li>الدفاع عن الحقوق الأكاديمية والخدمية للطلبة.</li>
+            <li>بناء شراكات ومبادرات شبابية تخدم المجتمع الجامعي.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-slate-100 p-4 border-t border-slate-200 flex justify-end">
+        <button onclick="closeBrochureModal()" class="px-5 py-2 rounded-xl bg-slate-800 text-white text-sm font-bold hover:bg-slate-700 transition">
+          إغلاق المعاينة
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Message Element -->
+  <div id="toast-message" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl shadow-2xl text-sm font-bold text-white flex items-center gap-2.5 transition-all duration-300">
+    <i id="toast-icon" class="fa-solid fa-circle-check"></i>
+    <span id="toast-text">تمت العملية بنجاح</span>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // Navigation toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.className = 'fa-solid fa-xmark text-xl';
+      } else {
+        menu.classList.add('hidden');
+        icon.className = 'fa-solid fa-bars text-xl';
+      }
+    }
+
+    // Brochure Modal functions
+    function openBrochureModal() {
+      document.getElementById('brochure-modal').classList.remove('hidden');
+    }
+    function closeBrochureModal() {
+      document.getElementById('brochure-modal').classList.add('hidden');
+    }
+
+    // Toast system
+    function triggerToast(text, isError = false) {
+      const toast = document.getElementById('toast-message');
+      const toastText = document.getElementById('toast-text');
+      const toastIcon = document.getElementById('toast-icon');
+
+      toastText.textContent = text;
+      if (isError) {
+        toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl shadow-2xl text-sm font-bold text-white flex items-center gap-2.5 bg-rose-600";
+        toastIcon.className = "fa-solid fa-triangle-exclamation";
+      } else {
+        toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl shadow-2xl text-sm font-bold text-white flex items-center gap-2.5 bg-slate-900 border border-white/20";
+        toastIcon.className = "fa-solid fa-circle-check text-emerald-400";
+      }
+
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // Contact form submit
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      triggerToast("تم استلام استفسارك بنجاح! سيتواصل معك ممثل اللجنة قريباً.");
+      e.target.reset();
+    }
+
+    // GPA Calculator Logic
+    let calcMode = 'semester'; // 'semester' | 'cumulative'
+    let courseIndex = 0;
+
+    const defaultCourses = [
+      { name: "المدخل إلى وسائل الإعلام", mark: "", hours: 3 },
+      { name: "التحرير الصحفي", mark: "", hours: 3 },
+      { name: "التصوير والإخراج التلفزيوني", mark: "", hours: 3 },
+      { name: "مهارات الاتصال والعلاقات العامة", mark: "", hours: 3 },
+      { name: "التربية الوطنية", mark: "", hours: 3 }
+    ];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      defaultCourses.forEach(c => addNewCourse(c.name, c.mark, c.hours));
+    });
+
+    function setCalcMode(mode) {
+      calcMode = mode;
+      const tabSem = document.getElementById('calc-tab-sem');
+      const tabCum = document.getElementById('calc-tab-cum');
+      const cumWrap = document.getElementById('cum-inputs-wrap');
+      const btnTitle = document.getElementById('btn-calc-title');
+      const cumCard = document.getElementById('cum-result-card');
+
+      if (mode === 'semester') {
+        tabSem.className = "flex-1 py-3 px-4 rounded-xl text-center font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 bg-white text-brand-900 shadow-sm";
+        tabCum.className = "flex-1 py-3 px-4 rounded-xl text-center font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-brand-900 hover:bg-white/50";
+        cumWrap.classList.add('hidden');
+        btnTitle.textContent = "احسب المعدل الفصلي الآن";
+        cumCard.classList.add('opacity-40');
+      } else {
+        tabCum.className = "flex-1 py-3 px-4 rounded-xl text-center font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 bg-white text-brand-900 shadow-sm";
+        tabSem.className = "flex-1 py-3 px-4 rounded-xl text-center font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-brand-900 hover:bg-white/50";
+        cumWrap.classList.remove('hidden');
+        btnTitle.textContent = "احسب المعدل التراكمي الشامل";
+        cumCard.classList.remove('opacity-40');
+      }
+      document.getElementById('calc-results').classList.add('hidden');
+    }
+
+    function addNewCourse(name = '', mark = '', hours = 3) {
+      courseIndex++;
+      const container = document.getElementById('courses-list');
+      const row = document.createElement('div');
+      row.className = "course-item grid grid-cols-12 gap-2 items-center bg-slate-50 hover:bg-slate-100/70 p-2 sm:p-2.5 rounded-2xl border border-slate-200 transition";
+      row.id = `course-${courseIndex}`;
+
+      row.innerHTML = `
+        <div class="col-span-6 sm:col-span-5">
+          <input type="text" placeholder="اسم المادة" value="${name}"
+            class="course-title w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand-500">
+        </div>
+        <div class="col-span-3 sm:col-span-3">
+          <input type="number" min="0" max="100" step="0.5" placeholder="العلامة / 100" value="${mark}"
+            class="course-grade w-full bg-white border border-slate-300 rounded-xl px-2.5 py-2 text-xs sm:text-sm text-center font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand-500" dir="ltr">
+        </div>
+        <div class="col-span-2 sm:col-span-3">
+          <select class="course-credit w-full bg-white border border-slate-300 rounded-xl px-2 py-2 text-xs sm:text-sm font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-brand-500">
+            <option value="1" ${hours == 1 ? 'selected' : ''}>1 ساعة</option>
+            <option value="2" ${hours == 2 ? 'selected' : ''}>2 ساعات</option>
+            <option value="3" ${hours == 3 ? 'selected' : ''}>3 ساعات</option>
+            <option value="4" ${hours == 4 ? 'selected' : ''}>4 ساعات</option>
+            <option value="6" ${hours == 6 ? 'selected' : ''}>6 ساعات</option>
+          </select>
+        </div>
+        <div class="col-span-1 text-center">
+          <button type="button" onclick="deleteCourse('course-${courseIndex}')" 
+            class="text-slate-400 hover:text-red-500 p-1.5 transition rounded-lg hover:bg-red-50" title="حذف">
+            <i class="fa-solid fa-trash-can text-sm"></i>
+          </button>
+        </div>
+      `;
+
+      container.appendChild(row);
+    }
+
+    function deleteCourse(id) {
+      const items = document.querySelectorAll('.course-item');
+      if (items.length <= 1) {
+        triggerToast("يجب إبقاء مادة واحدة على الأقل.", true);
+        return;
+      }
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+
+    function clearCalculator() {
+      document.getElementById('courses-list').innerHTML = '';
+      courseIndex = 0;
+      defaultCourses.forEach(c => addNewCourse(c.name, '', c.hours));
+      document.getElementById('prev-gpa').value = '';
+      document.getElementById('prev-hours').value = '';
+      document.getElementById('calc-results').classList.add('hidden');
+      triggerToast("تمت إعادة ضبط الحاسبة.");
+    }
+
+    function getAcademicRating(gpa) {
+      if (gpa >= 84) {
+        return { text: "ممتاز (Excellent)", badge: "bg-emerald-100 text-emerald-800 border border-emerald-300" };
+      } else if (gpa >= 76) {
+        return { text: "جيد جداً (Very Good)", badge: "bg-blue-100 text-blue-800 border border-blue-300" };
+      } else if (gpa >= 68) {
+        return { text: "جيد (Good)", badge: "bg-cyan-100 text-cyan-800 border border-cyan-300" };
+      } else if (gpa >= 60) {
+        return { text: "مقبول (Pass)", badge: "bg-amber-100 text-amber-800 border border-amber-300" };
+      } else {
+        return { text: "ضعيف / تحت الإنذار", badge: "bg-rose-100 text-rose-800 border border-rose-300" };
+      }
+    }
+
+    function processCalculation() {
+      const rows = document.querySelectorAll('.course-item');
+      let currentPoints = 0;
+      let currentHours = 0;
+      let validCount = 0;
+
+      rows.forEach(r => {
+        const val = r.querySelector('.course-grade').value.trim();
+        const hrs = parseFloat(r.querySelector('.course-credit').value);
+
+        if (val !== '') {
+          const mark = parseFloat(val);
+          if (!isNaN(mark) && mark >= 0 && mark <= 100) {
+            currentPoints += (mark * hrs);
+            currentHours += hrs;
+            validCount++;
+          }
+        }
+      });
+
+      if (validCount === 0) {
+        triggerToast("الرجاء إدخال علامة واحدة على الأقل بين 0 و 100.", true);
+        return;
+      }
+
+      const semGPA = currentPoints / currentHours;
+      let finalCumulativeGPA = semGPA;
+      let finalTotalHours = currentHours;
+
+      if (calcMode === 'cumulative') {
+        const prevGpaVal = document.getElementById('prev-gpa').value.trim();
+        const prevHoursVal = document.getElementById('prev-hours').value.trim();
+
+        if (prevGpaVal === '' || prevHoursVal === '') {
+          triggerToast("يرجى إدخال المعدل التراكمي السابق وعدد الساعات السابقة.", true);
+          return;
+        }
+
+        const pGPA = parseFloat(prevGpaVal);
+        const pHours = parseFloat(prevHoursVal);
+
+        if (isNaN(pGPA) || pGPA < 0 || pGPA > 100 || isNaN(pHours) || pHours < 0) {
+          triggerToast("تأكد من كتابة قيم صحيحة للمعدل السابق والساعات السابقة.", true);
+          return;
+        }
+
+        const prevTotalPoints = pGPA * pHours;
+        const totalPointsCombined = prevTotalPoints + currentPoints;
+        finalTotalHours = pHours + currentHours;
+        finalCumulativeGPA = finalTotalHours > 0 ? (totalPointsCombined / finalTotalHours) : 0;
+      }
+
+      // Output Results to UI
+      const resultsBox = document.getElementById('calc-results');
+      const outSem = document.getElementById('out-sem-gpa');
+      const outCum = document.getElementById('out-cum-gpa');
+      const outHrs = document.getElementById('out-hours');
+      const badge = document.getElementById('res-badge');
+      const narrative = document.getElementById('res-narrative');
+
+      outSem.textContent = semGPA.toFixed(2) + "%";
+
+      const evaluatedGPA = (calcMode === 'cumulative') ? finalCumulativeGPA : semGPA;
+      const rate = getAcademicRating(evaluatedGPA);
+
+      badge.className = `px-3.5 py-1 rounded-full text-xs font-black ${rate.badge}`;
+      badge.textContent = rate.text;
+
+      if (calcMode === 'cumulative') {
+        outCum.textContent = finalCumulativeGPA.toFixed(2) + "%";
+        outHrs.textContent = `${finalTotalHours} ساعة`;
+        narrative.innerHTML = `معدلك التراكمي التراكمي المتوقع الجديد هو <span class="text-brand-900 font-black">${finalCumulativeGPA.toFixed(2)}%</span> بتقدير عام <span class="text-brand-900 font-black">(${rate.text})</span>. نتمنى لك دوام التوفيق والتميز الأكاديمي!`;
+      } else {
+        outCum.textContent = "—";
+        outHrs.textContent = `${currentHours} ساعة`;
+        narrative.innerHTML = `معدلك لهذا الفصل يبلغ <span class="text-brand-900 font-black">${semGPA.toFixed(2)}%</span> بتقدير <span class="text-brand-900 font-black">(${rate.text})</span> لإجمالي ${currentHours} ساعة مسجلة.`;
+      }
+
+      resultsBox.classList.remove('hidden');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>
