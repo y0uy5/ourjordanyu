@@ -830,117 +830,39 @@
     </div>
   </section>
 
-<!-- قسم الخطة التفاعلية لقسم الإذاعة والتلفزيون -->
-<section id="plan" class="container" style="padding-top: 2.5rem; padding-bottom: 2rem;">
-  <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-    <h2 class="section-title">المسار الأكاديمي والمتطلبات السابقة</h2>
-    <p class="section-subtitle">دليل مواد قسم الإذاعة والتلفزيون وسلسلة فتح المساقات العملية والنظرية</p>
+<!-- قسم شجرة مواد الإذاعة والتلفزيون التفاعلية -->
+<section id="plan" class="container" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+  <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
+    <h2 class="section-title">شجرة مواد قسم الإذاعة والتلفزيون</h2>
+    <p class="section-subtitle">المخطط الشجري المعتمد لشبكة المتطلبات السابقة ومسارات المواد العملية</p>
   </div>
 
-  <!-- تنبيه شرط الساعات -->
-  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-right: 5px solid var(--accent-red); padding: 1rem 1.2rem; border-radius: 10px; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <i class="fa-solid fa-graduation-cap" style="font-size: 1.5rem; color: var(--accent-red);"></i>
+  <!-- تنبيه شرط ساعات التخرج -->
+  <div style="background: #f8fafc; border-right: 5px solid var(--accent-red); border-left: 1px solid #e2e8f0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 1rem 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <i class="fa-solid fa-circle-info" style="color: var(--accent-red); font-size: 1.3rem;"></i>
       <span style="color: var(--primary-navy); font-size: 0.95rem;">شرط تسجيل <strong>مشروع التخرج</strong> و<strong>التدريب الميداني</strong>: اجتياز <strong>81 ساعة معتمدة</strong>.</span>
     </div>
-    <a href="WhatsApp Image 2026-05-18 at 3.02.08 PM.jpeg" target="_blank" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 14px; border-color: var(--primary-navy); color: var(--primary-navy);">
-      <i class="fa-solid fa-image"></i> عرض المخطط الأصلي
+    <div style="display: flex; gap: 8px;">
+      <a href="plan-map.jpg" target="_blank" class="btn btn-navy" style="padding: 7px 14px; font-size: 0.85rem;">
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i> تكبير الصورة
+      </a>
+      <a href="plan-map.jpg" download class="btn btn-outline" style="padding: 7px 14px; font-size: 0.85rem; border-color: var(--primary-navy); color: var(--primary-navy);">
+        <i class="fa-solid fa-download"></i> تحميل
+      </a>
+    </div>
+  </div>
+
+  <!-- حاوية عرض الخريطة البصرية -->
+  <div style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1rem; text-align: center; overflow: hidden;">
+    <a href="plan-map.jpg" target="_blank" title="اضغط لتكبير الخريطة">
+      <img src="plan-map.jpg" alt="خريطة مواد الإذاعة والتلفزيون - كتلة أردننا" 
+           style="width: 100%; max-height: 550px; object-fit: contain; border-radius: 10px; transition: transform 0.2s;"
+           onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
     </a>
-  </div>
-
-  <!-- خانة البحث الفوري عن مادة -->
-  <div style="max-width: 500px; margin: 0 auto 2.5rem; position: relative;">
-    <input type="text" id="courseSearch" placeholder="ابحث عن أي مادة لمعرفة متطلبها السابق..." 
-           onkeyup="filterPlanCourses()" 
-           style="width: 100%; padding: 12px 42px 12px 15px; border-radius: 25px; border: 1.5px solid #cbd5e1; outline: none; font-size: 0.95rem; box-shadow: var(--shadow-sm);">
-    <i class="fa-solid fa-magnifying-glass" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
-  </div>
-
-  <!-- مسارات الشجرة المنسقة -->
-  <div id="coursesContainer" style="display: flex; flex-direction: column; gap: 1.8rem;">
-
-    <!-- المسار 1: سلسلة الإنتاج والإخراج الميداني -->
-    <div class="course-track-card" style="background: white; border-radius: 14px; border: 1px solid var(--border-color); padding: 1.5rem; box-shadow: var(--shadow-sm);">
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.6rem;">
-        <span style="background: #fee2e2; color: #dc2626; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem;"><i class="fa-solid fa-video"></i></span>
-        <h3 style="font-size: 1.1rem; color: var(--primary-navy); margin: 0;">مسار الإنتاج والإخراج (المسار العملي الرئيسي)</h3>
-      </div>
-      
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;" class="chain-flow">
-        <div class="course-badge root" style="background: #f0fdf4; border: 1px solid #86efac; color: #166534; padding: 8px 14px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
-          مبادئ الإذاعة والتلفزيون <span style="display: block; font-size: 0.75rem; color: #15803d; font-weight: normal;">(أساس السلسلة)</span>
-        </div>
-        <i class="fa-solid fa-arrow-left" style="color: #cbd5e1;"></i>
-        <div class="course-badge" style="background: #f8fafc; border: 1px solid #e2e8f0; color: var(--primary-navy); padding: 8px 14px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
-          التصوير التلفزيوني والإضاءة
-        </div>
-        <i class="fa-solid fa-arrow-left" style="color: #cbd5e1;"></i>
-        <div class="course-badge" style="background: #f8fafc; border: 1px solid #e2e8f0; color: var(--primary-navy); padding: 8px 14px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
-          المونتاج والتسجيل الصوتي
-        </div>
-        <i class="fa-solid fa-arrow-left" style="color: #cbd5e1;"></i>
-        <div class="course-badge" style="background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; padding: 8px 14px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
-          الإخراج الإذاعي والتلفزيوني
-        </div>
-      </div>
-
-      <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed #e2e8f0; font-size: 0.88rem; color: #64748b;">
-        <span style="font-weight: bold; color: var(--accent-red);">يفتح الإخراج المساقات المتقدمة التالية:</span> (الفيلم الوثائقي • الصحافة الاستقصائية • إدارة المؤسسات الإذاعية والتلفزيونية)
-      </div>
-    </div>
-
-    <!-- المسار 2: التقديم والبرامج -->
-    <div class="course-track-card" style="background: white; border-radius: 14px; border: 1px solid var(--border-color); padding: 1.5rem; box-shadow: var(--shadow-sm);">
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.6rem;">
-        <span style="background: #e0f2fe; color: #0284c7; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem;"><i class="fa-solid fa-microphone-lines"></i></span>
-        <h3 style="font-size: 1.1rem; color: var(--primary-navy); margin: 0;">مسار الإلقاء والبرامج</h3>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
-        <div class="course-badge" style="background: #f0fdf4; border: 1px solid #86efac; color: #166534; padding: 8px 14px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;">
-          فن الإلقاء الإذاعي والتلفزيوني
-        </div>
-        <i class="fa-solid fa-arrow-left" style="color: #cbd5e1;"></i>
-        <div class="course-badge" style="background: #f8fafc; border: 1px solid #e2e8f0; color: var(--primary-navy); padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-          إعداد وإنتاج البرامج الإذاعية
-        </div>
-        <div class="course-badge" style="background: #f8fafc; border: 1px solid #e2e8f0; color: var(--primary-navy); padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-          إعداد وإنتاج البرامج التلفزيونية
-        </div>
-        <div class="course-badge" style="background: #f8fafc; border: 1px solid #e2e8f0; color: var(--primary-navy); padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-          فن المقابلة
-        </div>
-        <div class="course-badge" style="background: #f8fafc; border: 1px solid #e2e8f0; color: var(--primary-navy); padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-          الإعلان الإذاعي والتلفزيوني
-        </div>
-      </div>
-    </div>
-
-    <!-- المسار 3: المتطلبات التخصصية الفردية -->
-    <div class="course-track-card" style="background: white; border-radius: 14px; border: 1px solid var(--border-color); padding: 1.5rem; box-shadow: var(--shadow-sm);">
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.6rem;">
-        <span style="background: #fef3c7; color: #d97706; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem;"><i class="fa-solid fa-network-wired"></i></span>
-        <h3 style="font-size: 1.1rem; color: var(--primary-navy); margin: 0;">متطلبات الأقسام الأخرى والبحوث</h3>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
-        <div style="padding: 10px; background: #fafafa; border-radius: 8px; border: 1px solid #f1f5f9;">
-          <div style="font-weight: bold; color: var(--primary-navy);">الخبر الإذاعي والتلفزيوني</div>
-          <div style="font-size: 0.85rem; color: #dc2626;">متطلب سابق: مبادئ التحرير الصحفي</div>
-        </div>
-        <div style="padding: 10px; background: #fafafa; border-radius: 8px; border: 1px solid #f1f5f9;">
-          <div style="font-weight: bold; color: var(--primary-navy);">الكتابة والتحرير في الإذاعة والتلفزيون</div>
-          <div style="font-size: 0.85rem; color: #dc2626;">متطلب سابق: مبادئ العلاقات العامة</div>
-        </div>
-        <div style="padding: 10px; background: #fafafa; border-radius: 8px; border: 1px solid #f1f5f9;">
-          <div style="font-weight: bold; color: var(--primary-navy);">بحوث تطبيقية في الإذاعة والتلفزيون</div>
-          <div style="font-size: 0.85rem; color: #dc2626;">متطلب سابق: مدخل بحث إعلامي</div>
-        </div>
-        <div style="padding: 10px; background: #fafafa; border-radius: 8px; border: 1px solid #f1f5f9;">
-          <div style="font-weight: bold; color: var(--primary-navy);">إعلام متعدد الوسائط</div>
-          <div style="font-size: 0.85rem; color: #16a34a;">مادة تخصصية داعمة</div>
-        </div>
-      </div>
-    </div>
-
+    <p style="margin-top: 10px; font-size: 0.85rem; color: #64748b;">
+      <i class="fa-solid fa-magnifying-glass-plus"></i> اضغط على الصورة لفتحها بالحجم الكامل وبدقة عالية
+    </p>
   </div>
 </section>
   
