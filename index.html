@@ -830,39 +830,146 @@
     </div>
   </section>
 
-<!-- قسم شجرة مواد الإذاعة والتلفزيون التفاعلية -->
+<!-- قسم خريطة مواد الإذاعة والتلفزيون الشجرية -->
 <section id="plan" class="container" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
-  <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
-    <h2 class="section-title">شجرة مواد قسم الإذاعة والتلفزيون</h2>
-    <p class="section-subtitle">المخطط الشجري المعتمد لشبكة المتطلبات السابقة ومسارات المواد العملية</p>
+  <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+    <h2 class="section-title">خريطة شجرة مواد قسم الإذاعة والتلفزيون</h2>
+    <p class="section-subtitle">المخطط الهيكلي التفاعلي لتسلسل وفتح مساقات التخصص</p>
   </div>
 
-  <!-- تنبيه شرط ساعات التخرج -->
-  <div style="background: #f8fafc; border-right: 5px solid var(--accent-red); border-left: 1px solid #e2e8f0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 1rem 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <i class="fa-solid fa-circle-info" style="color: var(--accent-red); font-size: 1.3rem;"></i>
-      <span style="color: var(--primary-navy); font-size: 0.95rem;">شرط تسجيل <strong>مشروع التخرج</strong> و<strong>التدريب الميداني</strong>: اجتياز <strong>81 ساعة معتمدة</strong>.</span>
-    </div>
-    <div style="display: flex; gap: 8px;">
-      <a href="plan-map.jpg" target="_blank" class="btn btn-navy" style="padding: 7px 14px; font-size: 0.85rem;">
-        <i class="fa-solid fa-up-right-and-down-left-from-center"></i> تكبير الصورة
-      </a>
-      <a href="plan-map.jpg" download class="btn btn-outline" style="padding: 7px 14px; font-size: 0.85rem; border-color: var(--primary-navy); color: var(--primary-navy);">
-        <i class="fa-solid fa-download"></i> تحميل
-      </a>
-    </div>
+  <!-- تنبيه ساعات التخرج -->
+  <div style="background: #f8fafc; border-right: 5px solid var(--accent-red); padding: 1rem 1.2rem; border-radius: 10px; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; border: 1px solid #e2e8f0; border-right-width: 5px;">
+    <i class="fa-solid fa-graduation-cap" style="font-size: 1.5rem; color: var(--accent-red);"></i>
+    <span style="color: var(--primary-navy); font-size: 0.95rem;">
+      شرط تسجيل مساقي <strong>(مشروع التخرج)</strong> و<strong>(التدريب الميداني)</strong>: اجتياز <strong>81 ساعة معتمدة</strong> بنجاح.
+    </span>
   </div>
 
-  <!-- حاوية عرض الخريطة البصرية -->
-  <div style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1rem; text-align: center; overflow: hidden;">
-    <a href="plan-map.jpg" target="_blank" title="اضغط لتكبير الخريطة">
-      <img src="plan-map.jpg" alt="خريطة مواد الإذاعة والتلفزيون - كتلة أردننا" 
-           style="width: 100%; max-height: 550px; object-fit: contain; border-radius: 10px; transition: transform 0.2s;"
-           onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
-    </a>
-    <p style="margin-top: 10px; font-size: 0.85rem; color: #64748b;">
-      <i class="fa-solid fa-magnifying-glass-plus"></i> اضغط على الصورة لفتحها بالحجم الكامل وبدقة عالية
-    </p>
+  <!-- حاوية الشجرة القابلة للتمرير -->
+  <div style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 2.5rem 1.5rem; overflow-x: auto; text-align: center;">
+    
+    <div style="display: inline-flex; flex-direction: column; align-items: center; min-width: 860px; gap: 2rem;">
+
+      <!-- المستوى 1: مواد المدخل الأساسية -->
+      <div style="display: flex; justify-content: space-around; width: 100%; gap: 20px;">
+        
+        <!-- مسار الصحافة -->
+        <div style="display: flex; flex-direction: column; align-items: center; width: 220px;">
+          <div style="background: #fef3c7; border: 2px solid #f59e0b; color: #92400e; padding: 10px 14px; border-radius: 8px; font-weight: bold; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+            مبادئ التحرير الصحفي
+            <span style="display: block; font-size: 0.75rem; font-weight: normal; color: #b45309;">JRN 141</span>
+          </div>
+          <div style="height: 35px; width: 2px; background: #cbd5e1; margin: 4px 0; position: relative;">
+            <i class="fa-solid fa-angle-down" style="position: absolute; bottom: -8px; left: -5px; color: #94a3b8;"></i>
+          </div>
+          <div style="background: white; border: 1.5px solid #cbd5e1; color: var(--primary-navy); padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; font-weight: bold; width: 100%;">
+            الخبر الإذاعي والتلفزيوني
+            <span style="display: block; font-size: 0.75rem; color: #64748b; font-weight: normal;">RTV 232</span>
+          </div>
+        </div>
+
+        <!-- مسار العلاقات العامة -->
+        <div style="display: flex; flex-direction: column; align-items: center; width: 220px;">
+          <div style="background: #fef3c7; border: 2px solid #f59e0b; color: #92400e; padding: 10px 14px; border-radius: 8px; font-weight: bold; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+            مبادئ العلاقات العامة
+            <span style="display: block; font-size: 0.75rem; font-weight: normal; color: #b45309;">PRA 112</span>
+          </div>
+          <div style="height: 35px; width: 2px; background: #cbd5e1; margin: 4px 0; position: relative;">
+            <i class="fa-solid fa-angle-down" style="position: absolute; bottom: -8px; left: -5px; color: #94a3b8;"></i>
+          </div>
+          <div style="background: white; border: 1.5px solid #cbd5e1; color: var(--primary-navy); padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; font-weight: bold; width: 100%;">
+            الكتابة والتحرير في الإذاعة والتلفزيون
+            <span style="display: block; font-size: 0.75rem; color: #64748b; font-weight: normal;">RTV 131</span>
+          </div>
+        </div>
+
+        <!-- مسار الإذاعة والتلفزيون الرئيسي -->
+        <div style="display: flex; flex-direction: column; align-items: center; width: 320px;">
+          <div style="background: var(--primary-navy); border: 2px solid var(--navy-dark); color: white; padding: 12px 16px; border-radius: 8px; font-weight: bold; width: 100%; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+            <i class="fa-solid fa-star" style="color: var(--accent-gold); margin-left: 6px;"></i> مبادئ الإذاعة والتلفزيون
+            <span style="display: block; font-size: 0.78rem; font-weight: normal; color: #93c5fd;">RTV 111 (المدخل الإجباري)</span>
+          </div>
+          
+          <!-- تفريع المستوى الثاني من RTV 111 -->
+          <div style="height: 25px; width: 2px; background: var(--primary-navy); margin-top: 4px;"></div>
+          <div style="width: 260px; height: 2px; background: #cbd5e1; position: relative;">
+            <div style="position: absolute; left: 0; top: 0; width: 2px; height: 20px; background: #cbd5e1;"></div>
+            <div style="position: absolute; right: 0; top: 0; width: 2px; height: 20px; background: #cbd5e1;"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; width: 340px; margin-top: 20px; gap: 10px;">
+            <!-- فرع التصوير والإضاءة -->
+            <div style="display: flex; flex-direction: column; align-items: center; width: 160px;">
+              <div style="background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; padding: 8px 10px; border-radius: 8px; font-size: 0.88rem; font-weight: bold; width: 100%;">
+                التصوير والإضاءة
+                <span style="display: block; font-size: 0.72rem; color: #60a5fa; font-weight: normal;">RTV 121</span>
+              </div>
+              <div style="height: 25px; width: 2px; background: #3b82f6; margin: 4px 0; position: relative;">
+                <i class="fa-solid fa-angle-down" style="position: absolute; bottom: -8px; left: -5px; color: #3b82f6;"></i>
+              </div>
+              <div style="background: #eff6ff; border: 1.5px solid #3b82f6; color: #1d4ed8; padding: 8px 10px; border-radius: 8px; font-size: 0.88rem; font-weight: bold; width: 100%;">
+                المونتاج والتسجيل الصوتي
+                <span style="display: block; font-size: 0.72rem; color: #60a5fa; font-weight: normal;">RTV 122</span>
+              </div>
+            </div>
+
+            <!-- فرع فن الإلقاء -->
+            <div style="display: flex; flex-direction: column; align-items: center; width: 160px;">
+              <div style="background: white; border: 1.5px solid #cbd5e1; color: var(--primary-navy); padding: 8px 10px; border-radius: 8px; font-size: 0.88rem; font-weight: bold; width: 100%;">
+                فن الإلقاء الإذاعي والتلفزيوني
+                <span style="display: block; font-size: 0.72rem; color: #64748b; font-weight: normal;">RTV 123</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- موزع المواد التي يفتحها المونتاج RTV 122 -->
+      <div style="width: 100%; border-top: 2px dashed #e2e8f0; padding-top: 1.8rem; margin-top: 0.5rem; position: relative;">
+        <span style="position: absolute; top: -13px; right: 50%; transform: translateX(50%); background: #f1f5f9; padding: 2px 14px; border-radius: 12px; font-size: 0.8rem; color: #64748b; font-weight: bold;">
+          مساقات يفتحها اجتياز (المونتاج والتسجيل الصوتي RTV 122)
+        </span>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px;">
+          
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-top: 3px solid var(--accent-red); padding: 10px; border-radius: 8px; font-size: 0.88rem; font-weight: bold;">
+            فن المقابلة في الإذاعة والتلفزيون
+            <span style="display: block; font-size: 0.72rem; color: #64748b; font-weight: normal;">RTV 231</span>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-top: 3px solid var(--accent-red); padding: 10px; border-radius: 8px; font-size: 0.88rem; font-weight: bold;">
+            إعلام متعدد الوسائط
+            <span style="display: block; font-size: 0.72rem; color: #64748b; font-weight: normal;">RTV 242</span>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-top: 3px solid var(--accent-red); padding: 10px; border-radius: 8px; font-size: 0.88rem; font-weight: bold;">
+            إعداد وإنتاج البرامج الإذاعية
+            <span style="display: block; font-size: 0.72rem; color: #64748b; font-weight: normal;">RTV 330</span>
+          </div>
+
+          <!-- مسار الإخراج وتفرعاته -->
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="background: #fef2f2; border: 2px solid var(--accent-red); color: var(--accent-red); padding: 10px; border-radius: 8px; font-size: 0.88rem; font-weight: bold; width: 100%;">
+              الإخراج الإذاعي والتلفزيوني
+              <span style="display: block; font-size: 0.72rem; color: #b91c1c; font-weight: normal;">(المحطة الإنتاجية الأهم)</span>
+            </div>
+            <div style="height: 20px; width: 2px; background: var(--accent-red); margin: 4px 0; position: relative;">
+              <i class="fa-solid fa-angle-down" style="position: absolute; bottom: -7px; left: -5px; color: var(--accent-red);"></i>
+            </div>
+            <div style="background: white; border: 1px dashed var(--accent-red); color: var(--primary-navy); padding: 8px; border-radius: 8px; font-size: 0.8rem; width: 100%;">
+              يفتح لك:
+              <div style="font-weight: bold; margin-top: 4px; color: var(--accent-red);">الفيلم الوثائقي • الصحافة الاستقصائية</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 </section>
   
