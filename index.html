@@ -1078,9 +1078,9 @@
 
   <!-- أزرار التبديل بين الفصول -->
   <div class="calc-tabs" style="justify-content: center; margin-bottom: 2rem;">
-    <button class="calc-tab active" id="btnSem1" onclick="switchSemester('sem1')">الفصل الأول 2026 / 2027</button>
-    <button class="calc-tab" id="btnSem2" onclick="switchSemester('sem2')">الفصل الثاني 2026 / 2027</button>
-    <button class="calc-tab" id="btnSummer" onclick="switchSemester('summer')">الفصل الصيفي 2026 / 2027</button>
+<button class="calc-tab active" id="btnSem1" onclick="switchSemester('sem1')">الفصل الأول 2026 / 2027</button>
+<button class="calc-tab" id="btnSem2" onclick="switchSemester('sem2')">الفصل الثاني 2026 / 2027</button>
+<button class="calc-tab" id="btnSummer" onclick="switchSemester('summer')">الفصل الصيفي 2026 / 2027</button>
   </div>
 
   <!-- جدول الفصل الأول -->
@@ -1398,6 +1398,23 @@
 
       resultBox.style.display = 'block';
       resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+    function switchSemester(sem) {
+      var sem1 = document.getElementById('sem1Table');
+      var sem2 = document.getElementById('sem2Table');
+      var summer = document.getElementById('summerTable');
+
+      var btn1 = document.getElementById('btnSem1');
+      var btn2 = document.getElementById('btnSem2');
+      var btnSummer = document.getElementById('btnSummer');
+
+      if (sem1) sem1.style.display = (sem === 'sem1') ? 'block' : 'none';
+      if (sem2) sem2.style.display = (sem === 'sem2') ? 'block' : 'none';
+      if (summer) summer.style.display = (sem === 'summer') ? 'block' : 'none';
+
+      if (btn1) btn1.classList.toggle('active', sem === 'sem1');
+      if (btn2) btn2.classList.toggle('active', sem === 'sem2');
+      if (btnSummer) btnSummer.classList.toggle('active', sem === 'summer');
     }
   </script>
 </body>
