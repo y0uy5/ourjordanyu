@@ -829,80 +829,88 @@
       </div>
     </div>
   </section>
-<!-- قسم خرائط الحرم الجامعي والمرافق -->
-<section id="campus-map" class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
+<!-- قسم خرائط الحرم الجامعي والمرافق (مدمج بنافذة منبثقة ملء الشاشة) -->
+<section id="campus-map" class="container" style="padding-top: 2rem; padding-bottom: 2.5rem;">
   
   <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
-    <h2 class="section-title">خريطة الحرم الجامعي</h2>
-    <p class="section-subtitle">دليلك الميداني التفاعلي لمواقع الكليات والمرافق في جامعة اليرموك</p>
+    <h2 class="section-title">خرائط الحرم الجامعي</h2>
+    <p class="section-subtitle">دليلك الجغرافي السريع لمرافق الجامعة ومسارات التسهيلات البيئية</p>
   </div>
 
-  <!-- خريطة Google التفاعلية -->
-  <div style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 12px; overflow: hidden; margin-bottom: 2rem;">
-    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden;">
-      <iframe 
-        src="https://www.google.com/maps/d/embed?mid=1H_HAua3JvdJO6rZBNM4hf-FdQVHnWbk&ehbc=2E312F" 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-        allowfullscreen="" 
-        loading="lazy">
-      </iframe>
-    </div>
-  </div>
-
-  <!-- قسم مسارات وتسهيلات الطلبة ذوي الإعاقة -->
-  <div style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem;">
+  <!-- بطاقات الاختصار المدمجة (شبكة ثنائية خفيفة) -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
     
-    <!-- رأس البطاقة والأزرار -->
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-bottom: 2px solid #f1f5f9; padding-bottom: 1rem; margin-bottom: 1.2rem;">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="background: #e0f2fe; color: #0284c7; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+    <!-- بطاقة 1: خريطة الحرم التفاعلية -->
+    <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.2rem; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm);">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="background: #e0f2fe; color: #0284c7; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </span>
+        <div>
+          <h4 style="margin: 0; color: var(--primary-navy); font-size: 1rem;">خريطة الحرم الجامعي</h4>
+          <span style="color: #64748b; font-size: 0.8rem;">مواقع الكليات، القاعات، والمراكز</span>
+        </div>
+      </div>
+      <button onclick="openMapModal('iframe')" class="btn btn-navy" style="padding: 8px 14px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+        <i class="fa-solid fa-expand"></i> استعراض
+      </button>
+    </div>
+
+    <!-- بطاقة 2: خريطة التسهيلات البيئية لذوي الإعاقة -->
+    <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.2rem; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm);">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="background: #fdf2f8; color: #db2777; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
           <i class="fa-solid fa-wheelchair"></i>
         </span>
         <div>
-          <h3 style="color: var(--primary-navy); margin: 0; font-size: 1.15rem;">مخطط المسارات والتسهيلات البيئية (ذوي الإعاقة)</h3>
-          <span style="color: #64748b; font-size: 0.85rem;">Yarmouk University Disability Access & Compliance</span>
+          <h4 style="margin: 0; color: var(--primary-navy); font-size: 1rem;">خريطة مسارات ذوي الإعاقة</h4>
+          <span style="color: #64748b; font-size: 0.8rem;">المنحدرات، المصاعد، والمواقف المهيأة</span>
         </div>
       </div>
-
-      <div style="display: flex; gap: 8px;">
-        <a href="yuspneedsservicesmap2.jpg" target="_blank" class="btn btn-navy" style="padding: 7px 14px; font-size: 0.85rem;">
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i> تكبير المخطط
-        </a>
-        <a href="yuspneedsservicesmap2.jpg" download="Yarmouk_Disability_Map.jpg" class="btn btn-outline" style="padding: 7px 14px; font-size: 0.85rem; border-color: var(--primary-navy); color: var(--primary-navy);">
-          <i class="fa-solid fa-download"></i> تحميل HD
-        </a>
-      </div>
-    </div>
-
-    <!-- مفتاح الرموز (Legend) -->
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.2rem; background: #f8fafc; padding: 10px 14px; border-radius: 8px; font-size: 0.85rem;">
-      <span style="display: inline-flex; align-items: center; gap: 6px; color: #1e293b;">
-        <span style="display: inline-block; width: 14px; height: 14px; background: #2563eb; border-radius: 3px;"></span> منحدر ومرافق صحية مهيأة (Slope & Sanitary)
-      </span>
-      <span style="display: inline-flex; align-items: center; gap: 6px; color: #1e293b;">
-        <span style="display: inline-block; width: 14px; height: 14px; background: #dc2626; border-radius: 3px;"></span> منحدر دخول للمبنى (Ramp Access)
-      </span>
-      <span style="display: inline-flex; align-items: center; gap: 6px; color: #1e293b;">
-        <span style="display: inline-block; width: 14px; height: 14px; background: #7e22ce; border-radius: 3px;"></span> مواقف سيارات مخصصة (Disabled Parking)
-      </span>
-    </div>
-
-    <!-- إطار عرض المخطط -->
-    <div style="text-align: center; background: #fafafa; border-radius: 10px; padding: 10px; border: 1px dashed #cbd5e1; overflow: hidden;">
-      <a href="yuspneedsservicesmap2.jpg" target="_blank" title="اضغط لفتح المخطط بدقة كاملة">
-        <img src="yuspneedsservicesmap2.jpg" alt="مخطط التسهيلات البيئية لذوي الإعاقة - جامعة اليرموك" 
-             style="max-width: 100%; height: auto; max-height: 520px; object-fit: contain; border-radius: 6px; transition: transform 0.2s;"
-             onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform='scale(1)'">
-      </a>
-      <p style="margin-top: 8px; margin-bottom: 0; font-size: 0.8rem; color: #64748b;">
-        <i class="fa-solid fa-magnifying-glass-plus"></i> اضغط على المخطط لفتحه بالحجم الكامل لقراءة أرقام المباني والقوائم بدقة
-      </p>
+      <button onclick="openMapModal('image')" class="btn btn-navy" style="padding: 8px 14px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;">
+        <i class="fa-solid fa-expand"></i> استعراض
+      </button>
     </div>
 
   </div>
 
-</section>
+  <!-- النافذة المنبثقة ملء الشاشة (Fullscreen Modal) -->
+  <div id="customMapModal" style="display: none; position: fixed; inset: 0; background: rgba(11, 29, 48, 0.85); backdrop-filter: blur(5px); z-index: 99999; align-items: center; justify-content: center; padding: 1rem;">
+    
+    <div style="background: white; width: 95%; max-width: 1100px; height: 90vh; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.35);">
+      
+      <!-- شريط تحكم النافذة العلوية -->
+      <div style="padding: 10px 18px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-map" style="color: var(--accent-red);"></i>
+          <span id="modalMapTitle" style="font-weight: bold; color: var(--primary-navy); font-size: 0.95rem;">استعراض الخريطة</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a id="modalDownloadBtn" href="yuspneedsservicesmap2.jpg" download="Yarmouk_Disability_Map.jpg" class="btn btn-outline" style="padding: 5px 12px; font-size: 0.8rem; display: none; border-color: #cbd5e1;">
+            <i class="fa-solid fa-download"></i> تحميل
+          </a>
+          <button onclick="closeMapModal()" style="background: none; border: none; font-size: 1.3rem; color: #64748b; cursor: pointer; padding: 4px 8px; line-height: 1;">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
 
+      <!-- مساحة العرض التفاعلية -->
+      <div style="flex: 1; background: #0f172a; position: relative; display: flex; align-items: center; justify-content: center; overflow: auto; padding: 10px;">
+        
+        <!-- إطار خريطة قوقل -->
+        <iframe id="modalIframeMap" src="" style="width: 100%; height: 100%; border: none; display: none; border-radius: 8px;"></iframe>
+        
+        <!-- صورة خريطة ذوي الإعاقة عالية الدقة -->
+        <img id="modalImgMap" src="" alt="خريطة ذوي الإعاقة" style="max-width: 100%; max-height: 100%; object-fit: contain; display: none; transition: transform 0.2s; border-radius: 6px;">
+        
+      </div>
+      
+    </div>
+  </div>
+
+</section>
+  
 <!-- قسم خطة قسم الإذاعة والتلفزيون -->
 <section id="plan" class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
   <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
