@@ -2049,12 +2049,10 @@ window.addEventListener('scroll', function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }
 }, { passive: true });
-  function switchMajor(major) {
-  // إخفاء كل الخرائط
+function switchMajor(major) {
   document.getElementById('tree-rtv').style.display = 'none';
   document.getElementById('tree-jrn').style.display = 'none';
 
-  // إعادة ضبط ألوان أزرار التبديل
   const btnRtv = document.getElementById('btn-rtv');
   const btnJrn = document.getElementById('btn-jrn');
   btnRtv.style.background = '#fff';
@@ -2062,7 +2060,6 @@ window.addEventListener('scroll', function() {
   btnJrn.style.background = '#fff';
   btnJrn.style.color = '#102a43';
 
-  // إظهار الخريطة المختارة وتفعيل زرها
   if (major === 'rtv') {
     document.getElementById('tree-rtv').style.display = 'block';
     btnRtv.style.background = '#102a43';
@@ -2071,34 +2068,6 @@ window.addEventListener('scroll', function() {
     document.getElementById('tree-jrn').style.display = 'block';
     btnJrn.style.background = '#102a43';
     btnJrn.style.color = '#fff';
-  }
-}
-  
-  function switchMajor(major) {
-  document.getElementById('tree-rtv').style.display = 'none';
-  document.getElementById('tree-jrn').style.display = 'none';
-
-  const btnRtv = document.getElementById('btn-rtv');
-  const btnJrn = document.getElementById('btn-jrn');
-  btnRtv.style.background = '#fff';
-  btnRtv.style.color = '#102a43';
-  btnJrn.style.background = '#fff';
-  btnJrn.style.color = '#102a43';
-
-  if (major === 'rtv') {
-    document.getElementById('tree-rtv').style.display = 'block';
-    btnRtv.style.background = '#102a43';
-    btnRtv.style.color = '#fff';
-  } else if (major === 'jrn') {
-    const jrnContainer = document.getElementById('tree-jrn');
-    jrnContainer.style.display = 'block';
-    btnJrn.style.background = '#102a43';
-    btnJrn.style.color = '#fff';
-    
-    // تشغيل رسم المخطط بمجرد إظهار القسم
-    if (window.mermaid) {
-      window.mermaid.run({ nodes: jrnContainer.querySelectorAll('.mermaid') });
-    }
   }
 }
 </script>
