@@ -1851,44 +1851,26 @@
       document.body.style.overflow = 'hidden';
     }
 
-    function closeMapModal() {
-      var modal = document.getElementById('customMapModal');
-      var iframe = document.getElementById('modalIframeMap');
-      if (iframe) iframe.src = "";
-      if (modal) modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      resetZoom();
-    }
-
 function switchMajor(major) {
-      document.getElementById('tree-rtv').style.display = 'none';
-      document.getElementById('tree-jrn').style.display = 'none';
+  document.getElementById('tree-rtv').style.display = 'none';
+  document.getElementById('tree-jrn').style.display = 'none';
 
-      const btnRtv = document.getElementById('btn-rtv');
-      const btnJrn = document.getElementById('btn-jrn');
-      
-      if (btnRtv) {
-        btnRtv.style.background = '#fff';
-        btnRtv.style.color = '#102a43';
-      }
-      if (btnJrn) {
-        btnJrn.style.background = '#fff';
-        btnJrn.style.color = '#102a43';
-      }
+  const btnRtv = document.getElementById('btn-rtv');
+  const btnJrn = document.getElementById('btn-jrn');
+  btnRtv.style.background = '#fff';
+  btnRtv.style.color = '#102a43';
+  btnJrn.style.background = '#fff';
+  btnJrn.style.color = '#102a43';
 
-      if (major === 'rtv') {
-        document.getElementById('tree-rtv').style.display = 'block';
-        if (btnRtv) {
-          btnRtv.style.background = '#102a43';
-          btnRtv.style.color = '#fff';
-        }
-      } else if (major === 'jrn') {
-        document.getElementById('tree-jrn').style.display = 'block';
-        if (btnJrn) {
-          btnJrn.style.background = '#102a43';
-          btnJrn.style.color = '#fff';
-        }
-      }
-    }
+  if (major === 'rtv') {
+    document.getElementById('tree-rtv').style.display = 'block';
+    btnRtv.style.background = '#102a43';
+    btnRtv.style.color = '#fff';
+  } else if (major === 'jrn') {
+    document.getElementById('tree-jrn').style.display = 'block';
+    btnJrn.style.background = '#102a43';
+    btnJrn.style.color = '#fff';
+  }
+}
 </body>
 </html>
