@@ -940,13 +940,19 @@
   
 <!-- قسم خطة قسم الإذاعة والتلفزيون -->
 <section id="plan" class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
-  <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-    <h2 class="section-title">خطة قسم الإذاعة والتلفزيون</h2>
-    <p class="section-subtitle">المخطط الشجري المعتمد لطلبة كلية الإعلام</p>
-  </div>
+ <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+      <h2 class="section-title">الخطط الدراسية التفاعلية</h2>
+      <p class="section-subtitle">المخطط الشجري المعتمد لطلبة كلية الإعلام</p>
+    </div>
 
-  <!-- لوحة الشجرة الرسومية المتكاملة بتقنية SVG -->
-  <div class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
+    <!-- أزرار التبديل -->
+    <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 2rem;">
+      <button type="button" onclick="switchMajor('rtv')" id="btn-rtv" style="padding: 10px 24px; border-radius: 8px; border: 2px solid #102a43; background: #102a43; color: #fff; font-weight: bold; font-family: inherit; font-size: 1rem; cursor: pointer; transition: 0.3s;">الإذاعة والتلفزيون</button>
+      <button type="button" onclick="switchMajor('jrn')" id="btn-jrn" style="padding: 10px 24px; border-radius: 8px; border: 2px solid #102a43; background: #fff; color: #102a43; font-weight: bold; font-family: inherit; font-size: 1rem; cursor: pointer; transition: 0.3s;">الصحافة والإعلام الرقمي</button>
+    </div>
+
+    <!-- لوحة الإذاعة والتلفزيون -->
+    <div id="tree-rtv" class="tree-canvas-wrapper" style="display: block; background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
     
     <svg viewBox="0 0 1150 620" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
       
