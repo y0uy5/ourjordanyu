@@ -1703,7 +1703,7 @@ function updateTransform() {
 }
 
 function zoomImage(step) {
-  currentScale = Math.min(Math.max(0.6, currentScale + step), 4.5);
+  currentScale = Math.min(Math.max(1.1, currentScale + step), 4.5);
   updateTransform();
 }
 
