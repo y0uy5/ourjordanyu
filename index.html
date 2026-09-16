@@ -1685,6 +1685,129 @@ function resetZoom() {
 window.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeMapModal();
 });
+  
+// ==========================================
+// نظام النافذة المنبثقة للخرائط (تكبير + سحب بالماوس + عجلة الماوس)
+// ==========================================
+var currentScale = 1;
+var posX = 0;
+var posY = 0;
+var isDragging = false;
+var startX = 0;
+var startY = 0;
+
+function updateTransform() {
+  var img = document.getElementById('modalImgMap');
+  if (!img) return;
+  img.style.transform = 'translate(' + posX + 'px, ' + posY + 'px) scale(' + currentScale + ')';
+}
+
+function zoomImage(step) {
+  currentScale = Math.min(Math.max(0.6, currentScale + step), 4.5);
+  updateTransform();
+}
+
+function resetZoom() {
+  currentScale = 1;
+  posX = 0;
+  posY = 0;
+  updateTransform();
+}
+
+function openMapModal(type) {
+  var modal = document.getElementById('customMapModal');
+  var title = document.getElementById('modalMapTitle');
+  var iframe = document.getElementById('modalIframeMap');
+  var img = document.getElementById('modalImgMap');
+  var downloadBtn = document.getElementById('modalDownloadBtn');
+  var zoomControls = document.getElementById('zoomControls');
+
+  if (!modal) return;
+
+  resetZoom();
+
+  if (type === 'iframe') {
+    title.innerText = 'خريطة الحرم الجامعي التفاعلية - جامعة اليرموك';
+    iframe.src = "https://www.google.com/maps/d/embed?mid=1H_HAua3JvdJO6rZBNM4hf-FdQVHnWbk&ehbc=2E312F";
+    iframe.style.display = 'block';
+    img.style.display = 'none';
+    if (downloadBtn) downloadBtn.style.display = 'none';
+    if (zoomControls) zoomControls.style.display = 'none';
+  } else {
+    title.innerText = 'مخطط مسارات وتسهيلات الطلبة ذوي الإعاقة';
+    img.src = 'yuspneedsservicesmap2.jpg';
+    img.style.display = 'block';
+    iframe.style.display = 'none';
+    if (downloadBtn) downloadBtn.style.display = 'inline-flex';
+    if (zoomControls) zoomControls.style.display = 'inline-flex';
+  }
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMapModal() {
+  var modal = document.getElementById('customMapModal');
+  var iframe = document.getElementById('modalIframeMap');
+  if (iframe) iframe.src = "";
+  if (modal) modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+  resetZoom();
+}
+
+// تهيئة أحداث الماوس ولوحة المفاتيح
+function initMapModalSystem() {
+  var container = document.getElementById('mapViewerContainer');
+  var imgElement = document.getElementById('modalImgMap');
+
+  if (container && imgElement) {
+    // بدء السحب بالماوس
+    container.addEventListener('mousedown', function(e) {
+      if (imgElement.style.display === 'none') return;
+      isDragging = true;
+      startX = e.clientX - posX;
+      startY = e.clientY - posY;
+      imgElement.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    // تحريك الماوس أثناء السحب
+    window.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      posX = e.clientX - startX;
+      posY = e.clientY - startY;
+      updateTransform();
+    });
+
+    // إفلات زر الماوس
+    window.addEventListener('mouseup', function() {
+      if (!isDragging) return;
+      isDragging = false;
+      if (imgElement) imgElement.style.cursor = 'grab';
+    });
+
+    // التكبير والتصغير بعجلة الماوس (Mouse Wheel Zoom)
+    container.addEventListener('wheel', function(e) {
+      if (imgElement.style.display === 'none') return;
+      e.preventDefault();
+      var step = e.deltaY < 0 ? 0.25 : -0.25;
+      zoomImage(step);
+    }, { passive: false });
+  }
+
+  // إغلاق النافذة بزر Escape
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMapModal();
+  });
+}
+
+// تشغيل النظام فور جاهزية الصفحة
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMapModalSystem);
+} else {
+  initMapModalSystem();
+}
+    
   </script>
 </body>
 </html>
