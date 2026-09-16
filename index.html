@@ -1860,75 +1860,35 @@
       resetZoom();
     }
 
-    function initMapModalSystem() {
-      var container = document.getElementById('mapViewerContainer');
-      var imgElement = document.getElementById('modalImgMap');
+function switchMajor(major) {
+      document.getElementById('tree-rtv').style.display = 'none';
+      document.getElementById('tree-jrn').style.display = 'none';
 
-      if (container && imgElement) {
-        container.addEventListener('mousedown', function(e) {
-          if (imgElement.style.display === 'none') return;
-          isDragging = true;
-          startX = e.clientX - posX;
-          startY = e.clientY - posY;
-          imgElement.style.cursor = 'grabbing';
-          e.preventDefault();
-        });
-
-        window.addEventListener('mousemove', function(e) {
-          if (!isDragging) return;
-          posX = e.clientX - startX;
-          posY = e.clientY - startY;
-          updateTransform();
-        });
-
-        window.addEventListener('mouseup', function() {
-          if (!isDragging) return;
-          isDragging = false;
-          if (imgElement) imgElement.style.cursor = 'grab';
-        });
-
-        container.addEventListener('wheel', function(e) {
-          if (imgElement.style.display === 'none') return;
-          e.preventDefault();
-          var step = e.deltaY < 0 ? 0.25 : -0.25;
-          zoomImage(step);
-        }, { passive: false });
+      const btnRtv = document.getElementById('btn-rtv');
+      const btnJrn = document.getElementById('btn-jrn');
+      
+      if (btnRtv) {
+        btnRtv.style.background = '#fff';
+        btnRtv.style.color = '#102a43';
+      }
+      if (btnJrn) {
+        btnJrn.style.background = '#fff';
+        btnJrn.style.color = '#102a43';
       }
 
-      window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeMapModal();
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initMapModalSystem);
-    } else {
-      initMapModalSystem();
-    }
-
-    // إخفاء وإظهار الشريط العلوي في الهواتف
-    var lastScrollTop = 0;
-    var navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', function() {
-      if (window.innerWidth <= 768 && navbar) {
-        var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (currentScroll <= 60) {
-          navbar.classList.remove('nav-hidden');
-          return;
+      if (major === 'rtv') {
+        document.getElementById('tree-rtv').style.display = 'block';
+        if (btnRtv) {
+          btnRtv.style.background = '#102a43';
+          btnRtv.style.color = '#fff';
         }
-
-        if (currentScroll > lastScrollTop) {
-          navbar.classList.add('nav-hidden');
-        } else {
-          navbar.classList.remove('nav-hidden');
+      } else if (major === 'jrn') {
+        document.getElementById('tree-jrn').style.display = 'block';
+        if (btnJrn) {
+          btnJrn.style.background = '#102a43';
+          btnJrn.style.color = '#fff';
         }
-
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
       }
-    }, { passive: true });
-
-  </script>
+    }
 </body>
 </html>
