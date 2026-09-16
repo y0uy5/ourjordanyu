@@ -874,40 +874,58 @@
 
   </div>
 
-  <!-- النافذة المنبثقة ملء الشاشة (Fullscreen Modal) -->
-  <div id="customMapModal" style="display: none; position: fixed; inset: 0; background: rgba(11, 29, 48, 0.85); backdrop-filter: blur(5px); z-index: 99999; align-items: center; justify-content: center; padding: 1rem;">
+  <!-- النافذة المنبثقة ملء الشاشة مع أدوات الزوم والتحميل الملون -->
+<div id="customMapModal" style="display: none; position: fixed; inset: 0; background: rgba(11, 29, 48, 0.88); backdrop-filter: blur(6px); z-index: 99999; align-items: center; justify-content: center; padding: 1rem;">
+  
+  <div style="background: white; width: 96%; max-width: 1200px; height: 92vh; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 25px 50px rgba(0,0,0,0.4);">
     
-    <div style="background: white; width: 95%; max-width: 1100px; height: 90vh; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.35);">
+    <!-- شريط تحكم النافذة العلوية -->
+    <div style="padding: 10px 18px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; direction: rtl;">
       
-      <!-- شريط تحكم النافذة العلوية -->
-      <div style="padding: 10px 18px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <i class="fa-solid fa-map" style="color: var(--accent-red);"></i>
-          <span id="modalMapTitle" style="font-weight: bold; color: var(--primary-navy); font-size: 0.95rem;">استعراض الخريطة</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <a id="modalDownloadBtn" href="yuspneedsservicesmap2.jpg" download="Yarmouk_Disability_Map.jpg" class="btn btn-outline" style="padding: 5px 12px; font-size: 0.8rem; display: none; border-color: #cbd5e1;">
-            <i class="fa-solid fa-download"></i> تحميل
-          </a>
-          <button onclick="closeMapModal()" style="background: none; border: none; font-size: 1.3rem; color: #64748b; cursor: pointer; padding: 4px 8px; line-height: 1;">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
+      <!-- العنوان -->
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-map-location-dot" style="color: var(--accent-red); font-size: 1.1rem;"></i>
+        <span id="modalMapTitle" style="font-weight: bold; color: var(--primary-navy); font-size: 0.95rem;">استعراض الخريطة</span>
       </div>
 
-      <!-- مساحة العرض التفاعلية -->
-      <div style="flex: 1; background: #0f172a; position: relative; display: flex; align-items: center; justify-content: center; overflow: auto; padding: 10px;">
+      <!-- أزرار التحكم: زوم + تحميل + إغلاق -->
+      <div style="display: flex; align-items: center; gap: 8px; direction: ltr;">
         
-        <!-- إطار خريطة قوقل -->
-        <iframe id="modalIframeMap" src="" style="width: 100%; height: 100%; border: none; display: none; border-radius: 8px;"></iframe>
-        
-        <!-- صورة خريطة ذوي الإعاقة عالية الدقة -->
-        <img id="modalImgMap" src="" alt="خريطة ذوي الإعاقة" style="max-width: 100%; max-height: 100%; object-fit: contain; display: none; transition: transform 0.2s; border-radius: 6px;">
-        
+        <!-- زر الإغلاق -->
+        <button onclick="closeMapModal()" title="إغلاق" style="background: #f1f5f9; border: 1px solid #cbd5e1; font-size: 1.1rem; color: #475569; cursor: pointer; padding: 5px 10px; border-radius: 6px;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- أدوات تكبير وتصغير الصورة (تظهر فقط مع صورة الخريطة) -->
+        <div id="zoomControls" style="display: none; align-items: center; gap: 4px; background: #e2e8f0; padding: 2px 6px; border-radius: 6px;">
+          <button onclick="zoomImage(0.2)" title="تكبير" style="background: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; color: var(--primary-navy); font-size: 0.85rem;"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+          <button onclick="zoomImage(-0.2)" title="تصغير" style="background: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; color: var(--primary-navy); font-size: 0.85rem;"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+          <button onclick="resetZoom()" title="إعادة الحجم الطبيعي" style="background: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; color: var(--primary-navy); font-size: 0.8rem;"><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+
+        <!-- زر التحميل مع تنسيق لوني صريح بالكامل -->
+        <a id="modalDownloadBtn" href="yuspneedsservicesmap2.jpg" download="Yarmouk_Disability_Map.jpg" 
+           style="display: none; align-items: center; gap: 6px; background: var(--primary-navy); color: #ffffff !important; padding: 6px 14px; font-size: 0.85rem; font-weight: bold; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <i class="fa-solid fa-download" style="color: #ffffff;"></i> تحميل المخطط
+        </a>
+
       </div>
+    </div>
+
+    <!-- مساحة العرض القابلة للتحريك والتكبير -->
+    <div id="mapViewerContainer" style="flex: 1; background: #0f172a; position: relative; display: flex; align-items: center; justify-content: center; overflow: auto; padding: 15px;">
+      
+      <!-- إطار خريطة قوقل -->
+      <iframe id="modalIframeMap" src="" style="width: 100%; height: 100%; border: none; display: none; border-radius: 8px;"></iframe>
+      
+      <!-- صورة خريطة ذوي الإعاقة -->
+      <img id="modalImgMap" src="" alt="خريطة ذوي الإعاقة" 
+           style="max-width: 100%; height: auto; object-fit: contain; display: none; transition: transform 0.2s ease-out; transform-origin: center center; cursor: grab;">
       
     </div>
+    
   </div>
+</div>
 
 </section>
   
@@ -1599,14 +1617,19 @@
   resultBox.innerHTML = text;
 }
   // دوال تشغيل النافذة المنبثقة للخرائط
+var currentScale = 1;
+
 function openMapModal(type) {
   var modal = document.getElementById('customMapModal');
   var title = document.getElementById('modalMapTitle');
   var iframe = document.getElementById('modalIframeMap');
   var img = document.getElementById('modalImgMap');
   var downloadBtn = document.getElementById('modalDownloadBtn');
+  var zoomControls = document.getElementById('zoomControls');
 
   if (!modal) return;
+
+  currentScale = 1;
 
   if (type === 'iframe') {
     title.innerText = 'خريطة الحرم الجامعي التفاعلية - جامعة اليرموك';
@@ -1614,12 +1637,15 @@ function openMapModal(type) {
     iframe.style.display = 'block';
     img.style.display = 'none';
     if (downloadBtn) downloadBtn.style.display = 'none';
+    if (zoomControls) zoomControls.style.display = 'none';
   } else {
     title.innerText = 'مخطط مسارات وتسهيلات الطلبة ذوي الإعاقة';
     img.src = 'yuspneedsservicesmap2.jpg';
+    img.style.transform = 'scale(1)';
     img.style.display = 'block';
     iframe.style.display = 'none';
     if (downloadBtn) downloadBtn.style.display = 'inline-flex';
+    if (zoomControls) zoomControls.style.display = 'inline-flex';
   }
 
   modal.style.display = 'flex';
@@ -1632,6 +1658,21 @@ function closeMapModal() {
   if (iframe) iframe.src = "";
   if (modal) modal.style.display = 'none';
   document.body.style.overflow = 'auto';
+  resetZoom();
+}
+
+function zoomImage(step) {
+  var img = document.getElementById('modalImgMap');
+  if (!img) return;
+  currentScale = Math.min(Math.max(0.6, currentScale + step), 3.5);
+  img.style.transform = 'scale(' + currentScale + ')';
+}
+
+function resetZoom() {
+  var img = document.getElementById('modalImgMap');
+  if (!img) return;
+  currentScale = 1;
+  img.style.transform = 'scale(1)';
 }
 
 window.addEventListener('keydown', function(e) {
