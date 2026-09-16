@@ -1928,36 +1928,7 @@
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
       }
     }, { passive: true });
-  function switchMajor(major) {
-      document.getElementById('tree-rtv').style.display = 'none';
-      document.getElementById('tree-jrn').style.display = 'none';
 
-      const btnRtv = document.getElementById('btn-rtv');
-      const btnJrn = document.getElementById('btn-jrn');
-      
-      if (btnRtv) {
-        btnRtv.style.background = '#fff';
-        btnRtv.style.color = '#102a43';
-      }
-      if (btnJrn) {
-        btnJrn.style.background = '#fff';
-        btnJrn.style.color = '#102a43';
-      }
-
-      if (major === 'rtv') {
-        document.getElementById('tree-rtv').style.display = 'block';
-        if (btnRtv) {
-          btnRtv.style.background = '#102a43';
-          btnRtv.style.color = '#fff';
-        }
-      } else if (major === 'jrn') {
-        document.getElementById('tree-jrn').style.display = 'block';
-        if (btnJrn) {
-          btnJrn.style.background = '#102a43';
-          btnJrn.style.color = '#fff';
-        }
-      }
-    }
   </script>
 </body>
 </html>
