@@ -58,7 +58,13 @@
       align-items: center;
       padding: 0.8rem 5%;
       border-bottom: 2px solid var(--accent-red);
+      transition: transform 0.3s ease-in-out;
     }
+    @media (max-width: 768px) {
+  .navbar.nav-hidden {
+    transform: translateY(-100%);
+  }
+}
     .brand {
       display: flex;
       align-items: center;
@@ -1818,6 +1824,32 @@ if (document.readyState === 'loading') {
   initMapModalSystem();
 }
     
+  // إخفاء الـ Navbar تلقائياً عند النزول وإظهاره فور الصعود في الهواتف
+var lastScrollTop = 0;
+var navbar = document.querySelector('.navbar'); // أو استبدلها بمعرف الـ navbar لديك إذا كان له id
+
+window.addEventListener('scroll', function() {
+  // يطبق فقط على شاشات الهاتف والأجهزة اللوحية
+  if (window.innerWidth <= 768 && navbar) {
+    var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // عدم التفعيل إذا كان التمرير عند أعلى الصفحة تماماً
+    if (currentScroll <= 60) {
+      navbar.classList.remove('nav-hidden');
+      return;
+    }
+
+    if (currentScroll > lastScrollTop) {
+      // تمرير للأسفل -> إخفاء الشريط
+      navbar.classList.add('nav-hidden');
+    } else {
+      // تمرير للأعلى -> إظهار الشريط فوراً
+      navbar.classList.remove('nav-hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }
+}, { passive: true });
   </script>
 </body>
 </html>
