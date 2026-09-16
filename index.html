@@ -979,9 +979,14 @@
     <h2 class="section-title">خطة قسم الإذاعة والتلفزيون</h2>
     <p class="section-subtitle">المخطط الشجري المعتمد لطلبة قسم الإذاعة والتلفزيون</p>
   </div>
-
+<!-- أزرار التبديل بين التخصصات -->
+<div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;">
+  <button type="button" onclick="switchMajor('rtv')" id="btn-rtv" class="major-tab active-tab">الإذاعة والتلفزيون</button>
+  <button type="button" onclick="switchMajor('jrn')" id="btn-jrn" class="major-tab">الصحافة والإعلام الرقمي</button>
+  <!-- سنضيف زر التخصص الثالث هنا -->
+</div>
   <!-- لوحة الشجرة الرسومية المتكاملة بتقنية SVG -->
-  <div style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
+  <div id="tree-rtv" class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
     
     <svg viewBox="0 0 1150 620" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
       
@@ -1155,6 +1160,205 @@
     </svg>
 
   </div>
+<!-- قسم خطة الصحافة والإعلام الرقمي -->
+<div id="tree-jrn" class="tree-canvas-wrapper" style="display: none; background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
+  <svg viewBox="0 0 1150 780" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
+    
+    <!-- تعريف الأسهم والأنماط -->
+    <defs>
+      <marker id="arrow-jrn" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b" />
+      </marker>
+      <marker id="arrow-red-jrn" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#ba2525" />
+      </marker>
+      <style>
+        .box-title-j { font-size: 14px; font-weight: bold; fill: #000; text-anchor: middle; }
+        .box-sub-j { font-size: 11px; fill: #334155; text-anchor: middle; font-weight: 500; }
+        .line-blue-j { stroke: #1e293b; stroke-width: 2; fill: none; marker-end: url(#arrow-jrn); }
+        .line-red-j { stroke: #ba2525; stroke-width: 2; fill: none; marker-end: url(#arrow-red-jrn); }
+        .bg-head-j { fill: #fef08a; stroke: #ca8a04; stroke-width: 1.5; rx: 4; }
+        .bg-card-j { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; rx: 4; }
+        .bg-green-j { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; rx: 4; }
+        .bg-alert-j { fill: #fee2e2; stroke: #ef4444; stroke-width: 1.5; rx: 4; }
+      </style>
+    </defs>
+
+    <!-- عنوان الخريطة -->
+    <rect x="375" y="15" width="400" height="42" fill="#fff" stroke="#94a3b8" stroke-width="1.5" rx="4"/>
+    <text x="575" y="42" font-size="18" font-weight="900" fill="#000" text-anchor="middle">الخطة الإرشادية الشجرية لقسم الصحافة والإعلام الرقمي</text>
+
+    <!-- المستوى الأول (مواد البداية) -->
+    <!-- JRN141 -->
+    <rect x="50" y="90" width="310" height="50" class="bg-card-j"/>
+    <text x="205" y="112" class="box-title-j">JRN141</text>
+    <text x="205" y="129" class="box-sub-j">مبادئ التحرير الصحفي</text>
+
+    <!-- JRN102 -->
+    <rect x="420" y="90" width="310" height="50" class="bg-card-j"/>
+    <text x="575" y="112" class="box-title-j">JRN102</text>
+    <text x="575" y="129" class="box-sub-j">مهارات إعلامية باللغة الإنجليزية</text>
+
+    <!-- JRN101 -->
+    <rect x="790" y="90" width="310" height="50" class="bg-card-j"/>
+    <text x="945" y="112" class="box-title-j">JRN101</text>
+    <text x="945" y="129" class="box-sub-j">مدخل في الاتصال</text>
+
+    <!-- خطوط المستوى الأول إلى الثاني -->
+    <path d="M 120 140 L 120 190" class="line-blue-j"/>
+    <path d="M 205 140 L 205 190" class="line-blue-j"/>
+    <path d="M 290 140 L 460 140 L 460 190" class="line-blue-j"/>
+    <path d="M 575 140 L 575 190" class="line-blue-j"/>
+    <path d="M 870 140 L 870 190" class="line-blue-j"/>
+    <path d="M 1020 140 L 1020 190" class="line-blue-j"/>
+
+    <!-- المستوى الثاني -->
+    <!-- JRN271 -->
+    <rect x="50" y="190" width="130" height="50" class="bg-card-j"/>
+    <text x="115" y="212" class="box-title-j">JRN271</text>
+    <text x="115" y="229" class="box-sub-j">التصوير الصحفي الرقمي</text>
+
+    <!-- JRN281 -->
+    <rect x="195" y="190" width="180" height="50" class="bg-card-j"/>
+    <text x="285" y="212" class="box-title-j">JRN281</text>
+    <text x="285" y="229" class="box-sub-j">الصحافة الإلكترونية</text>
+
+    <!-- JRN221 -->
+    <rect x="390" y="190" width="130" height="50" class="bg-card-j"/>
+    <text x="455" y="212" class="box-title-j">JRN221</text>
+    <text x="455" y="229" class="box-sub-j">الخبر الصحفي</text>
+
+    <!-- JRN331 -->
+    <rect x="535" y="190" width="160" height="50" class="bg-card-j"/>
+    <text x="615" y="212" class="box-title-j">JRN331</text>
+    <text x="615" y="229" class="box-sub-j">كتابة صحفية بالإنجليزية</text>
+
+    <!-- PRA201 -->
+    <rect x="805" y="190" width="130" height="50" class="bg-card-j"/>
+    <text x="870" y="212" class="box-title-j">PRA201</text>
+    <text x="870" y="229" class="box-sub-j">مدخل في البحث الإعلامي</text>
+
+    <!-- RTV201 -->
+    <rect x="955" y="190" width="130" height="50" class="bg-card-j"/>
+    <text x="1020" y="212" class="box-title-j">RTV201</text>
+    <text x="1020" y="229" class="box-sub-j">نظريات إعلامية معاصرة</text>
+
+    <!-- خطوط المستوى الثاني إلى الثالث -->
+    <!-- خطوط حمراء مشتركة من JRN271 و JRN281 -->
+    <path d="M 115 240 L 115 270 L 105 270 L 105 320" class="line-red-j"/>
+    <path d="M 235 240 L 235 270 L 115 270" stroke="#ba2525" stroke-width="2" fill="none"/>
+    <path d="M 235 270 L 235 320" class="line-red-j"/>
+    <!-- خط أزرق من JRN281 إلى JRN363 -->
+    <path d="M 335 240 L 335 320" class="line-blue-j"/>
+    <!-- خطوط من JRN221 -->
+    <path d="M 455 240 L 455 280 L 435 280 L 435 320" class="line-blue-j"/>
+    <path d="M 455 280 L 530 280 L 530 320" class="line-blue-j"/>
+    <path d="M 530 280 L 625 280 L 625 320" class="line-blue-j"/>
+
+    <!-- المستوى الثالث -->
+    <!-- JRN384 -->
+    <rect x="50" y="320" width="110" height="50" class="bg-card-j"/>
+    <text x="105" y="342" class="box-title-j">JRN384</text>
+    <text x="105" y="359" class="box-sub-j">صحافة البيانات</text>
+
+    <!-- JRN287 -->
+    <rect x="180" y="320" width="110" height="50" class="bg-card-j"/>
+    <text x="235" y="342" class="box-title-j">JRN287</text>
+    <text x="235" y="359" class="box-sub-j">التحرير الإلكتروني</text>
+
+    <!-- JRN363 -->
+    <rect x="305" y="320" width="110" height="50" class="bg-card-j"/>
+    <text x="360" y="342" class="box-title-j">JRN363</text>
+    <text x="360" y="359" class="box-sub-j">الإخراج الصحفي</text>
+
+    <!-- JRN324 -->
+    <rect x="425" y="320" width="130" height="50" class="bg-card-j"/>
+    <text x="490" y="342" class="box-title-j">JRN324</text>
+    <text x="490" y="359" class="box-sub-j">تطبيقات في الكتابة</text>
+
+    <!-- JRN225 -->
+    <rect x="565" y="320" width="100" height="50" class="bg-card-j"/>
+    <text x="615" y="342" class="box-title-j">JRN225</text>
+    <text x="615" y="359" class="box-sub-j">الحديث الصحفي</text>
+
+    <!-- JRN224 -->
+    <rect x="675" y="320" width="100" height="50" class="bg-card-j"/>
+    <text x="725" y="342" class="box-title-j">JRN224</text>
+    <text x="725" y="359" class="box-sub-j">التقرير الصحفي</text>
+
+    <!-- خطوط المسار السفلي -->
+    <!-- من JRN287 إلى JRN483 -->
+    <path d="M 235 370 L 235 440" class="line-blue-j"/>
+    <!-- متطلب إنهاء 80 ساعة إلى JRN351 -->
+    <path d="M 465 480 L 465 500" class="line-blue-j"/>
+    <!-- من JRN225 إلى JRN323 (خط أحمر) -->
+    <path d="M 615 370 L 615 440" class="line-red-j"/>
+    <!-- من JRN224 إلى JRN426 (خط أحمر طويل) -->
+    <path d="M 725 370 L 725 400 L 685 400 L 685 590" class="line-red-j"/>
+    <!-- من JRN224 إلى JRN488 -->
+    <path d="M 725 400 L 775 400 L 775 590" class="line-blue-j"/>
+    <!-- خطوط طويلة من JRN101 و PRA201 -->
+    <path d="M 870 240 L 870 590" class="line-blue-j"/>
+    <path d="M 1020 140 L 1020 560 L 980 560 L 980 590" class="line-blue-j"/>
+
+    <!-- المستوى المتقدم / التدريب والمشاريع -->
+    <!-- JRN483 -->
+    <rect x="130" y="440" width="210" height="50" class="bg-green-j"/>
+    <text x="235" y="462" class="box-title-j">JRN483</text>
+    <text x="235" y="479" class="box-sub-j">الصحافة الإلكترونية المتقدمة</text>
+
+    <!-- إنهاء 80 ساعة -->
+    <rect x="405" y="440" width="120" height="40" class="bg-head-j"/>
+    <text x="465" y="465" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">إنهاء 80 ساعة</text>
+
+    <!-- JRN351 -->
+    <rect x="405" y="500" width="120" height="50" class="bg-card-j"/>
+    <text x="465" y="522" class="box-title-j">JRN351</text>
+    <text x="465" y="539" class="box-sub-j">تدريب ميداني</text>
+
+    <!-- JRN323 -->
+    <rect x="560" y="440" width="110" height="50" class="bg-card-j"/>
+    <text x="615" y="462" class="box-title-j">JRN323</text>
+    <text x="615" y="479" class="box-sub-j">الصحافة المتخصصة</text>
+
+    <!-- خط من JRN483 إلى JRN484 -->
+    <path d="M 235 490 L 235 590" class="line-blue-j"/>
+    <!-- خط من JRN351 إلى JRN452 -->
+    <path d="M 465 550 L 465 590" class="line-blue-j"/>
+
+    <!-- المستوى الأخير (التخرج والمواد النهائية) -->
+    <!-- JRN484 -->
+    <rect x="130" y="590" width="210" height="50" class="bg-green-j"/>
+    <text x="235" y="612" class="box-title-j">JRN484</text>
+    <text x="235" y="629" class="box-sub-j">تصميم المواقع الإخبارية</text>
+
+    <!-- JRN452 -->
+    <rect x="405" y="590" width="120" height="50" class="bg-green-j"/>
+    <text x="465" y="612" class="box-title-j">JRN452</text>
+    <text x="465" y="629" class="box-sub-j">مشروع تخرج</text>
+
+    <!-- JRN426 -->
+    <rect x="630" y="590" width="110" height="50" class="bg-green-j"/>
+    <text x="685" y="612" class="box-title-j">JRN426</text>
+    <text x="685" y="629" class="box-sub-j">التحقيق الصحفي</text>
+
+    <!-- JRN488 -->
+    <rect x="750" y="590" width="100" height="50" class="bg-card-j"/>
+    <text x="800" y="612" class="box-title-j">JRN488</text>
+    <text x="800" y="629" class="box-sub-j">مواقع التواصل</text>
+
+    <!-- JRN451 -->
+    <rect x="860" y="590" width="100" height="50" class="bg-card-j"/>
+    <text x="910" y="612" class="box-title-j">JRN451</text>
+    <text x="910" y="629" class="box-sub-j">بحوث تطبيقية</text>
+
+    <!-- JRN411 -->
+    <rect x="970" y="590" width="100" height="50" class="bg-card-j"/>
+    <text x="1020" y="612" class="box-title-j">JRN411</text>
+    <text x="1020" y="629" class="box-sub-j">تشريعات الإعلام</text>
+
+  </svg>
+</div>
 </section>
   
   <!-- حاسبة المعدل التراكمي والفصلي من 100% -->
