@@ -1202,17 +1202,18 @@
     
   </section>
 
-  <!-- قسم التقويم الجامعي 2026 / 2027 -->
+ <!-- قسم التقويم الجامعي 2026 / 2027 -->
 <section id="calendar" class="container" style="padding-top: 2rem;">
   <div class="section-header">
     <h2 class="section-title">التقويم الجامعي 2026 / 2027</h2>
-    <p class="section-subtitle">المواعيد الرسمية المعتمدة لبدء التدريس، فترات السحب والإضافة، والامتحانات النهائية</p>
+    <p class="section-subtitle">المواعيد الرسمية المعتمدة الصادرة عن دائرة القبول والتسجيل</p>
   </div>
 
+  <!-- أزرار التبديل بين الفصول -->
   <div class="calc-tabs" style="justify-content: center; margin-bottom: 2rem;">
-<button class="calc-tab active" id="btnSem1" onclick="switchSemester('sem1')">الفصل الأول 2026 / 2027</button>
-<button class="calc-tab" id="btnSem2" onclick="switchSemester('sem2')">الفصل الثاني 2026 / 2027</button>
-<button class="calc-tab" id="btnSummer" onclick="switchSemester('summer')">الفصل الصيفي 2026 / 2027</button>
+    <button class="calc-tab active" id="btnSem1" onclick="switchSemester('sem1')">الفصل الأول 2026 / 2027</button>
+    <button class="calc-tab" id="btnSem2" onclick="switchSemester('sem2')">الفصل الثاني 2026 / 2027</button>
+    <button class="calc-tab" id="btnSummer" onclick="switchSemester('summer')">الفصل الصيفي 2026 / 2027</button>
   </div>
 
   <!-- جدول الفصل الأول -->
@@ -1229,37 +1230,52 @@
         </thead>
         <tbody>
           <tr style="border-bottom: 1px solid #f1f5f9;">
-            <td style="padding: 12px; font-weight: bold;">بدء فترة السحب والإضافة لمساقات الفصل الأول</td>
+            <td style="padding: 12px; font-weight: bold;">بدء فترة الانسحاب والإضافة لمساقات الفصل الأول</td>
             <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2026/09/27 - 2026/10/01</td>
             <td style="padding: 12px;">الأحد - الخميس</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+            <td style="padding: 12px;">مواعيد امتحانات غير مكتمل والامتحان التكميلي (Resit)</td>
+            <td style="padding: 12px; color: #0284c7; font-weight: bold;">2026/09/27 - 2026/10/01</td>
+            <td style="padding: 12px;">الأحد - الخميس</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9;">
             <td style="padding: 12px; font-weight: bold;">بدء التدريس لجميع الطلبة</td>
             <td style="padding: 12px; color: #16a34a; font-weight: bold;">2026/10/04</td>
             <td style="padding: 12px;">الأحد</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9;">
-            <td style="padding: 12px;">آخر موعد للإضافة وتسجيل المساقات</td>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+            <td style="padding: 12px;">آخر موعد للإضافة وتسجيل المساقات لجميع الطلبة</td>
             <td style="padding: 12px;">2026/10/08</td>
             <td style="padding: 12px;">الخميس</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-            <td style="padding: 12px;">آخر موعد لاعتماد علامات منتصف الفصل (الميدتيرم)</td>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: عيد الميلاد المجيد</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2026/12/25</td>
+            <td style="padding: 12px;">الجمعة</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <td style="padding: 12px;">آخر موعد لاعتماد علامات امتحانات منتصف الفصل</td>
             <td style="padding: 12px;">2026/12/26</td>
             <td style="padding: 12px;">السبت</td>
           </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: رأس السنة الميلادية</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/01/01</td>
+            <td style="padding: 12px;">الجمعة</td>
+          </tr>
           <tr style="border-bottom: 1px solid #f1f5f9;">
-            <td style="padding: 12px; font-weight: bold;">بدء التسجيل للفصل الدراسي الثاني</td>
+            <td style="padding: 12px; font-weight: bold;">بدء التسجيل الإلكتروني للفصل الدراسي الثاني</td>
             <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/01/10</td>
             <td style="padding: 12px;">الأحد</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-            <td style="padding: 12px; font-weight: bold;">انتهاء فترة الانسحاب من المساقات (W)</td>
+            <td style="padding: 12px; font-weight: bold;">انتهاء فترة الانسحاب من المساقات (W) للطلبة</td>
             <td style="padding: 12px; color: #dc2626; font-weight: bold;">2027/01/14</td>
             <td style="padding: 12px;">الخميس</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9;">
-            <td style="padding: 12px;">آخر يوم للتدريس في الفصل الأول</td>
+            <td style="padding: 12px;">آخر يوم للتدريس في الفصل الدراسي الأول</td>
             <td style="padding: 12px;">2027/01/14</td>
             <td style="padding: 12px;">الخميس</td>
           </tr>
@@ -1268,10 +1284,15 @@
             <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/01/16 - 2027/01/19</td>
             <td style="padding: 12px;">السبت - الثلاثاء</td>
           </tr>
-          <tr style="background: #fef2f2;">
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
             <td style="padding: 12px; font-weight: bold;">الامتحانات النهائية الوجاهية</td>
             <td style="padding: 12px; color: var(--accent-red); font-weight: 800;">2027/01/20 - 2027/01/28</td>
             <td style="padding: 12px;">الأربعاء - الخميس</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px;">آخر موعد لرصد واعتماد النتائج النهائية</td>
+            <td style="padding: 12px; font-weight: bold;">2027/01/31</td>
+            <td style="padding: 12px;">الأحد</td>
           </tr>
         </tbody>
       </table>
@@ -1292,44 +1313,79 @@
         </thead>
         <tbody>
           <tr style="border-bottom: 1px solid #f1f5f9;">
-            <td style="padding: 12px; font-weight: bold;">فترة السحب والإضافة للفصل الثاني</td>
+            <td style="padding: 12px; font-weight: bold;">فترة السحب والإضافة لمساقات الفصل الثاني</td>
             <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/02/14 - 2027/02/18</td>
             <td style="padding: 12px;">الأحد - الخميس</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-            <td style="padding: 12px; font-weight: bold;">بدء التدريس للطلبة</td>
+            <td style="padding: 12px;">مواعيد امتحانات غير مكتمل والامتحان التكميلي (Resit)</td>
+            <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/02/14 - 2027/02/18</td>
+            <td style="padding: 12px;">الأحد - الخميس</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <td style="padding: 12px; font-weight: bold;">بدء التدريس لجميع الطلبة</td>
             <td style="padding: 12px; color: #16a34a; font-weight: bold;">2027/02/21</td>
             <td style="padding: 12px;">الأحد</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9;">
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
             <td style="padding: 12px;">آخر موعد للإضافة وتسجيل المساقات</td>
             <td style="padding: 12px;">2027/02/24</td>
             <td style="padding: 12px;">الأربعاء</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-            <td style="padding: 12px; font-weight: bold;">بدء التسجيل للفصل الصيفي</td>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): عيد الفطر السعيد</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/03/10 - 2027/03/12</td>
+            <td style="padding: 12px;">الأربعاء - الجمعة</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: يوم العمال العالمي</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/05/01</td>
+            <td style="padding: 12px;">السبت</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): عيد الأضحى المبارك</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/05/17 - 2027/05/20</td>
+            <td style="padding: 12px;">الاثنين - الخميس</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: عيد الاستقلال للمملكة</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/05/25</td>
+            <td style="padding: 12px;">الثلاثاء</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9;">
+            <td style="padding: 12px; font-weight: bold;">بدء التسجيل الإلكتروني للفصل الصيفي</td>
             <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/05/30</td>
             <td style="padding: 12px;">الأحد</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9;">
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
             <td style="padding: 12px; font-weight: bold;">انتهاء فترة الانسحاب من المساقات (W)</td>
             <td style="padding: 12px; color: #dc2626; font-weight: bold;">2027/06/03</td>
             <td style="padding: 12px;">الخميس</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+          <tr style="border-bottom: 1px solid #f1f5f9;">
             <td style="padding: 12px;">آخر يوم للتدريس في الفصل الثاني</td>
             <td style="padding: 12px;">2027/06/03</td>
             <td style="padding: 12px;">الخميس</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): رأس السنة الهجرية 1449هـ</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/06/06</td>
+            <td style="padding: 12px;">الأحد</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
             <td style="padding: 12px; font-weight: bold;">امتحانات المساقات المحوسبة والمختبرات والمشاريع</td>
             <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/06/07 - 2027/06/10</td>
             <td style="padding: 12px;">الاثنين - الخميس</td>
           </tr>
-          <tr style="background: #fef2f2;">
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
             <td style="padding: 12px; font-weight: bold;">الامتحانات النهائية الوجاهية</td>
             <td style="padding: 12px; color: var(--accent-red); font-weight: 800;">2027/06/12 - 2027/06/19</td>
             <td style="padding: 12px;">السبت - السبت</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px;">آخر موعد لرصد واعتماد النتائج النهائية</td>
+            <td style="padding: 12px; font-weight: bold;">2027/06/22</td>
+            <td style="padding: 12px;">الثلاثاء</td>
           </tr>
         </tbody>
       </table>
@@ -1350,18 +1406,28 @@
         </thead>
         <tbody>
           <tr style="border-bottom: 1px solid #f1f5f9;">
+            <td style="padding: 12px;">أسبوع امتحانات غير المكتمل والامتحان التكميلي (Resit)</td>
+            <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/07/04 - 2027/07/10</td>
+            <td style="padding: 12px;">الأحد - السبت</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
             <td style="padding: 12px; font-weight: bold;">بدء التدريس للفصل الصيفي</td>
             <td style="padding: 12px; color: #16a34a; font-weight: bold;">2027/07/11</td>
             <td style="padding: 12px;">الأحد</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
+          <tr style="border-bottom: 1px solid #f1f5f9;">
             <td style="padding: 12px;">آخر موعد للإضافة وتسجيل مساقات الصيفي</td>
             <td style="padding: 12px;">2027/07/14</td>
             <td style="padding: 12px;">الأربعاء</td>
           </tr>
-          <tr style="border-bottom: 1px solid #f1f5f9;">
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fefce8;">
             <td style="padding: 12px; font-weight: bold;">بدء مراسم حفل تخريج الفوج (48)</td>
             <td style="padding: 12px; color: var(--accent-gold); font-weight: bold;">2027/08/01</td>
+            <td style="padding: 12px;">الأحد</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
+            <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): ذكرى المولد النبوي الشريف</td>
+            <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/08/15</td>
             <td style="padding: 12px;">الأحد</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
@@ -1379,15 +1445,19 @@
             <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/08/28 - 2027/08/30</td>
             <td style="padding: 12px;">السبت - الاثنين</td>
           </tr>
-          <tr style="background: #fef2f2;">
+          <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
             <td style="padding: 12px; font-weight: bold;">الامتحانات النهائية الوجاهية للصيفي</td>
             <td style="padding: 12px; color: var(--accent-red); font-weight: 800;">2027/08/31 - 2027/09/06</td>
             <td style="padding: 12px;">الثلاثاء - الاثنين</td>
           </tr>
+          <tr>
+            <td style="padding: 12px;">آخر موعد لاعتماد النتائج النهائية للفصل الصيفي</td>
+            <td style="padding: 12px; font-weight: bold;">2027/09/08</td>
+            <td style="padding: 12px;">الأربعاء</td>
+          </tr>
         </tbody>
       </table>
     </div>
-  </div>
 </section>
 
   <!-- الفوتر الرسمي -->
