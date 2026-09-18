@@ -1629,55 +1629,58 @@
     }
 
     function checkGradeStatus() {
-      const input = document.getElementById('quickGpaInput').value;
-      const resultBox = document.getElementById('gradeResultBox');
+  const input = document.getElementById('quickGpaInput').value;
+  const resultBox = document.getElementById('gradeResultBox');
 
-      if (input === '' || isNaN(input)) {
-        resultBox.style.display = 'none';
-        return;
-      }
+  if (input === '' || isNaN(input)) {
+    resultBox.style.display = 'block';
+    resultBox.style.background = '#fef2f2';
+    resultBox.style.color = '#dc2626';
+    resultBox.innerHTML = '⚠️ الرجاء إدخال المعدل أولاً';
+    return;
+  }
 
-      const gpa = parseFloat(input);
+  const gpa = parseFloat(input);
 
-      if (gpa < 0 || gpa > 100) {
-        resultBox.style.display = 'block';
-        resultBox.style.background = '#fef2f2';
-        resultBox.style.color = '#dc2626';
-        resultBox.innerHTML = '⚠️ الرجاء إدخال معدل صحيح بين 0 و 100';
-        return;
-      }
+  if (gpa < 0 || gpa > 100) {
+    resultBox.style.display = 'block';
+    resultBox.style.background = '#fef2f2';
+    resultBox.style.color = '#dc2626';
+    resultBox.innerHTML = '⚠️ الرجاء إدخال معدل صحيح بين 0 و 100';
+    return;
+  }
 
-      let text = '';
-      let bg = '';
-      let color = '';
+  let text = '';
+  let bg = '';
+  let color = '';
 
-      if (gpa >= 84) {
-        text = '🏆 التقدير: ممتاز | الوضع: لوحة شرف الجامعة';
-        bg = '#ecfdf5';
-        color = '#15803d';
-      } else if (gpa >= 76) {
-        text = '⭐ التقدير: جيد جداً | الوضع الأكاديمي: مرتفع';
-        bg = '#f0f9ff';
-        color = '#0369a1';
-      } else if (gpa >= 68) {
-        text = '✅ التقدير: جيد | الوضع الأكاديمي: منتظم ومستقر';
-        bg = '#f8fafc';
-        color = '#1e293b';
-      } else if (gpa >= 60) {
-        text = '⚠️ التقدير: مقبول | الوضع: الحد الأدنى للتخرج (مستقر دون إنذار)';
-        bg = '#fffbeb';
-        color = '#b45309';
-      } else {
-        text = '🚨 التقدير: ضعيف | الوضع: إنذار أكاديمي (يجب رفعه إلى 60% فما فوق)';
-        bg = '#fef2f2';
-        color = '#b91c1c';
-      }
+  if (gpa >= 84) {
+    text = '🏆 التقدير: ممتاز | الوضع: لوحة شرف الجامعة';
+    bg = '#ecfdf5';
+    color = '#15803d';
+  } else if (gpa >= 76) {
+    text = '⭐ التقدير: جيد جداً | الوضع الأكاديمي: مرتفع';
+    bg = '#f0f9ff';
+    color = '#0369a1';
+  } else if (gpa >= 68) {
+    text = '✅ التقدير: جيد | الوضع الأكاديمي: منتظم ومستقر';
+    bg = '#f8fafc';
+    color = '#1e293b';
+  } else if (gpa >= 60) {
+    text = '⚠️ التقدير: مقبول | الوضع: الحد الأدنى للتخرج (مستقر دون إنذار)';
+    bg = '#fffbeb';
+    color = '#b45309';
+  } else {
+    text = '🚨 التقدير: ضعيف | الوضع: إنذار أكاديمي (يجب رفعه إلى 60% فما فوق)';
+    bg = '#fef2f2';
+    color = '#b91c1c';
+  }
 
-      resultBox.style.display = 'block';
-      resultBox.style.background = bg;
-      resultBox.style.color = color;
-      resultBox.innerHTML = text;
-    }
+  resultBox.style.display = 'block';
+  resultBox.style.background = bg;
+  resultBox.style.color = color;
+  resultBox.innerHTML = text;
+}
 
     // دوال تشغيل النافذة المنبثقة للخرائط
     var currentScale = 1;
