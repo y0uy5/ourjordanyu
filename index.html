@@ -888,139 +888,152 @@
       </button>
     </div>
 
-    <!-- 1. شجرة الإذاعة والتلفزيون -->
+ <!-- 1. شجرة الإذاعة والتلفزيون  -->
     <div id="planRtvView" class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
       <svg viewBox="0 0 1150 620" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
         <defs>
-          <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b" />
+          <marker id="arrow-rtv" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#102a43" />
           </marker>
           <style>
-            .box-title { font-size: 15px; font-weight: bold; fill: #000; text-anchor: middle; }
-            .line-main { stroke: #1e293b; stroke-width: 2.5; fill: none; }
-            .line-sub { stroke: #1e293b; stroke-width: 2; fill: none; }
-            .bg-yellow { fill: #fef08a; stroke: #ca8a04; stroke-width: 1.5; rx: 4; }
-            .bg-white { fill: #ffffff; stroke: #ca8a04; stroke-width: 1.5; rx: 4; }
+            .rtv-title { font-size: 14.5px; font-weight: 800; fill: #102a43; text-anchor: middle; }
+            .rtv-line { stroke: #102a43; stroke-width: 2; fill: none; }
+            .rtv-box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 8; }
+            .rtv-text { font-weight: bold; fill: #102a43; text-anchor: middle; }
           </style>
         </defs>
 
-        <rect x="425" y="10" width="300" height="42" fill="#fff" stroke="#94a3b8" stroke-width="1.5" rx="3"/>
-        <text x="575" y="37" font-size="20" font-weight="900" fill="#000" text-anchor="middle">خطة قسم الإذاعة والتلفزيون</text>
+        <!-- عنوان الخطة داخل الرسم -->
+        <rect x="425" y="10" width="300" height="42" fill="#102a43" rx="8"/>
+        <text x="575" y="37" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle">خطة قسم الإذاعة والتلفزيون</text>
 
-        <line x1="990" y1="120" x2="990" y2="140" class="line-sub"/>
-        <line x1="990" y1="185" x2="990" y2="200" class="line-sub"/>
-        <line x1="910" y1="162" x2="680" y2="162" class="line-sub"/>
+        <!-- الخطوط والروابط العلوية -->
+        <line x1="990" y1="120" x2="990" y2="140" class="rtv-line"/>
+        <line x1="990" y1="185" x2="990" y2="200" class="rtv-line"/>
+        <line x1="910" y1="162" x2="680" y2="162" class="rtv-line"/>
 
-        <line x1="990" y1="245" x2="990" y2="290" class="line-main"/>
-        <line x1="70" y1="290" x2="990" y2="290" class="line-main"/>
+        <!-- الناقل الأفقي العريض وتفرعاته -->
+        <line x1="990" y1="245" x2="990" y2="290" class="rtv-line"/>
+        <line x1="70" y1="290" x2="990" y2="290" class="rtv-line"/>
 
-        <line x1="990" y1="290" x2="990" y2="320" class="line-main"/>
-        <line x1="840" y1="290" x2="840" y2="320" class="line-main"/>
-        <line x1="690" y1="290" x2="690" y2="320" class="line-main"/>
-        <line x1="550" y1="290" x2="550" y2="320" class="line-main"/>
-        <line x1="410" y1="290" x2="410" y2="320" class="line-main"/>
-        <line x1="270" y1="290" x2="270" y2="320" class="line-main"/>
-        <line x1="140" y1="290" x2="140" y2="320" class="line-main"/>
-        <line x1="140" y1="120" x2="140" y2="320" class="line-main"/>
+        <line x1="990" y1="290" x2="990" y2="320" class="rtv-line"/>
+        <line x1="840" y1="290" x2="840" y2="320" class="rtv-line"/>
+        <line x1="690" y1="290" x2="690" y2="320" class="rtv-line"/>
+        <line x1="550" y1="290" x2="550" y2="320" class="rtv-line"/>
+        <line x1="410" y1="290" x2="410" y2="320" class="rtv-line"/>
+        <line x1="270" y1="290" x2="270" y2="320" class="rtv-line"/>
+        <line x1="140" y1="290" x2="140" y2="320" class="rtv-line"/>
 
-        <line x1="70" y1="290" x2="70" y2="445" class="line-main"/>
-        <line x1="70" y1="445" x2="180" y2="445" class="line-main"/>
-        <line x1="110" y1="445" x2="110" y2="460" class="line-main"/>
-        <line x1="170" y1="445" x2="170" y2="460" class="line-main"/>
-        <line x1="110" y1="515" x2="110" y2="535" class="line-sub"/>
-        <line x1="170" y1="515" x2="170" y2="535" class="line-sub"/>
-        <line x1="110" y1="535" x2="170" y2="535" class="line-sub"/>
-        <line x1="140" y1="535" x2="140" y2="550" class="line-sub"/>
+        <line x1="140" y1="120" x2="140" y2="320" class="rtv-line"/>
 
-        <line x1="990" y1="375" x2="990" y2="400" class="line-sub"/>
-        <line x1="990" y1="400" x2="870" y2="400" class="line-sub"/>
-        <line x1="990" y1="400" x2="990" y2="415" class="line-sub"/>
-        <line x1="870" y1="400" x2="870" y2="415" class="line-sub"/>
-        <line x1="930" y1="475" x2="930" y2="500" class="line-sub"/>
-        <line x1="550" y1="375" x2="550" y2="445" class="line-sub"/>
+        <!-- خط هابط من الناقل إلى تدريب ميداني ومشروع تخرج -->
+        <line x1="70" y1="290" x2="70" y2="445" class="rtv-line"/>
+        <line x1="70" y1="445" x2="180" y2="445" class="rtv-line"/>
+        <line x1="110" y1="445" x2="110" y2="460" class="rtv-line"/>
+        <line x1="170" y1="445" x2="170" y2="460" class="rtv-line"/>
+        <line x1="110" y1="515" x2="110" y2="535" class="rtv-line"/>
+        <line x1="170" y1="515" x2="170" y2="535" class="rtv-line"/>
+        <line x1="110" y1="535" x2="170" y2="535" class="rtv-line"/>
+        <line x1="140" y1="535" x2="140" y2="550" class="rtv-line"/>
 
-        <rect x="890" y="75" width="200" height="45" class="bg-yellow"/>
-        <text x="990" y="103" class="box-title">مبادئ الإذاعة والتلفزيون</text>
+        <!-- خطوط تفرعات الإخراج -->
+        <line x1="990" y1="375" x2="990" y2="400" class="rtv-line"/>
+        <line x1="990" y1="400" x2="870" y2="400" class="rtv-line"/>
+        <line x1="990" y1="400" x2="990" y2="415" class="rtv-line"/>
+        <line x1="870" y1="400" x2="870" y2="415" class="rtv-line"/>
+        <line x1="930" y1="475" x2="930" y2="500" class="rtv-line"/>
 
-        <rect x="890" y="140" width="200" height="45" class="bg-yellow"/>
-        <text x="990" y="168" class="box-title">التصوير التلفزيوني و الإضاءة</text>
+        <line x1="550" y1="375" x2="550" y2="445" class="rtv-line"/>
 
-        <rect x="895" y="200" width="190" height="45" class="bg-yellow"/>
-        <text x="990" y="222" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">المونتاج الإلكتروني والتسجيل</text>
-        <text x="990" y="238" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الصوتي</text>
+        <!-- الصناديق -->
+        <!-- العمود الأيمن -->
+        <rect x="890" y="75" width="200" height="45" class="rtv-box"/>
+        <text x="990" y="103" class="rtv-title">مبادئ الإذاعة والتلفزيون</text>
 
-        <rect x="475" y="75" width="190" height="45" class="bg-yellow"/>
-        <text x="570" y="103" class="box-title">مبادئ العلاقات العامة</text>
+        <rect x="890" y="140" width="200" height="45" class="rtv-box"/>
+        <text x="990" y="168" class="rtv-title">التصوير التلفزيوني و الإضاءة</text>
 
-        <rect x="680" y="140" width="180" height="45" class="bg-yellow"/>
-        <text x="770" y="162" font-size="13.5" font-weight="bold" fill="#000" text-anchor="middle">فن الإلقاء الإذاعي</text>
-        <text x="770" y="178" font-size="13.5" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيوني</text>
+        <rect x="895" y="200" width="190" height="45" class="rtv-box"/>
+        <text x="990" y="222" font-size="13" class="rtv-text">المونتاج الإلكتروني والتسجيل</text>
+        <text x="990" y="238" font-size="13" class="rtv-text">الصوتي</text>
 
-        <rect x="475" y="140" width="190" height="45" class="bg-yellow"/>
-        <text x="570" y="162" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الكتابة و التحرير في الإذاعة</text>
-        <text x="570" y="178" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيون</text>
+        <!-- الوسط -->
+        <rect x="475" y="75" width="190" height="45" class="rtv-box"/>
+        <text x="570" y="103" class="rtv-title">مبادئ العلاقات العامة</text>
 
-        <rect x="50" y="75" width="180" height="45" class="bg-yellow"/>
-        <text x="140" y="103" class="box-title">مبادئ التحرير الصحفي</text>
+        <rect x="680" y="140" width="180" height="45" class="rtv-box"/>
+        <text x="770" y="162" font-size="13.5" class="rtv-text">فن الإلقاء الإذاعي</text>
+        <text x="770" y="178" font-size="13.5" class="rtv-text">والتلفزيوني</text>
 
-        <rect x="920" y="320" width="140" height="55" class="bg-yellow"/>
-        <text x="990" y="343" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الإخراج الإذاعي</text>
-        <text x="990" y="361" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيوني</text>
+        <rect x="475" y="140" width="190" height="45" class="rtv-box"/>
+        <text x="570" y="162" font-size="13" class="rtv-text">الكتابة و التحرير في الإذاعة</text>
+        <text x="570" y="178" font-size="13" class="rtv-text">والتلفزيون</text>
 
-        <rect x="930" y="415" width="120" height="60" class="bg-yellow"/>
-        <text x="990" y="442" font-size="16" font-weight="900" fill="#000" text-anchor="middle">الفيلم</text>
-        <text x="990" y="462" font-size="16" font-weight="900" fill="#000" text-anchor="middle">الوثائقي</text>
+        <!-- اليسار -->
+        <rect x="50" y="75" width="180" height="45" class="rtv-box"/>
+        <text x="140" y="103" class="rtv-title">مبادئ التحرير الصحفي</text>
 
-        <rect x="805" y="415" width="115" height="60" class="bg-yellow"/>
-        <text x="862" y="437" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">الصحافة</text>
-        <text x="862" y="452" font-size="11.5" font-weight="bold" fill="#000" text-anchor="middle">الاستقصائية في</text>
-        <text x="862" y="467" font-size="10.5" font-weight="bold" fill="#000" text-anchor="middle">الإذاعة والتلفزيون</text>
+        <!-- صف المواد المتفرعة -->
+        <rect x="920" y="320" width="140" height="55" class="rtv-box"/>
+        <text x="990" y="343" font-size="13" class="rtv-text">الإخراج الإذاعي</text>
+        <text x="990" y="361" font-size="13" class="rtv-text">والتلفزيوني</text>
 
-        <rect x="860" y="500" width="140" height="50" class="bg-yellow"/>
-        <text x="930" y="520" font-size="12.5" font-weight="bold" fill="#000" text-anchor="middle">إدارة المؤسسات</text>
-        <text x="930" y="538" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">الإذاعية و التلفزيونية</text>
+        <rect x="930" y="415" width="120" height="60" class="rtv-box"/>
+        <text x="990" y="442" font-size="16" font-weight="900" fill="#102a43" text-anchor="middle">الفيلم</text>
+        <text x="990" y="462" font-size="16" font-weight="900" fill="#102a43" text-anchor="middle">الوثائقي</text>
 
-        <rect x="785" y="320" width="110" height="55" class="bg-yellow"/>
-        <text x="840" y="343" font-size="12.5" font-weight="bold" fill="#000" text-anchor="middle">إعداد وإنتاج</text>
-        <text x="840" y="358" font-size="12.5" font-weight="bold" fill="#000" text-anchor="middle">البرامج</text>
-        <text x="840" y="371" font-size="11.5" font-weight="bold" fill="#000" text-anchor="middle">التلفزيونية</text>
+        <rect x="805" y="415" width="115" height="60" class="rtv-box"/>
+        <text x="862" y="437" font-size="12" class="rtv-text">الصحافة</text>
+        <text x="862" y="452" font-size="11.5" class="rtv-text">الاستقصائية في</text>
+        <text x="862" y="467" font-size="10.5" class="rtv-text">الإذاعة والتلفزيون</text>
 
-        <rect x="635" y="320" width="110" height="55" class="bg-yellow"/>
-        <text x="690" y="345" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">إعداد وإنتاج</text>
-        <text x="690" y="362" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">البرامج الإذاعية</text>
+        <rect x="860" y="500" width="140" height="50" class="rtv-box"/>
+        <text x="930" y="520" font-size="12.5" class="rtv-text">إدارة المؤسسات</text>
+        <text x="930" y="538" font-size="12" class="rtv-text">الإذاعية و التلفزيونية</text>
 
-        <rect x="495" y="320" width="110" height="55" class="bg-yellow"/>
-        <text x="550" y="345" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">إعلام متعدد</text>
-        <text x="550" y="362" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">وسائط</text>
+        <rect x="785" y="320" width="110" height="55" class="rtv-box"/>
+        <text x="840" y="343" font-size="12.5" class="rtv-text">إعداد وإنتاج</text>
+        <text x="840" y="358" font-size="12.5" class="rtv-text">البرامج</text>
+        <text x="840" y="371" font-size="11.5" class="rtv-text">التلفزيونية</text>
 
-        <rect x="485" y="445" width="130" height="50" class="bg-yellow"/>
-        <text x="550" y="466" font-size="12.5" font-weight="bold" fill="#000" text-anchor="middle">بحوث تطبيقية</text>
-        <text x="550" y="483" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">في الإذاعة والتلفزيون</text>
+        <rect x="635" y="320" width="110" height="55" class="rtv-box"/>
+        <text x="690" y="345" font-size="13" class="rtv-text">إعداد وإنتاج</text>
+        <text x="690" y="362" font-size="13" class="rtv-text">البرامج الإذاعية</text>
 
-        <rect x="485" y="495" width="130" height="20" fill="#fff" stroke="#94a3b8" stroke-width="1"/>
+        <rect x="495" y="320" width="110" height="55" class="rtv-box"/>
+        <text x="550" y="345" font-size="13" class="rtv-text">إعلام متعدد</text>
+        <text x="550" y="362" font-size="13" class="rtv-text">وسائط</text>
+
+        <rect x="485" y="445" width="130" height="50" class="rtv-box"/>
+        <text x="550" y="466" font-size="12.5" class="rtv-text">بحوث تطبيقية</text>
+        <text x="550" y="483" font-size="12" class="rtv-text">في الإذاعة والتلفزيون</text>
+
+        <rect x="485" y="495" width="130" height="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" rx="4"/>
         <text x="550" y="509" font-size="10" fill="#334155" text-anchor="middle">متطلب: مدخل بحث إعلامي</text>
 
-        <rect x="355" y="320" width="110" height="55" class="bg-yellow"/>
-        <text x="410" y="344" font-size="12.5" font-weight="bold" fill="#000" text-anchor="middle">فن المقابلة في</text>
-        <text x="410" y="359" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">الإذاعة</text>
-        <text x="410" y="371" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيون</text>
+        <rect x="355" y="320" width="110" height="55" class="rtv-box"/>
+        <text x="410" y="344" font-size="12.5" class="rtv-text">فن المقابلة في</text>
+        <text x="410" y="359" font-size="12" class="rtv-text">الإذاعة</text>
+        <text x="410" y="371" font-size="12" class="rtv-text">والتلفزيون</text>
 
-        <rect x="220" y="320" width="100" height="55" class="bg-yellow"/>
-        <text x="270" y="345" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الإعلان الإذاعي</text>
-        <text x="270" y="362" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيوني</text>
+        <rect x="220" y="320" width="100" height="55" class="rtv-box"/>
+        <text x="270" y="345" font-size="13" class="rtv-text">الإعلان الإذاعي</text>
+        <text x="270" y="362" font-size="13" class="rtv-text">والتلفزيوني</text>
 
-        <rect x="85" y="320" width="110" height="55" class="bg-yellow"/>
-        <text x="140" y="345" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الخبر الإذاعي</text>
-        <text x="140" y="362" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيوني</text>
+        <rect x="85" y="320" width="110" height="55" class="rtv-box"/>
+        <text x="140" y="345" font-size="13" class="rtv-text">الخبر الإذاعي</text>
+        <text x="140" y="362" font-size="13" class="rtv-text">والتلفزيوني</text>
 
-        <rect x="135" y="460" width="70" height="55" class="bg-yellow"/>
-        <text x="170" y="492" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">تدريب ميداني</text>
+        <!-- مواد التخرج والتدريب بالالوان الموحدة -->
+        <rect x="135" y="460" width="70" height="55" fill="#e0f2fe" stroke="#0284c7" rx="8"/>
+        <text x="170" y="492" font-size="12" font-weight="800" fill="#102a43" text-anchor="middle">تدريب ميداني</text>
 
-        <rect x="65" y="460" width="65" height="55" class="bg-yellow"/>
-        <text x="97" y="492" font-size="11.5" font-weight="bold" fill="#000" text-anchor="middle">مشروع تخرج</text>
+        <rect x="65" y="460" width="65" height="55" fill="#fee2e2" stroke="#dc2626" rx="8"/>
+        <text x="97" y="492" font-size="11.5" font-weight="800" fill="#102a43" text-anchor="middle">مشروع تخرج</text>
 
-        <rect x="55" y="550" width="150" height="28" class="bg-white"/>
-        <text x="130" y="569" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">المتطلب اجتياز 81 ساعة</text>
+        <rect x="55" y="550" width="150" height="28" fill="#f8fafc" stroke="#94a3b8" rx="6"/>
+        <text x="130" y="569" font-size="11" font-weight="bold" fill="#102a43" text-anchor="middle">المتطلب اجتياز 81 ساعة</text>
+
       </svg>
     </div>
 
