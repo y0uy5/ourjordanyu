@@ -1967,7 +1967,7 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    // جلب وعرض الكتب المتاحة
+// 1. جلب وعرض الكتب المتاحة مع دعم الطلبات المتعددة
     function loadBookOffers() {
       const grid = document.getElementById('booksGrid');
       if (!grid) return;
@@ -1984,18 +1984,19 @@
           snapshot.forEach((doc) => {
             const item = doc.data();
             const id = doc.id;
-            const isRequested = item.status === 'requested';
+            const requests = Array.isArray(item.requests) ? item.requests : (item.requesterPhone ? [item.requesterPhone] : []);
+            const reqCount = requests.length;
 
             html += `
               <div style="background: white; border-radius: 14px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <span style="font-size: 0.78rem; background: ${isRequested ? '#fef3c7' : '#e0f2fe'}; color: ${isRequested ? '#b45309' : '#0369a1'}; padding: 3px 8px; border-radius: 6px; font-weight: bold;">
-                      ${isRequested ? 'يوجد طلب تبادل قيد المراجعة' : 'متاح للتبادل'}
-                    </span>
                     <button onclick="checkOwnerStatus('${id}', '${item.pin}')" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: var(--primary-navy); padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; text-decoration: none;">
-  <i class="fa-solid fa-key" style="color: var(--accent-gold); font-size: 0.75rem;"></i> إدارة العرض
-</button>
+                      <i class="fa-solid fa-key" style="color: var(--accent-gold); font-size: 0.75rem;"></i> إدارة العرض
+                    </button>
+                    <span style="font-size: 0.78rem; background: ${reqCount > 0 ? '#fef3c7' : '#e0f2fe'}; color: ${reqCount > 0 ? '#b45309' : '#0369a1'}; padding: 3px 8px; border-radius: 6px; font-weight: bold;">
+                      ${reqCount > 0 ? `وصلك (${reqCount}) عروض تبادل` : 'متاح للتبادل'}
+                    </span>
                   </div>
                   
                   <div style="margin-bottom: 8px;">
@@ -2010,15 +2011,9 @@
                 </div>
 
                 <div>
-                  ${!isRequested ? `
-                    <button onclick="requestTrade('${id}')" style="width: 100%; padding: 8px 0; background: #0284c7; color: white; border: none; border-radius: 8px; font-family: inherit; font-size: 0.88rem; font-weight: bold; cursor: pointer;">
-                      لدي هذا الكتاب وأريد التبادل
-                    </button>
-                  ` : `
-                    <div style="text-align: center; font-size: 0.82rem; color: #b45309; padding: 6px; background: #fffbeb; border-radius: 6px;">
-                      تم إرسال طلب مبادلة بانتظار تواصل صاحب الكتاب
-                    </div>
-                  `}
+                  <button onclick="requestTrade('${id}')" style="width: 100%; padding: 8px 0; background: #0284c7; color: white; border: none; border-radius: 8px; font-family: inherit; font-size: 0.88rem; font-weight: bold; cursor: pointer;">
+                    لدي هذا الكتاب وأريد التبادل
+                  </button>
                 </div>
               </div>
             `;
@@ -2029,7 +2024,7 @@
         });
     }
 
-    // إضافة كتاب جديد
+    // 2. إضافة كتاب جديد
     async function handleCreateOffer(e) {
       e.preventDefault();
       const offeredBook = document.getElementById('offeredBook').value.trim();
@@ -2052,11 +2047,10 @@
           requestedBook: requestedBook,
           ownerPhone: phone,
           pin: pin,
-          status: 'available',
-          requesterPhone: '',
+          requests: [],
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
         });
-        alert('تم نشر عرضك بنجاح! احفظ رمز PIN الخاص بك لتتمكن من رؤية رقم من يطلب التبادل معك.');
+        alert('تم نشر عرضك بنجاح! احفظ رمز PIN لمراجعة طلبات الطلاب الواردة إليك.');
         document.getElementById('addBookForm').reset();
       } catch (err) {
         alert('حدث خطأ أثناء النشر: ' + err.message);
@@ -2066,23 +2060,22 @@
       }
     }
 
-    // طلب التبادل (الطالب ب)
+    // 3. طلب التبادل (الطالب ب - يمكن لأكثر من طالب إرسال رقمه)
     async function requestTrade(docId) {
-      const studentPhone = prompt('أدخل رقم هاتفك أو رابط الواتساب ليظهر لصاحب الكتاب ويتواصل معك:');
+      const studentPhone = prompt('أدخل رقم هاتفك أو رابط الواتساب ليصل لصاحب الكتاب ويتواصل معك:');
       if (!studentPhone || studentPhone.trim() === '') return;
 
       try {
         await db.collection('book_trades').doc(docId).update({
-          status: 'requested',
-          requesterPhone: studentPhone.trim()
+          requests: firebase.firestore.FieldValue.arrayUnion(studentPhone.trim())
         });
-        alert('تم إرسال طلبك بنجاح! صاحب الكتاب فقط هو من سيظهر له رقمك وسيتواصل معك قريباً.');
+        alert('تم إرسال رقمك لصاحب الإعلان بنجاح! سيتواصل معك في حال الموافقة.');
       } catch (err) {
         alert('خطأ في إرسال الطلب: ' + err.message);
       }
     }
 
-    // فحص صاحب الإعلان
+    // 4. فحص صاحب الإعلان (عرض جميع الأرقام الواردة)
     async function checkOwnerStatus(docId, correctPin) {
       const enteredPin = prompt('أدخل رمز الحماية PIN المكون من 4 أرقام:');
       if (enteredPin !== correctPin) {
@@ -2092,9 +2085,16 @@
 
       const doc = await db.collection('book_trades').doc(docId).get();
       const data = doc.data();
+      const requests = Array.isArray(data.requests) ? data.requests : (data.requesterPhone ? [data.requesterPhone] : []);
 
-      if (data.status === 'requested' && data.requesterPhone) {
-        const confirmDelete = confirm(`🎉 يوجد طالب يريد التبادل معك!\nرقم هاتفه للتواصل: ${data.requesterPhone}\n\nاضغط "موافق" لحذف الإعلان بعد إتمام التبادل، أو "إلغاء" لإبقائه.`);
+      if (requests.length > 0) {
+        let msg = `🎉 لديك (${requests.length}) عروض تبادل!\nأرقام الطلاب الراغبين بالتبادل:\n\n`;
+        requests.forEach((num, index) => {
+          msg += `${index + 1}- ${num}\n`;
+        });
+        msg += `\nاضغط "موافق" لحذف الإعلان بعد إتمام التبادل مع أحدهم، أو "إلغاء" لإبقاء الإعلان معروضاً.`;
+
+        const confirmDelete = confirm(msg);
         if (confirmDelete) {
           await db.collection('book_trades').doc(docId).delete();
           alert('تم حذف الإعلان بنجاح، مبارك التبادل!');
