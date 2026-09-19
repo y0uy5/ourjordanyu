@@ -2069,14 +2069,14 @@
 
     // 3. طلب التبادل (الطالب ب - يمكن لأكثر من طالب إرسال رقمه)
     async function requestTrade(docId) {
-      const studentPhone = prompt('أدخل رقم هاتفك أو رابط الواتساب ليصل لصاحب الكتاب ويتواصل معك:');
+      const studentPhone = prompt('أدخل رقم هاتفك لصاحب الكتاب ويتواصل معك:');
       if (!studentPhone || studentPhone.trim() === '') return;
 
       try {
         await db.collection('book_trades').doc(docId).update({
           requests: firebase.firestore.FieldValue.arrayUnion(studentPhone.trim())
         });
-        alert('تم إرسال رقمك لصاحب الإعلان بنجاح! سيتواصل معك في حال الموافقة.');
+        alert('رقمك وصل لصاحب الكتاب، إن شاء الله بيتواصل معك عن قريب!');
       } catch (err) {
         alert('خطأ في إرسال الطلب: ' + err.message);
       }
