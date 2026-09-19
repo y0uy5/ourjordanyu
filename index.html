@@ -871,42 +871,46 @@
   <!-- ================= القسم الثاني: الخرائط والخطط الأكاديمية ================= -->
 
   <!-- قسم خطة قسم الإذاعة والتلفزيون -->
+<!-- قسم خطط التخصصات -->
   <section id="plan" class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
     <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-      <h2 class="section-title">خطة قسم الإذاعة والتلفزيون</h2>
-      <p class="section-subtitle">المخطط الشجري المعتمد لطلبة كلية الإعلام</p>
+      <h2 class="section-title">خطط أقسام كلية الإعلام</h2>
+      <p class="section-subtitle">المخططات الشجرية المعتمدة لمسارات المواد والمتطلبات السابقة</p>
     </div>
 
-    <!-- لوحة الشجرة الرسومية المتكاملة بتقنية SVG -->
-    <div class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
-      
+    <!-- أزرار التبديل بين التخصصات -->
+    <div class="calc-tabs" style="justify-content: center; margin-bottom: 1.5rem;">
+      <button class="calc-tab active" id="btnPlanRtv" onclick="switchPlanTab('rtv')">
+        <i class="fa-solid fa-tv" style="margin-left: 6px;"></i> قسم الإذاعة والتلفزيون
+      </button>
+      <button class="calc-tab" id="btnPlanPra" onclick="switchPlanTab('pra')">
+        <i class="fa-solid fa-bullhorn" style="margin-left: 6px;"></i> قسم العلاقات العامة والإعلان
+      </button>
+    </div>
+
+    <!-- 1. شجرة الإذاعة والتلفزيون -->
+    <div id="planRtvView" class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
       <svg viewBox="0 0 1150 620" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
-        
         <defs>
           <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e293b" />
           </marker>
           <style>
             .box-title { font-size: 15px; font-weight: bold; fill: #000; text-anchor: middle; }
-            .box-sub { font-size: 11px; fill: #475569; text-anchor: middle; }
             .line-main { stroke: #1e293b; stroke-width: 2.5; fill: none; }
             .line-sub { stroke: #1e293b; stroke-width: 2; fill: none; }
             .bg-yellow { fill: #fef08a; stroke: #ca8a04; stroke-width: 1.5; rx: 4; }
             .bg-white { fill: #ffffff; stroke: #ca8a04; stroke-width: 1.5; rx: 4; }
-            .bg-alert { fill: #fef2f2; stroke: #f87171; stroke-width: 1; rx: 4; }
           </style>
         </defs>
 
-        <!-- عنوان الخطة داخل الرسم -->
         <rect x="425" y="10" width="300" height="42" fill="#fff" stroke="#94a3b8" stroke-width="1.5" rx="3"/>
         <text x="575" y="37" font-size="20" font-weight="900" fill="#000" text-anchor="middle">خطة قسم الإذاعة والتلفزيون</text>
 
-        <!-- الخطوط والروابط العلوية -->
         <line x1="990" y1="120" x2="990" y2="140" class="line-sub"/>
         <line x1="990" y1="185" x2="990" y2="200" class="line-sub"/>
         <line x1="910" y1="162" x2="680" y2="162" class="line-sub"/>
 
-        <!-- الناقل الأفقي العريض وتفرعاته -->
         <line x1="990" y1="245" x2="990" y2="290" class="line-main"/>
         <line x1="70" y1="290" x2="990" y2="290" class="line-main"/>
 
@@ -917,10 +921,8 @@
         <line x1="410" y1="290" x2="410" y2="320" class="line-main"/>
         <line x1="270" y1="290" x2="270" y2="320" class="line-main"/>
         <line x1="140" y1="290" x2="140" y2="320" class="line-main"/>
-
         <line x1="140" y1="120" x2="140" y2="320" class="line-main"/>
 
-        <!-- خط هابط من الناقل إلى تدريب ميداني ومشروع تخرج -->
         <line x1="70" y1="290" x2="70" y2="445" class="line-main"/>
         <line x1="70" y1="445" x2="180" y2="445" class="line-main"/>
         <line x1="110" y1="445" x2="110" y2="460" class="line-main"/>
@@ -930,17 +932,13 @@
         <line x1="110" y1="535" x2="170" y2="535" class="line-sub"/>
         <line x1="140" y1="535" x2="140" y2="550" class="line-sub"/>
 
-        <!-- خطوط تفرعات الإخراج -->
         <line x1="990" y1="375" x2="990" y2="400" class="line-sub"/>
         <line x1="990" y1="400" x2="870" y2="400" class="line-sub"/>
         <line x1="990" y1="400" x2="990" y2="415" class="line-sub"/>
         <line x1="870" y1="400" x2="870" y2="415" class="line-sub"/>
         <line x1="930" y1="475" x2="930" y2="500" class="line-sub"/>
-
         <line x1="550" y1="375" x2="550" y2="445" class="line-sub"/>
 
-        <!-- الصناديق -->
-        <!-- العمود الأيمن -->
         <rect x="890" y="75" width="200" height="45" class="bg-yellow"/>
         <text x="990" y="103" class="box-title">مبادئ الإذاعة والتلفزيون</text>
 
@@ -951,7 +949,6 @@
         <text x="990" y="222" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">المونتاج الإلكتروني والتسجيل</text>
         <text x="990" y="238" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الصوتي</text>
 
-        <!-- الوسط -->
         <rect x="475" y="75" width="190" height="45" class="bg-yellow"/>
         <text x="570" y="103" class="box-title">مبادئ العلاقات العامة</text>
 
@@ -963,11 +960,9 @@
         <text x="570" y="162" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الكتابة و التحرير في الإذاعة</text>
         <text x="570" y="178" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيون</text>
 
-        <!-- اليسار -->
         <rect x="50" y="75" width="180" height="45" class="bg-yellow"/>
         <text x="140" y="103" class="box-title">مبادئ التحرير الصحفي</text>
 
-        <!-- صف المواد المتفرعة -->
         <rect x="920" y="320" width="140" height="55" class="bg-yellow"/>
         <text x="990" y="343" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الإخراج الإذاعي</text>
         <text x="990" y="361" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيوني</text>
@@ -1018,7 +1013,6 @@
         <text x="140" y="345" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">الخبر الإذاعي</text>
         <text x="140" y="362" font-size="13" font-weight="bold" fill="#000" text-anchor="middle">والتلفزيوني</text>
 
-        <!-- مواد التخرج والمتطلب -->
         <rect x="135" y="460" width="70" height="55" class="bg-yellow"/>
         <text x="170" y="492" font-size="12" font-weight="bold" fill="#000" text-anchor="middle">تدريب ميداني</text>
 
@@ -1027,10 +1021,165 @@
 
         <rect x="55" y="550" width="150" height="28" class="bg-white"/>
         <text x="130" y="569" font-size="11" font-weight="bold" fill="#000" text-anchor="middle">المتطلب اجتياز 81 ساعة</text>
+      </svg>
+    </div>
 
+    <!-- 2. شجرة العلاقات العامة والإعلان -->
+    <div id="planPraView" class="tree-canvas-wrapper" style="display: none; background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
+      <svg viewBox="0 0 1150 780" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
+        <defs>
+          <marker id="arrow-pra" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#102a43" />
+          </marker>
+          <style>
+            .pra-title { font-size: 13.5px; font-weight: 800; fill: #102a43; text-anchor: middle; }
+            .pra-code { font-size: 11px; font-weight: bold; fill: #c92a2a; text-anchor: middle; }
+            .pra-box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 8; }
+            .pra-line { stroke: #102a43; stroke-width: 2; fill: none; }
+          </style>
+        </defs>
+
+        <!-- عنوان الشجرة -->
+        <rect x="375" y="12" width="400" height="42" fill="#102a43" rx="8"/>
+        <text x="575" y="39" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle">خطة قسم العلاقات العامة والإعلان</text>
+
+        <!-- المسار 1: الإعلان (يسار) -->
+        <rect x="40" y="80" width="160" height="52" class="pra-box"/>
+        <text x="120" y="103" class="pra-title">مدخل إلى الإعلان</text>
+        <text x="120" y="122" class="pra-code">PRA 122</text>
+
+        <line x1="120" y1="132" x2="120" y2="180" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="40" y="180" width="160" height="52" class="pra-box"/>
+        <text x="120" y="203" class="pra-title">تصميم الإعلان</text>
+        <text x="120" y="222" class="pra-code">PRA 342</text>
+
+        <!-- المسار 2: الاتصال والبحوث (الوسط) -->
+        <rect x="480" y="80" width="190" height="52" class="pra-box"/>
+        <text x="575" y="103" class="pra-title">مدخل في الاتصال</text>
+        <text x="575" y="122" class="pra-code">JRN 101</text>
+
+        <line x1="535" y1="132" x2="430" y2="180" class="pra-line" marker-end="url(#arrow-pra)"/>
+        <line x1="615" y1="132" x2="720" y2="180" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="345" y="180" width="170" height="52" class="pra-box"/>
+        <text x="430" y="203" class="pra-title">نظريات إعلامية</text>
+        <text x="430" y="222" class="pra-code">RTV 201</text>
+
+        <rect x="635" y="180" width="170" height="52" class="pra-box"/>
+        <text x="720" y="203" class="pra-title">مدخل في البحث</text>
+        <text x="720" y="222" class="pra-code">PRA 201</text>
+
+        <line x1="680" y1="232" x2="615" y2="280" class="pra-line" marker-end="url(#arrow-pra)"/>
+        <line x1="760" y1="232" x2="825" y2="280" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="535" y="280" width="160" height="52" class="pra-box"/>
+        <text x="615" y="303" class="pra-title">الرأي العام</text>
+        <text x="615" y="322" class="pra-code">PRA 211</text>
+
+        <rect x="745" y="280" width="160" height="52" class="pra-box"/>
+        <text x="825" y="303" class="pra-title">بحوث تطبيقية</text>
+        <text x="825" y="322" class="pra-code">PRA 444</text>
+
+        <!-- المسار 3: التحرير الصحفي (يمين) -->
+        <rect x="940" y="80" width="170" height="52" class="pra-box"/>
+        <text x="1025" y="103" class="pra-title">مبادئ التحرير الصحفي</text>
+        <text x="1025" y="122" class="pra-code">JRN 111</text>
+
+        <line x1="990" y1="132" x2="930" y2="180" class="pra-line" marker-end="url(#arrow-pra)"/>
+        <line x1="1060" y1="132" x2="1080" y2="180" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="850" y="180" width="150" height="52" class="pra-box"/>
+        <text x="925" y="203" class="pra-title">الخبر الصحفي</text>
+        <text x="925" y="222" class="pra-code">JRN 221</text>
+
+        <rect x="1020" y="180" width="120" height="52" class="pra-box"/>
+        <text x="1080" y="203" class="pra-title">الكتابة</text>
+        <text x="1080" y="222" class="pra-code">PRA 244</text>
+
+        <line x1="1080" y1="232" x2="1030" y2="280" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="945" y="280" width="170" height="52" class="pra-box"/>
+        <text x="1030" y="303" class="pra-title">تصميم مطبوعات</text>
+        <text x="1030" y="322" class="pra-code">PRA 243</text>
+
+        <!-- مواد منفردة علوية -->
+        <rect x="250" y="80" width="180" height="52" fill="#fef3c7" stroke="#d97706" rx="8"/>
+        <text x="340" y="103" class="pra-title">مبادئ العلاقات العامة</text>
+        <text x="340" y="122" class="pra-code">PRA 112</text>
+
+        <!-- المسار 4: الإنجليزية ومواد التخرج -->
+        <rect x="100" y="320" width="220" height="52" class="pra-box"/>
+        <text x="210" y="343" class="pra-title">مهارات إعلامية بالإنجليزية</text>
+        <text x="210" y="362" class="pra-code">JRN 102</text>
+
+        <line x1="210" y1="372" x2="210" y2="420" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="100" y="420" width="220" height="52" class="pra-box"/>
+        <text x="210" y="443" class="pra-title">قراءات ع.ع بالإنجليزية</text>
+        <text x="210" y="462" class="pra-code">PRA 222</text>
+
+        <!-- مواد التخرج والتدريب (الوسط السفلي) -->
+        <rect x="495" y="380" width="160" height="52" fill="#e0f2fe" stroke="#0284c7" rx="8"/>
+        <text x="575" y="403" class="pra-title">تدريب ميداني</text>
+        <text x="575" y="422" class="pra-code">PRA 343</text>
+
+        <line x1="575" y1="432" x2="575" y2="480" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="495" y="480" width="160" height="52" fill="#fee2e2" stroke="#dc2626" rx="8"/>
+        <text x="575" y="503" class="pra-title">مشروع التخرج</text>
+        <text x="575" y="522" class="pra-code">PRA 442</text>
+
+        <rect x="750" y="380" width="150" height="50" fill="#fef9c3" stroke="#ca8a04" rx="8"/>
+        <text x="825" y="403" class="pra-title">مبادئ إذاعة</text>
+        <text x="825" y="422" class="pra-code">RTV 111</text>
+
+        <!-- المسارات السفلية الأفقية المتسلسلة -->
+        <line x1="260" y1="565" x2="190" y2="565" class="pra-line" marker-end="url(#arrow-pra)"/>
+        <rect x="260" y="540" width="210" height="52" class="pra-box"/>
+        <text x="365" y="563" class="pra-title">العلاقات العامة والصورة الذهنية</text>
+        <text x="365" y="582" class="pra-code">PRA 333</text>
+
+        <rect x="30" y="540" width="160" height="52" class="pra-box"/>
+        <text x="110" y="563" class="pra-title">الإتصال الإقناعي</text>
+        <text x="110" y="582" class="pra-code">PRA 331</text>
+
+        <line x1="930" y1="565" x2="860" y2="565" class="pra-line" marker-end="url(#arrow-pra)"/>
+        <line x1="700" y1="565" x2="630" y2="565" class="pra-line" marker-end="url(#arrow-pra)"/>
+
+        <rect x="930" y="540" width="180" height="52" class="pra-box"/>
+        <text x="1020" y="563" class="pra-title">العلاقات العامة الدولية</text>
+        <text x="1020" y="582" class="pra-code">PAR 421</text>
+
+        <rect x="700" y="540" width="160" height="52" class="pra-box"/>
+        <text x="780" y="563" class="pra-title">الإدارة الإستراتيجية</text>
+        <text x="780" y="582" class="pra-code">PAR 332</text>
+
+        <rect x="460" y="540" width="170" height="52" class="pra-box"/>
+        <text x="545" y="563" class="pra-title">إعداد وتنفيذ حملات ع.ع</text>
+        <text x="545" y="582" class="pra-code">PAR 434</text>
+
+        <!-- صندوق مساقات بلا متطلب سابق -->
+        <rect x="50" y="650" width="1050" height="90" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,6" rx="12"/>
+        <rect x="475" y="635" width="200" height="28" fill="#102a43" rx="6"/>
+        <text x="575" y="654" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">مساقات بلا متطلب سابق</text>
+
+        <rect x="130" y="675" width="220" height="48" fill="#ffffff" stroke="#cbd5e1" rx="8"/>
+        <text x="240" y="696" class="pra-title">العلاقات العامة وإدارة الأزمات</text>
+        <text x="240" y="713" class="pra-code">PRA 231</text>
+
+        <rect x="465" y="675" width="220" height="48" fill="#ffffff" stroke="#cbd5e1" rx="8"/>
+        <text x="575" y="696" class="pra-title">العلاقات العامة الرقمية</text>
+        <text x="575" y="713" class="pra-code">PRA 313</text>
+
+        <rect x="800" y="675" width="220" height="48" fill="#ffffff" stroke="#cbd5e1" rx="8"/>
+        <text x="910" y="696" class="pra-title">الاتصال التنظيمي</text>
+        <text x="910" y="713" class="pra-code">PRA 256</text>
       </svg>
     </div>
   </section>
+
+
 
   <!-- قسم خرائط الحرم الجامعي والمرافق -->
   <section id="campus-map" class="container" style="padding-top: 2rem; padding-bottom: 2.5rem;">
