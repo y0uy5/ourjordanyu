@@ -1952,7 +1952,12 @@
 <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
 
 <script>
-  // تهيئة Firebase باستخدام المفاتيح المسجلة
+<!-- تحميل مكتبات Firebase المتوافقة -->
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 1. إعداد وتهيئة Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyBVMyWsdxknQvNyycyxJXVc5Yr4vLIdjo8",
     authDomain: "yu-media-books.firebaseapp.com",
@@ -1962,12 +1967,16 @@
     appId: "1:567326524295:web:b74ff655954ea959b20922"
   };
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  var db = firebase.firestore();
 
-  // جلب العروض وعرضها في المنصة
+  // 2. دالة جلب العروض من قاعدة البيانات
   function loadBookOffers() {
     const grid = document.getElementById('booksGrid');
+    if (!grid) return;
+
     db.collection('book_trades')
       .orderBy('createdAt', 'desc')
       .onSnapshot((snapshot) => {
@@ -2020,10 +2029,12 @@
           `;
         });
         grid.innerHTML = html;
+      }, (error) => {
+        console.error("Firestore error:", error);
       });
   }
 
-  // إضافة عرض جديد
+  // 3. إضافة عرض جديد
   async function handleCreateOffer(e) {
     e.preventDefault();
     const offeredBook = document.getElementById('offeredBook').value.trim();
@@ -2060,7 +2071,7 @@
     }
   }
 
-  // طلب التبادل (الطالب ب)
+  // 4. طلب التبادل (الطالب ب)
   async function requestTrade(docId) {
     const studentPhone = prompt('أدخل رقم هاتفك أو رابط الواتساب ليظهر لصاحب الكتاب ويتواصل معك:');
     if (!studentPhone || studentPhone.trim() === '') return;
@@ -2076,7 +2087,7 @@
     }
   }
 
-  // فحص صاحب الإعلان بالرمز السري PIN (الطالب أ)
+  // 5. فحص صاحب الإعلان بالرمز السري PIN (الطالب أ)
   async function checkOwnerStatus(docId, correctPin) {
     const enteredPin = prompt('أدخل رمز الحماية PIN (المكون من 4 أرقام) الخاص بإعلانك:');
     if (enteredPin !== correctPin) {
@@ -2091,7 +2102,7 @@
       const confirmDelete = confirm(`🎉 يوجد طالب يريد التبادل معك!\nرقم هاتفه للتواصل: ${data.requesterPhone}\n\nاضغط "موافق" لحذف الإعلان بعد إتمام التبادل، أو "إلغاء" لإبقائه.`);
       if (confirmDelete) {
         await db.collection('book_trades').doc(docId).delete();
-        alert('تم حذف الإعلان بنجاح مبارك التبادل!');
+        alert('تم حذف الإعلان بنجاح، مبارك التبادل!');
       }
     } else {
       const del = confirm('لم يقم أي طالب بطلب التبادل حتى الآن.\nهل ترغب في حذف إعلانك؟');
@@ -2102,8 +2113,8 @@
     }
   }
 
-  // بدء تشغيل استماع البيانات فور فتح الصفحة
+  // بدء الاستماع فور فتح الصفحة
   window.addEventListener('DOMContentLoaded', loadBookOffers);
-  </script>
+</script>
 </body>
 </html>
