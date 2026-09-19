@@ -1917,7 +1917,24 @@
       if (btn2) btn2.classList.toggle('active', sem === 'sem2');
       if (btnSummer) btnSummer.classList.toggle('active', sem === 'summer');
     }
+function switchPlanTab(dept) {
+      var rtvView = document.getElementById('planRtvView');
+      var praView = document.getElementById('planPraView');
+      var btnRtv = document.getElementById('btnPlanRtv');
+      var btnPra = document.getElementById('btnPlanPra');
 
+      if (dept === 'rtv') {
+        rtvView.style.display = 'block';
+        praView.style.display = 'none';
+        btnRtv.classList.add('active');
+        btnPra.classList.remove('active');
+      } else {
+        rtvView.style.display = 'none';
+        praView.style.display = 'block';
+        btnPra.classList.add('active');
+        btnRtv.classList.remove('active');
+      }
+    }
     function checkGradeStatus() {
   const input = document.getElementById('quickGpaInput').value;
   const resultBox = document.getElementById('gradeResultBox');
