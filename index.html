@@ -888,7 +888,7 @@
       </button>
     </div>
 
-<!-- 1. شجرة الإذاعة والتلفزيون (مطابقة تماماً للصورة الأصلية) -->
+<!-- 1. شجرة الإذاعة والتلفزيون (مصححة ومطابقة للخطة الرسمية 100%) -->
     <div id="planRtvView" class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
       <svg viewBox="0 0 1150 680" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
         <defs>
@@ -917,31 +917,35 @@
         <rect x="80" y="75" width="180" height="48" class="rtv-box"/>
         <text x="170" y="104" class="rtv-title">مبادئ التحرير الصحفي</text>
 
-        <!-- تفرعات الصف الثاني العلوي (اليمين) -->
+        <!-- تفريعات عمود الإذاعة (التصوير والمونتاج) -->
         <line x1="960" y1="123" x2="960" y2="150" class="rtv-line"/>
         <rect x="860" y="150" width="200" height="48" class="rtv-box"/>
         <text x="960" y="179" class="rtv-title">التصوير التلفزيوني والإضاءة</text>
 
-        <line x1="960" y1="198" x2="960" y2="220" class="rtv-line"/>
-        <rect x="860" y="220" width="200" height="48" class="rtv-box"/>
-        <text x="960" y="242" font-size="12.5" class="rtv-text">المونتاج الإلكتروني والتسجيل</text>
-        <text x="960" y="258" font-size="12.5" class="rtv-text">الصوتي</text>
+        <line x1="960" y1="198" x2="960" y2="225" class="rtv-line"/>
+        <rect x="860" y="225" width="200" height="48" class="rtv-box"/>
+        <text x="960" y="247" font-size="12.5" class="rtv-text">المونتاج الإلكتروني والتسجيل</text>
+        <text x="960" y="263" font-size="12.5" class="rtv-text">الصوتي</text>
 
-        <!-- تفرعات الصف الثاني العلوي (الوسط) -->
-        <line x1="530" y1="123" x2="530" y2="150" class="rtv-line"/>
-        <rect x="440" y="150" width="180" height="48" class="rtv-box"/>
-        <text x="530" y="172" font-size="12" class="rtv-text">الكتابة والتحرير في الإذاعة</text>
-        <text x="530" y="188" font-size="12" class="rtv-text">والتلفزيون</text>
+        <!-- الكتابة والتحرير (تحت مبادئ العلاقات العامة) -->
+        <line x1="530" y1="123" x2="530" y2="187" class="rtv-line"/>
+        <rect x="440" y="187" width="180" height="48" class="rtv-box"/>
+        <text x="530" y="209" font-size="12" class="rtv-text">الكتابة والتحرير في الإذاعة</text>
+        <text x="530" y="225" font-size="12" class="rtv-text">والتلفزيون</text>
 
-        <line x1="620" y1="174" x2="680" y2="174" class="rtv-line"/>
-        <rect x="680" y="150" width="135" height="48" class="rtv-box"/>
-        <text x="747" y="172" font-size="11.5" class="rtv-text">فن الإلقاء الإذاعي</text>
-        <text x="747" y="188" font-size="11.5" class="rtv-text">والتلفزيوني</text>
+        <!-- فن الإلقاء (متصل أفقياً بالكتابة من جهة وبخط التصوير/المونتاج من جهة أخرى) -->
+        <rect x="670" y="187" width="145" height="48" class="rtv-box"/>
+        <text x="742" y="209" font-size="11.5" class="rtv-text">فن الإلقاء الإذاعي</text>
+        <text x="742" y="225" font-size="11.5" class="rtv-text">والتلفزيوني</text>
 
-        <!-- مدخل في اتصال (في المنتصف تحته سهم متجه للأسفل لـ فن المقابلة) -->
+        <!-- خطوط الربط الأفقي الدقيقة بين الكتابة وفن الإلقاء وعمود التصوير -->
+        <line x1="620" y1="211" x2="670" y2="211" class="rtv-line"/>
+        <line x1="815" y1="211" x2="960" y2="211" class="rtv-line"/>
+
+        <!-- مدخل في اتصال -->
         <rect x="250" y="190" width="160" height="48" class="rtv-box"/>
         <text x="330" y="219" class="rtv-title">مدخل في اتصال</text>
-        <line x1="330" y1="238" x2="330" y2="290" class="rtv-line"/>
+        <line x1="330" y1="238" x2="430" y2="290" class="rtv-line"/>
 
         <!-- الناقل الأفقي الرئيسي -->
         <line x1="960" y1="290" x2="960" y2="320" class="rtv-line"/>
@@ -1016,26 +1020,27 @@
         <text x="320" y="534" font-size="11.5" class="rtv-text">في الإذاعة</text>
         <text x="320" y="548" font-size="11.5" class="rtv-text">والتلفزيون</text>
 
-        <!-- تفريعات اليسار (تدريب ومشروع تخرج) -->
+        <!-- تفريعات اليسار (تدريب ميداني ومشروع تخرج)[cite: 16] -->
         <line x1="60" y1="290" x2="60" y2="445" class="rtv-line"/>
         <line x1="60" y1="445" x2="160" y2="445" class="rtv-line"/>
         
-        <rect x="90" y="460" width="80" height="48" fill="#e0f2fe" stroke="#0284c7" rx="6"/>
-        <text x="130" y="489" font-size="11.5" font-weight="800" fill="#102a43" text-anchor="middle">تدريب ميداني</text>
+        <rect x="15" y="460" width="80" height="48" fill="#e0f2fe" stroke="#0284c7" rx="6"/>
+        <text x="55" y="489" font-size="11" font-weight="800" fill="#102a43" text-anchor="middle">تدريب ميداني</text>
 
-        <rect x="5" y="460" width="80" height="48" fill="#fee2e2" stroke="#dc2626" rx="6"/>
-        <text x="45" y="489" font-size="11" font-weight="800" fill="#102a43" text-anchor="middle">مشروع تخرج</text>
+        <rect x="100" y="460" width="80" height="48" fill="#fee2e2" stroke="#dc2626" rx="6"/>
+        <text x="140" y="489" font-size="10.5" font-weight="800" fill="#102a43" text-anchor="middle">مشروع تخرج</text>
 
-        <line x1="45" y1="508" x2="45" y2="530" class="rtv-line"/>
-        <line x1="130" y1="508" x2="130" y2="530" class="rtv-line"/>
+        <line x1="55" y1="508" x2="55" y2="530" class="rtv-line"/>
+        <line x1="140" y1="508" x2="140" y2="530" class="rtv-line"/>
         <line x1="45" y1="530" x2="130" y2="530" class="rtv-line"/>
-        <line x1="87" y1="530" x2="87" y2="545" class="rtv-line"/>
+        <line x1="97" y1="530" x2="97" y2="545" class="rtv-line"/>
 
-        <rect x="17" y="545" width="140" height="28" fill="#f8fafc" stroke="#94a3b8" rx="6"/>
-        <text x="87" y="564" font-size="11" font-weight="bold" fill="#102a43" text-anchor="middle">المتطلب اجتياز 81 ساعة</text>
+        <rect x="27" y="545" width="140" height="28" fill="#f8fafc" stroke="#94a3b8" rx="6"/>
+        <text x="97" y="564" font-size="11" font-weight="bold" fill="#102a43" text-anchor="middle">المتطلب اجتياز 81 ساعة</text>
 
       </svg>
     </div>
+
 
 
 <!-- 2. شجرة العلاقات العامة والإعلان (المطابقة حرفياً للصورة الأصلية) -->
