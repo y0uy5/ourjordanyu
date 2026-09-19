@@ -1952,12 +1952,12 @@
 <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
 
 <script>
-<!-- تحميل مكتبات Firebase المتوافقة -->
-<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+<!-- تحميل مكتبات Firebase الأساسية المباشرة -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
 <script>
-  // 1. إعداد وتهيئة Firebase
+  // تهيئة Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyBVMyWsdxknQvNyycyxJXVc5Yr4vLIdjo8",
     authDomain: "yu-media-books.firebaseapp.com",
@@ -1967,12 +1967,10 @@
     appId: "1:567326524295:web:b74ff655954ea959b20922"
   };
 
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-  var db = firebase.firestore();
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
 
-  // 2. دالة جلب العروض من قاعدة البيانات
+  // جلب وعرض الكتب المتاحة
   function loadBookOffers() {
     const grid = document.getElementById('booksGrid');
     if (!grid) return;
@@ -2029,12 +2027,12 @@
           `;
         });
         grid.innerHTML = html;
-      }, (error) => {
-        console.error("Firestore error:", error);
+      }, (err) => {
+        console.error("Firestore Read Error:", err);
       });
   }
 
-  // 3. إضافة عرض جديد
+  // إضافة كتاب جديد
   async function handleCreateOffer(e) {
     e.preventDefault();
     const offeredBook = document.getElementById('offeredBook').value.trim();
@@ -2044,7 +2042,7 @@
     const btn = document.getElementById('submitOfferBtn');
 
     if (pin.length !== 4) {
-      alert('يرجى كتابة رمز PIN مكون من 4 أرقام بالضبط');
+      alert('يرجى كتابة رمز PIN مكون من 4 أرقام');
       return;
     }
 
@@ -2071,7 +2069,7 @@
     }
   }
 
-  // 4. طلب التبادل (الطالب ب)
+  // طلب التبادل (الطالب ب)
   async function requestTrade(docId) {
     const studentPhone = prompt('أدخل رقم هاتفك أو رابط الواتساب ليظهر لصاحب الكتاب ويتواصل معك:');
     if (!studentPhone || studentPhone.trim() === '') return;
@@ -2087,9 +2085,9 @@
     }
   }
 
-  // 5. فحص صاحب الإعلان بالرمز السري PIN (الطالب أ)
+  // فحص صاحب الإعلان
   async function checkOwnerStatus(docId, correctPin) {
-    const enteredPin = prompt('أدخل رمز الحماية PIN (المكون من 4 أرقام) الخاص بإعلانك:');
+    const enteredPin = prompt('أدخل رمز الحماية PIN المكون من 4 أرقام:');
     if (enteredPin !== correctPin) {
       alert('رمز PIN غير صحيح!');
       return;
@@ -2113,7 +2111,6 @@
     }
   }
 
-  // بدء الاستماع فور فتح الصفحة
   window.addEventListener('DOMContentLoaded', loadBookOffers);
 </script>
 </body>
