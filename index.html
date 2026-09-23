@@ -645,8 +645,8 @@
       .course-row { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ===================================================
-       قواعد الوضع المظلم الشاملة والمعالجة (Dark Mode)
+/* ===================================================
+       إصلاحات الدارك مود النهائية والشاملة
        =================================================== */
 
     body.dark-theme {
@@ -703,6 +703,7 @@
       color: #38bdf8 !important;
     }
 
+    /* 1. إصلاح التقويم وصف التخريج والعطلات */
     body.dark-theme table { color: #cbd5e1 !important; }
 
     body.dark-theme .academic-table th {
@@ -720,8 +721,20 @@
       background-color: #0d2233 !important; 
     }
 
+    /* حل مشكلة صف حفل التخريج */
+    body.dark-theme tr[style*="background: #fefce8"],
+    body.dark-theme tr[style*="background:#fefce8"] {
+      background-color: rgba(245, 159, 0, 0.15) !important;
+    }
+    body.dark-theme tr[style*="background: #fefce8"] td,
+    body.dark-theme tr[style*="background:#fefce8"] td {
+      color: #fcd34d !important;
+    }
+
+    /* صفوف العطلات الرسمية */
     body.dark-theme .row-holiday,
-    body.dark-theme tr[style*="background: #fff1f2"] {
+    body.dark-theme tr[style*="background: #fff1f2"],
+    body.dark-theme tr[style*="background:#fff1f2"] {
       background-color: rgba(225, 29, 72, 0.18) !important;
     }
     body.dark-theme .row-holiday td,
@@ -730,6 +743,7 @@
       color: #fb7185 !important;
     }
 
+    /* صفوف الامتحانات */
     body.dark-theme .row-exam,
     body.dark-theme tr[style*="background: #fef2f2"],
     body.dark-theme tr[style*="background: #fffbeb"] {
@@ -742,27 +756,41 @@
       color: #fcd34d !important;
     }
 
-    body.dark-theme svg .rtv-box,
-    body.dark-theme svg .pra-box {
+    /* 2. إصلاح شجرات المواد التفاعلية (SVG) بالكامل */
+    body.dark-theme svg rect:not([fill="#102a43"]):not([fill="#d97706"]):not([fill="#fee2e2"]):not([fill="#e0f2fe"]) {
       fill: #112d45 !important;
       stroke: #255d8a !important;
     }
 
-    body.dark-theme svg .rtv-title,
-    body.dark-theme svg .pra-title,
-    body.dark-theme svg .rtv-text {
+    /* إجبار كل النصوص داخل الـ SVG أن تكون بيضاء واضحة */
+    body.dark-theme svg text {
       fill: #ffffff !important;
     }
 
-    body.dark-theme svg .rtv-line,
-    body.dark-theme svg .pra-line {
-      stroke: #38bdf8 !important;
+    /* نصوص أكواد المواد تكون ذهبية مضيئة وواضحة */
+    body.dark-theme svg .pra-code {
+      fill: #fbbf24 !important;
     }
 
+    /* صناديق مشاريع التخرج والتدريب الميداني */
+    body.dark-theme svg rect[fill="#e0f2fe"] {
+      fill: #0c4a6e !important;
+      stroke: #0284c7 !important;
+    }
+    body.dark-theme svg rect[fill="#fee2e2"] {
+      fill: #4c0519 !important;
+      stroke: #e11d48 !important;
+    }
+
+    /* خطوط وأسهم التوصيل */
+    body.dark-theme svg line {
+      stroke: #38bdf8 !important;
+    }
     body.dark-theme svg marker path {
       fill: #38bdf8 !important;
     }
 
+    /* 3. عناصر الإدخال والأزرار */
     body.dark-theme input,
     body.dark-theme select,
     body.dark-theme .calc-input {
