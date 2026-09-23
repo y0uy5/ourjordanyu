@@ -646,20 +646,20 @@
     }
 
 /* ===================================================
-       إصلاحات الدارك مود النهائية والشاملة
+       الوضع المظلم باللون الأسود الحقيقي (True Black / OLED)
        =================================================== */
 
     body.dark-theme {
-      background-color: #081622 !important;
+      background-color: #000000 !important;
       color: #e2e8f0 !important;
     }
 
     body.dark-theme #pillars {
-      background: #06111a !important;
+      background: #000000 !important;
     }
 
     body.dark-theme .navbar {
-      background: rgba(8, 22, 34, 0.96) !important;
+      background: rgba(0, 0, 0, 0.95) !important;
       border-bottom: 2px solid var(--accent-red) !important;
     }
 
@@ -679,9 +679,10 @@
     body.dark-theme p,
     body.dark-theme .section-subtitle,
     body.dark-theme small {
-      color: #94b5cb !important;
+      color: #a1a1aa !important;
     }
 
+    /* الصناديق والكروت (رمادي داكن جداً لتمييزها عن الخلفية السوداء) */
     body.dark-theme .calc-wrapper,
     body.dark-theme .card,
     body.dark-theme .admin-card,
@@ -693,9 +694,9 @@
     body.dark-theme [style*="background:white"],
     body.dark-theme [style*="background: #fff"],
     body.dark-theme [style*="background:#fff"] {
-      background: #0f273b !important;
-      border-color: #1a4261 !important;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+      background: #121212 !important;
+      border-color: #27272a !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
       color: #e2e8f0 !important;
     }
 
@@ -703,25 +704,24 @@
       color: #38bdf8 !important;
     }
 
-    /* 1. إصلاح التقويم وصف التخريج والعطلات */
+    /* 1. التقويم الجامعي */
     body.dark-theme table { color: #cbd5e1 !important; }
 
     body.dark-theme .academic-table th {
-      background-color: #091a27 !important;
+      background-color: #18181b !important;
       color: #ffffff !important;
-      border-bottom: 2px solid #1a4261 !important;
+      border-bottom: 2px solid #27272a !important;
     }
 
     body.dark-theme .academic-table td {
-      border-bottom: 1px solid #14354e !important;
+      border-bottom: 1px solid #1f1f22 !important;
       color: #cbd5e1 !important;
     }
 
     body.dark-theme .academic-table tr:hover { 
-      background-color: #0d2233 !important; 
+      background-color: #18181b !important; 
     }
 
-    /* حل مشكلة صف حفل التخريج */
     body.dark-theme tr[style*="background: #fefce8"],
     body.dark-theme tr[style*="background:#fefce8"] {
       background-color: rgba(245, 159, 0, 0.15) !important;
@@ -731,7 +731,6 @@
       color: #fcd34d !important;
     }
 
-    /* صفوف العطلات الرسمية */
     body.dark-theme .row-holiday,
     body.dark-theme tr[style*="background: #fff1f2"],
     body.dark-theme tr[style*="background:#fff1f2"] {
@@ -743,7 +742,6 @@
       color: #fb7185 !important;
     }
 
-    /* صفوف الامتحانات */
     body.dark-theme .row-exam,
     body.dark-theme tr[style*="background: #fef2f2"],
     body.dark-theme tr[style*="background: #fffbeb"] {
@@ -756,23 +754,20 @@
       color: #fcd34d !important;
     }
 
-    /* 2. إصلاح شجرات المواد التفاعلية (SVG) بالكامل */
+    /* 2. شجرات المواد (SVG) */
     body.dark-theme svg rect:not([fill="#102a43"]):not([fill="#d97706"]):not([fill="#fee2e2"]):not([fill="#e0f2fe"]) {
-      fill: #112d45 !important;
-      stroke: #255d8a !important;
+      fill: #18181b !important;
+      stroke: #3f3f46 !important;
     }
 
-    /* إجبار كل النصوص داخل الـ SVG أن تكون بيضاء واضحة */
     body.dark-theme svg text {
       fill: #ffffff !important;
     }
 
-    /* نصوص أكواد المواد تكون ذهبية مضيئة وواضحة */
     body.dark-theme svg .pra-code {
       fill: #fbbf24 !important;
     }
 
-    /* صناديق مشاريع التخرج والتدريب الميداني */
     body.dark-theme svg rect[fill="#e0f2fe"] {
       fill: #0c4a6e !important;
       stroke: #0284c7 !important;
@@ -782,7 +777,6 @@
       stroke: #e11d48 !important;
     }
 
-    /* خطوط وأسهم التوصيل */
     body.dark-theme svg line {
       stroke: #38bdf8 !important;
     }
@@ -794,40 +788,41 @@
     body.dark-theme input,
     body.dark-theme select,
     body.dark-theme .calc-input {
-      background-color: #091a27 !important;
-      border: 1.5px solid #1a4261 !important;
+      background-color: #18181b !important;
+      border: 1.5px solid #27272a !important;
       color: #ffffff !important;
     }
-    body.dark-theme input::placeholder { color: #5d7e97 !important; }
+    body.dark-theme input::placeholder { color: #71717a !important; }
     body.dark-theme input:focus,
     body.dark-theme select:focus { border-color: #38bdf8 !important; }
 
     body.dark-theme .calc-tab {
-      background: #091a27 !important;
-      color: #94a3b8 !important;
+      background: #18181b !important;
+      color: #a1a1aa !important;
+      border: 1px solid #27272a !important;
     }
     body.dark-theme .calc-tab.active {
-      background: #1b496e !important;
+      background: #27272a !important;
       color: #ffffff !important;
+      border-color: #3f3f46 !important;
     }
 
     body.dark-theme .btn-remove {
-      background: rgba(220, 38, 38, 0.2) !important;
+      background: rgba(220, 38, 38, 0.15) !important;
       color: #f87171 !important;
     }
     body.dark-theme .btn-outline {
       border-color: #38bdf8 !important;
       color: #38bdf8 !important;
     }
- /* معالجة صندوق المعدل التراكمي السابق في الوضع المظلم */
-body.dark-theme #cumulativeInputs {
-  background: #091a27 !important;
-  border: 1px solid #1a4261 !important;
-}
 
-body.dark-theme #cumulativeInputs label {
-  color: #cbd5e1 !important;
-}
+    body.dark-theme #cumulativeInputs {
+      background: #18181b !important;
+      border: 1px solid #27272a !important;
+    }
+    body.dark-theme #cumulativeInputs label {
+      color: #cbd5e1 !important;
+    }
   </style>
 </head>
 <body>
