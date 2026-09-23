@@ -646,24 +646,24 @@
     }
 
 /* ===================================================
-       الوضع المظلم باللون الأسود الحقيقي (True Black / OLED)
+       الوضع المظلم بأسلوب فيسبوك (Facebook Dark Mode)
        =================================================== */
 
     body.dark-theme {
-      background-color: #000000 !important;
-      color: #e2e8f0 !important;
+      background-color: #18191a !important; 
+      color: #e4e6eb !important;
     }
 
     body.dark-theme #pillars {
-      background: #000000 !important;
+      background: #18191a !important;
     }
 
     body.dark-theme .navbar {
-      background: rgba(0, 0, 0, 0.95) !important;
+      background: rgba(36, 37, 38, 0.98) !important;
       border-bottom: 2px solid var(--accent-red) !important;
     }
 
-    body.dark-theme .nav-links a { color: #94a3b8 !important; }
+    body.dark-theme .nav-links a { color: #b0b3b8 !important; }
     body.dark-theme .nav-links a:hover { color: var(--accent-gold) !important; }
 
     body.dark-theme h1,
@@ -673,16 +673,16 @@
     body.dark-theme .section-title,
     body.dark-theme .pillar-card h4,
     body.dark-theme .value-item h4 {
-      color: #ffffff !important;
+      color: #e4e6eb !important;
     }
 
     body.dark-theme p,
     body.dark-theme .section-subtitle,
     body.dark-theme small {
-      color: #a1a1aa !important;
+      color: #b0b3b8 !important;
     }
 
-    /* الصناديق والكروت (رمادي داكن جداً لتمييزها عن الخلفية السوداء) */
+    /* الكروت والصناديق (درجة أفتح للتمييز عن الخلفية) */
     body.dark-theme .calc-wrapper,
     body.dark-theme .card,
     body.dark-theme .admin-card,
@@ -694,10 +694,10 @@
     body.dark-theme [style*="background:white"],
     body.dark-theme [style*="background: #fff"],
     body.dark-theme [style*="background:#fff"] {
-      background: #121212 !important;
-      border-color: #27272a !important;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
-      color: #e2e8f0 !important;
+      background: #242526 !important;
+      border-color: #3e4042 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+      color: #e4e6eb !important;
     }
 
     body.dark-theme .pillar-card i {
@@ -705,26 +705,27 @@
     }
 
     /* 1. التقويم الجامعي */
-    body.dark-theme table { color: #cbd5e1 !important; }
+    body.dark-theme table { color: #e4e6eb !important; }
 
     body.dark-theme .academic-table th {
-      background-color: #18181b !important;
-      color: #ffffff !important;
-      border-bottom: 2px solid #27272a !important;
+      background-color: #242526 !important;
+      color: #e4e6eb !important;
+      border-bottom: 2px solid #3e4042 !important;
     }
 
     body.dark-theme .academic-table td {
-      border-bottom: 1px solid #1f1f22 !important;
-      color: #cbd5e1 !important;
+      border-bottom: 1px solid #3e4042 !important;
+      color: #e4e6eb !important;
     }
 
     body.dark-theme .academic-table tr:hover { 
-      background-color: #18181b !important; 
+      background-color: #3a3b3c !important; 
     }
 
+    /* ألوان التمييز لصفوف التقويم */
     body.dark-theme tr[style*="background: #fefce8"],
     body.dark-theme tr[style*="background:#fefce8"] {
-      background-color: rgba(245, 159, 0, 0.15) !important;
+      background-color: rgba(245, 159, 0, 0.12) !important;
     }
     body.dark-theme tr[style*="background: #fefce8"] td,
     body.dark-theme tr[style*="background:#fefce8"] td {
@@ -734,7 +735,7 @@
     body.dark-theme .row-holiday,
     body.dark-theme tr[style*="background: #fff1f2"],
     body.dark-theme tr[style*="background:#fff1f2"] {
-      background-color: rgba(225, 29, 72, 0.18) !important;
+      background-color: rgba(225, 29, 72, 0.15) !important;
     }
     body.dark-theme .row-holiday td,
     body.dark-theme tr[style*="background: #fff1f2"] td,
@@ -745,7 +746,7 @@
     body.dark-theme .row-exam,
     body.dark-theme tr[style*="background: #fef2f2"],
     body.dark-theme tr[style*="background: #fffbeb"] {
-      background-color: rgba(245, 159, 0, 0.16) !important;
+      background-color: rgba(245, 159, 0, 0.12) !important;
     }
     body.dark-theme .row-exam td,
     body.dark-theme tr[style*="background: #fef2f2"] td,
@@ -756,12 +757,12 @@
 
     /* 2. شجرات المواد (SVG) */
     body.dark-theme svg rect:not([fill="#102a43"]):not([fill="#d97706"]):not([fill="#fee2e2"]):not([fill="#e0f2fe"]) {
-      fill: #18181b !important;
-      stroke: #3f3f46 !important;
+      fill: #242526 !important;
+      stroke: #3e4042 !important;
     }
 
     body.dark-theme svg text {
-      fill: #ffffff !important;
+      fill: #e4e6eb !important;
     }
 
     body.dark-theme svg .pra-code {
@@ -784,27 +785,32 @@
       fill: #38bdf8 !important;
     }
 
-    /* 3. عناصر الإدخال والأزرار */
+    /* 3. عناصر الإدخال والأزرار وحاوية التراكمي */
     body.dark-theme input,
     body.dark-theme select,
-    body.dark-theme .calc-input {
-      background-color: #18181b !important;
-      border: 1.5px solid #27272a !important;
-      color: #ffffff !important;
+    body.dark-theme .calc-input,
+    body.dark-theme #cumulativeInputs {
+      background-color: #3a3b3c !important;
+      border: 1px solid #3e4042 !important;
+      color: #e4e6eb !important;
     }
-    body.dark-theme input::placeholder { color: #71717a !important; }
+    body.dark-theme input::placeholder { color: #b0b3b8 !important; }
     body.dark-theme input:focus,
     body.dark-theme select:focus { border-color: #38bdf8 !important; }
 
+    body.dark-theme #cumulativeInputs label {
+      color: #e4e6eb !important;
+    }
+
     body.dark-theme .calc-tab {
-      background: #18181b !important;
-      color: #a1a1aa !important;
-      border: 1px solid #27272a !important;
+      background: #3a3b3c !important;
+      color: #b0b3b8 !important;
+      border: 1px solid #3e4042 !important;
     }
     body.dark-theme .calc-tab.active {
-      background: #27272a !important;
+      background: #4e4f50 !important;
       color: #ffffff !important;
-      border-color: #3f3f46 !important;
+      border-color: #4e4f50 !important;
     }
 
     body.dark-theme .btn-remove {
@@ -814,14 +820,6 @@
     body.dark-theme .btn-outline {
       border-color: #38bdf8 !important;
       color: #38bdf8 !important;
-    }
-
-    body.dark-theme #cumulativeInputs {
-      background: #18181b !important;
-      border: 1px solid #27272a !important;
-    }
-    body.dark-theme #cumulativeInputs label {
-      color: #cbd5e1 !important;
     }
   </style>
 </head>
