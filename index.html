@@ -625,12 +625,162 @@ body.dark-mode {
   transition: all 0.2s ease;
 }
 
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--accent-gold);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: all 0.2s ease;
+  margin-right: 15px;
+}
+
 .theme-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   transform: scale(1.05);
 }
- body.dark-theme
-  </style>
+
+/* ===================================================
+   الوضع المظلم الاحترافي القياسي (Global Dark Mode Standards)
+   =================================================== */
+
+/* 1. خلفية الصفحة والنصوص العامة */
+body.dark-theme {
+  background-color: #081622 !important;
+  color: #e2e8f0 !important;
+}
+
+/* 2. الناف بار */
+body.dark-theme .navbar {
+  background: rgba(8, 22, 34, 0.96) !important;
+  border-bottom: 2px solid var(--accent-red) !important;
+}
+
+body.dark-theme .nav-links a {
+  color: #94a3b8 !important;
+}
+
+body.dark-theme .nav-links a:hover {
+  color: var(--accent-gold) !important;
+}
+
+/* 3. العناوين والنصوص الإيضاحية */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme .section-title {
+  color: #ffffff !important;
+}
+
+body.dark-theme p,
+body.dark-theme .section-subtitle,
+body.dark-theme small {
+  color: #94b5cb !important;
+}
+
+/* 4. معالجة صندوق الحاسبة والكروت البيضاء (Soft Elevation) */
+body.dark-theme .calc-wrapper,
+body.dark-theme .card,
+body.dark-theme .admin-card,
+body.dark-theme .pillar-card,
+body.dark-theme .value-item,
+body.dark-theme .tree-canvas-wrapper,
+body.dark-theme .calendar-pane > div,
+body.dark-theme [style*="background: white"],
+body.dark-theme [style*="background:white"],
+body.dark-theme [style*="background: #fff"],
+body.dark-theme [style*="background:#fff"] {
+  background: #0f273b !important;
+  border-color: #1a4261 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  color: #e2e8f0 !important;
+}
+
+/* عناوين العناصر داخل الصناديق */
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme .admin-name {
+  color: #ffffff !important;
+}
+
+/* 5. حقول الإدخال والاختيار (Input Controls) */
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme .calc-input {
+  background-color: #091a27 !important;
+  border: 1.5px solid #1a4261 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme input::placeholder {
+  color: #5d7e97 !important;
+}
+
+body.dark-theme input:focus,
+body.dark-theme select:focus {
+  border-color: #38bdf8 !important;
+}
+
+/* 6. تبويبات الحاسبة وحساب المعدل التراكمي */
+body.dark-theme .calc-tab {
+  background: #091a27 !important;
+  color: #94a3b8 !important;
+}
+
+body.dark-theme .calc-tab.active {
+  background: #1b496e !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme #cumulativeInputs {
+  background: #091a27 !important;
+  border: 1px solid #1a4261 !important;
+}
+
+body.dark-theme .calc-result-box {
+  background: #091a27 !important;
+  border: 2px dashed #1a4261 !important;
+}
+
+body.dark-theme .calc-score {
+  color: #ffffff !important;
+}
+
+/* 7. الجداول (التقويم الجامعي) */
+body.dark-theme table {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme th {
+  background-color: #091a27 !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid #1a4261 !important;
+}
+
+body.dark-theme tr {
+  border-bottom: 1px solid #14354e !important;
+}
+
+body.dark-theme tr[style*="background: #fafafa"] {
+  background: #0c2031 !important;
+}
+
+/* 8. معالجة زر سلة المهملات والأزرار المفرغة */
+body.dark-theme .btn-remove {
+  background: rgba(220, 38, 38, 0.2) !important;
+  color: #f87171 !important;
+}
+
+body.dark-theme .btn-outline {
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+}
+</style>
 </head>
 <body>
 
