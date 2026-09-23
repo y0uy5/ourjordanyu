@@ -651,7 +651,12 @@ body.dark-mode {
       <li><a href="#about">عن الكتلة</a></li>
       <li><a href="#forms">تواصل معنا</a></li>
     </ul>
-  </nav>
+
+  <!-- زر تفعيل الوضع المظلم -->
+  <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="تبديل المظهر" style="margin-right: 15px;">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+</nav>
       
   <header class="hero">
     <div class="fa-solid fa-award"></i> صوت الطالب .. وشريك البناء</div>
@@ -2265,6 +2270,39 @@ body.dark-mode {
     }
 
     window.addEventListener('DOMContentLoaded', loadBookOffers);
+  // تبديل المظهر وحفظه في ذاكرة المتصفح
+function toggleTheme() {
+  const body = document.body;
+  const icon = document.querySelector('#themeToggle i');
+  
+  body.classList.toggle('dark-mode');
+  
+  const isDark = body.classList.contains('dark-mode');
+  localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
+  
+  // تغيير الأيقونة بين الشمس والقمر
+  if (isDark) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
+}
+
+// تطبيق الوضع المحفوظ تلقائياً عند فتح الصفحة
+(function initTheme() {
+  const savedTheme = localStorage.getItem('site-theme');
+  const icon = document.querySelector('#themeToggle i');
+  
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (icon) {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
+  }
+})();
   </script>
 </body>
 </html>
