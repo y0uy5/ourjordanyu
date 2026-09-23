@@ -631,13 +631,31 @@
       .hero h1 { font-size: 2.1rem; }
       .course-row { grid-template-columns: 1fr 1fr; }
     }
+    @media (max-width: 768px) {
+      .navbar { flex-direction: column; gap: 10px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
+      .hero h1 { font-size: 2.1rem; }
+      .course-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar { flex-direction: column; gap: 10px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
+      .hero h1 { font-size: 2.1rem; }
+      .course-row { grid-template-columns: 1fr 1fr; }
+    }
 
     /* ===================================================
-       الوضع المظلم القياسي المتكامل (Global Dark Mode)
+       قواعد الوضع المظلم الشاملة والمعالجة (Dark Mode)
        =================================================== */
+
     body.dark-theme {
       background-color: #081622 !important;
       color: #e2e8f0 !important;
+    }
+
+    body.dark-theme #pillars {
+      background: #06111a !important;
     }
 
     body.dark-theme .navbar {
@@ -650,7 +668,11 @@
 
     body.dark-theme h1,
     body.dark-theme h2,
-    body.dark-theme .section-title {
+    body.dark-theme h3,
+    body.dark-theme h4,
+    body.dark-theme .section-title,
+    body.dark-theme .pillar-card h4,
+    body.dark-theme .value-item h4 {
       color: #ffffff !important;
     }
 
@@ -677,10 +699,68 @@
       color: #e2e8f0 !important;
     }
 
-    body.dark-theme h3,
-    body.dark-theme h4,
-    body.dark-theme .admin-name {
+    body.dark-theme .pillar-card i {
+      color: #38bdf8 !important;
+    }
+
+    body.dark-theme table { color: #cbd5e1 !important; }
+
+    body.dark-theme .academic-table th {
+      background-color: #091a27 !important;
       color: #ffffff !important;
+      border-bottom: 2px solid #1a4261 !important;
+    }
+
+    body.dark-theme .academic-table td {
+      border-bottom: 1px solid #14354e !important;
+      color: #cbd5e1 !important;
+    }
+
+    body.dark-theme .academic-table tr:hover { 
+      background-color: #0d2233 !important; 
+    }
+
+    body.dark-theme .row-holiday,
+    body.dark-theme tr[style*="background: #fff1f2"] {
+      background-color: rgba(225, 29, 72, 0.18) !important;
+    }
+    body.dark-theme .row-holiday td,
+    body.dark-theme tr[style*="background: #fff1f2"] td,
+    body.dark-theme .row-holiday .date-text {
+      color: #fb7185 !important;
+    }
+
+    body.dark-theme .row-exam,
+    body.dark-theme tr[style*="background: #fef2f2"],
+    body.dark-theme tr[style*="background: #fffbeb"] {
+      background-color: rgba(245, 159, 0, 0.16) !important;
+    }
+    body.dark-theme .row-exam td,
+    body.dark-theme tr[style*="background: #fef2f2"] td,
+    body.dark-theme tr[style*="background: #fffbeb"] td,
+    body.dark-theme .row-exam .date-text {
+      color: #fcd34d !important;
+    }
+
+    body.dark-theme svg .rtv-box,
+    body.dark-theme svg .pra-box {
+      fill: #112d45 !important;
+      stroke: #255d8a !important;
+    }
+
+    body.dark-theme svg .rtv-title,
+    body.dark-theme svg .pra-title,
+    body.dark-theme svg .rtv-text {
+      fill: #ffffff !important;
+    }
+
+    body.dark-theme svg .rtv-line,
+    body.dark-theme svg .pra-line {
+      stroke: #38bdf8 !important;
+    }
+
+    body.dark-theme svg marker path {
+      fill: #38bdf8 !important;
     }
 
     body.dark-theme input,
@@ -702,27 +782,6 @@
       background: #1b496e !important;
       color: #ffffff !important;
     }
-    body.dark-theme #cumulativeInputs {
-      background: #091a27 !important;
-      border: 1px solid #1a4261 !important;
-    }
-    body.dark-theme .calc-result-box {
-      background: #091a27 !important;
-      border: 2px dashed #1a4261 !important;
-    }
-    body.dark-theme .calc-score { color: #ffffff !important; }
-
-    body.dark-theme table { color: #cbd5e1 !important; }
-    body.dark-theme .academic-table th {
-      background-color: #091a27 !important;
-      color: #ffffff !important;
-      border-bottom: 2px solid #1a4261 !important;
-    }
-    body.dark-theme .academic-table td {
-      border-bottom: 1px solid #14354e !important;
-      color: #cbd5e1 !important;
-    }
-    body.dark-theme .academic-table tr:hover { background-color: #0d2233 !important; }
 
     body.dark-theme .btn-remove {
       background: rgba(220, 38, 38, 0.2) !important;
@@ -735,6 +794,7 @@
   </style>
 </head>
 <body>
+ 
 
   <!-- شريط التنقل العلوي -->
   <nav class="navbar">
