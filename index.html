@@ -45,6 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
     :root {
       --primary-navy: #102a43;
@@ -60,19 +61,19 @@
       --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
       --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
-  }
+    }
 
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
-  }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Tajawal', sans-serif;
-  }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+    }
 
     body {
       background-color: var(--bg-light);
@@ -93,11 +94,13 @@
       border-bottom: 2px solid var(--accent-red);
       transition: transform 0.3s ease-in-out;
     }
+
     @media (max-width: 768px) {
-  .navbar.nav-hidden {
-    transform: translateY(-100%);
-  }
-}
+      .navbar.nav-hidden {
+        transform: translateY(-100%);
+      }
+    }
+
     .brand {
       display: flex;
       align-items: center;
@@ -130,9 +133,25 @@
     .nav-links a:hover {
       color: var(--accent-gold);
     }
-    .nav-links a i {
-      margin-left: 3px;
+
+    .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: var(--accent-gold);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+      margin-right: 15px;
+    }
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: scale(1.05);
     }
 
     .hero {
@@ -198,6 +217,10 @@
       background: #b02525;
       transform: translateY(-2px);
     }
+    .btn-navy {
+      background: var(--primary-navy);
+      color: white;
+    }
     .btn-outline {
       background: transparent;
       color: white;
@@ -247,11 +270,6 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -270,10 +288,6 @@
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--border-color);
       transition: all 0.3s;
-    }
-    .card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: #cbd5e1;
     }
     .card-title-icon {
       display: flex;
@@ -365,9 +379,7 @@
       align-items: center;
       gap: 8px;
     }
-    .target-list {
-      list-style: none;
-    }
+    .target-list { list-style: none; }
     .target-list li {
       position: relative;
       padding-right: 22px;
@@ -403,9 +415,7 @@
       height: 5px;
       background: var(--primary-navy);
     }
-    .admin-card.leader::before {
-      background: var(--accent-red);
-    }
+    .admin-card.leader::before { background: var(--accent-red); }
     .admin-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-md);
@@ -531,6 +541,42 @@
       margin-top: 4px;
     }
 
+    /* التقويم الجامعي المريح للعين */
+    .calendar-container {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      overflow-x: auto;
+    }
+    .academic-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.95rem;
+    }
+    .academic-table th {
+      background-color: #f8fafc;
+      color: var(--primary-navy);
+      font-weight: 800;
+      padding: 14px 16px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .academic-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #475569;
+      vertical-align: middle;
+    }
+    .academic-table tr:hover { background-color: #f8fafc; }
+    .date-text { color: #64748b; font-weight: 700; }
+    .text-start { color: #15803d; font-weight: 800; }
+    .row-holiday { background-color: #fff1f2 !important; }
+    .row-holiday td, .row-holiday .date-text { color: #be123c; font-weight: 700; }
+    .row-exam { background-color: #fffbeb !important; }
+    .row-exam td, .row-exam .date-text { color: #b45309; font-weight: 700; }
+
     footer {
       background: var(--navy-dark);
       color: #94a3b8;
@@ -549,20 +595,14 @@
       font-size: 1.4rem;
       margin-bottom: 0.8rem;
     }
-    .footer-links {
-      list-style: none;
-    }
-    .footer-links li {
-      margin-bottom: 8px;
-    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
     .footer-links a {
       color: #cbd5e1;
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover {
-      color: var(--accent-gold);
-    }
+    .footer-links a:hover { color: var(--accent-gold); }
     .social-icons {
       display: flex;
       gap: 12px;
@@ -584,13 +624,6 @@
       background: var(--accent-red);
       transform: translateY(-3px);
     }
-    .footer-bottom {
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1.5rem;
-      font-size: 0.85rem;
-      color: #64748b;
-    }
 
     @media (max-width: 768px) {
       .navbar { flex-direction: column; gap: 10px; }
@@ -598,192 +631,112 @@
       .hero h1 { font-size: 2.1rem; }
       .course-row { grid-template-columns: 1fr 1fr; }
     }
-/* الألوان عند تفعيل الوضع المظلم */
-body.dark-mode {
-  --bg-dark: #051622;         /* خلفية أغمق مريحة للعين */
-  --bg-panel: #0a2538;        /* خلفية الألواح والناف بار */
-  --bg-card: #0f334c;         /* خلفية البطاقات */
-  --border-color: #164e73;
-  --border-hover: #1f6288;
-  --text-main: #f8fafc;
-  --text-muted: #8eb3cb;
-}
 
-/* زر التبديل بين الوضعين في الناف بار */
-.theme-toggle-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border-color);
-  color: var(--accent-gold);
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: all 0.2s ease;
-}
+    /* ===================================================
+       الوضع المظلم القياسي المتكامل (Global Dark Mode)
+       =================================================== */
+    body.dark-theme {
+      background-color: #081622 !important;
+      color: #e2e8f0 !important;
+    }
 
-.theme-toggle-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--accent-gold);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.15rem;
-  transition: all 0.2s ease;
-  margin-right: 15px;
-}
+    body.dark-theme .navbar {
+      background: rgba(8, 22, 34, 0.96) !important;
+      border-bottom: 2px solid var(--accent-red) !important;
+    }
 
-.theme-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  transform: scale(1.05);
-}
+    body.dark-theme .nav-links a { color: #94a3b8 !important; }
+    body.dark-theme .nav-links a:hover { color: var(--accent-gold) !important; }
 
-/* ===================================================
-   الوضع المظلم الاحترافي القياسي (Global Dark Mode Standards)
-   =================================================== */
+    body.dark-theme h1,
+    body.dark-theme h2,
+    body.dark-theme .section-title {
+      color: #ffffff !important;
+    }
 
-/* 1. خلفية الصفحة والنصوص العامة */
-body.dark-theme {
-  background-color: #081622 !important;
-  color: #e2e8f0 !important;
-}
+    body.dark-theme p,
+    body.dark-theme .section-subtitle,
+    body.dark-theme small {
+      color: #94b5cb !important;
+    }
 
-/* 2. الناف بار */
-body.dark-theme .navbar {
-  background: rgba(8, 22, 34, 0.96) !important;
-  border-bottom: 2px solid var(--accent-red) !important;
-}
+    body.dark-theme .calc-wrapper,
+    body.dark-theme .card,
+    body.dark-theme .admin-card,
+    body.dark-theme .pillar-card,
+    body.dark-theme .value-item,
+    body.dark-theme .tree-canvas-wrapper,
+    body.dark-theme .calendar-container,
+    body.dark-theme [style*="background: white"],
+    body.dark-theme [style*="background:white"],
+    body.dark-theme [style*="background: #fff"],
+    body.dark-theme [style*="background:#fff"] {
+      background: #0f273b !important;
+      border-color: #1a4261 !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+      color: #e2e8f0 !important;
+    }
 
-body.dark-theme .nav-links a {
-  color: #94a3b8 !important;
-}
+    body.dark-theme h3,
+    body.dark-theme h4,
+    body.dark-theme .admin-name {
+      color: #ffffff !important;
+    }
 
-body.dark-theme .nav-links a:hover {
-  color: var(--accent-gold) !important;
-}
+    body.dark-theme input,
+    body.dark-theme select,
+    body.dark-theme .calc-input {
+      background-color: #091a27 !important;
+      border: 1.5px solid #1a4261 !important;
+      color: #ffffff !important;
+    }
+    body.dark-theme input::placeholder { color: #5d7e97 !important; }
+    body.dark-theme input:focus,
+    body.dark-theme select:focus { border-color: #38bdf8 !important; }
 
-/* 3. العناوين والنصوص الإيضاحية */
-body.dark-theme h1,
-body.dark-theme h2,
-body.dark-theme .section-title {
-  color: #ffffff !important;
-}
+    body.dark-theme .calc-tab {
+      background: #091a27 !important;
+      color: #94a3b8 !important;
+    }
+    body.dark-theme .calc-tab.active {
+      background: #1b496e !important;
+      color: #ffffff !important;
+    }
+    body.dark-theme #cumulativeInputs {
+      background: #091a27 !important;
+      border: 1px solid #1a4261 !important;
+    }
+    body.dark-theme .calc-result-box {
+      background: #091a27 !important;
+      border: 2px dashed #1a4261 !important;
+    }
+    body.dark-theme .calc-score { color: #ffffff !important; }
 
-body.dark-theme p,
-body.dark-theme .section-subtitle,
-body.dark-theme small {
-  color: #94b5cb !important;
-}
+    body.dark-theme table { color: #cbd5e1 !important; }
+    body.dark-theme .academic-table th {
+      background-color: #091a27 !important;
+      color: #ffffff !important;
+      border-bottom: 2px solid #1a4261 !important;
+    }
+    body.dark-theme .academic-table td {
+      border-bottom: 1px solid #14354e !important;
+      color: #cbd5e1 !important;
+    }
+    body.dark-theme .academic-table tr:hover { background-color: #0d2233 !important; }
 
-/* 4. معالجة صندوق الحاسبة والكروت البيضاء (Soft Elevation) */
-body.dark-theme .calc-wrapper,
-body.dark-theme .card,
-body.dark-theme .admin-card,
-body.dark-theme .pillar-card,
-body.dark-theme .value-item,
-body.dark-theme .tree-canvas-wrapper,
-body.dark-theme .calendar-pane > div,
-body.dark-theme [style*="background: white"],
-body.dark-theme [style*="background:white"],
-body.dark-theme [style*="background: #fff"],
-body.dark-theme [style*="background:#fff"] {
-  background: #0f273b !important;
-  border-color: #1a4261 !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
-  color: #e2e8f0 !important;
-}
-
-/* عناوين العناصر داخل الصناديق */
-body.dark-theme h3,
-body.dark-theme h4,
-body.dark-theme .admin-name {
-  color: #ffffff !important;
-}
-
-/* 5. حقول الإدخال والاختيار (Input Controls) */
-body.dark-theme input,
-body.dark-theme select,
-body.dark-theme .calc-input {
-  background-color: #091a27 !important;
-  border: 1.5px solid #1a4261 !important;
-  color: #ffffff !important;
-}
-
-body.dark-theme input::placeholder {
-  color: #5d7e97 !important;
-}
-
-body.dark-theme input:focus,
-body.dark-theme select:focus {
-  border-color: #38bdf8 !important;
-}
-
-/* 6. تبويبات الحاسبة وحساب المعدل التراكمي */
-body.dark-theme .calc-tab {
-  background: #091a27 !important;
-  color: #94a3b8 !important;
-}
-
-body.dark-theme .calc-tab.active {
-  background: #1b496e !important;
-  color: #ffffff !important;
-}
-
-body.dark-theme #cumulativeInputs {
-  background: #091a27 !important;
-  border: 1px solid #1a4261 !important;
-}
-
-body.dark-theme .calc-result-box {
-  background: #091a27 !important;
-  border: 2px dashed #1a4261 !important;
-}
-
-body.dark-theme .calc-score {
-  color: #ffffff !important;
-}
-
-/* 7. الجداول (التقويم الجامعي) */
-body.dark-theme table {
-  color: #cbd5e1 !important;
-}
-
-body.dark-theme th {
-  background-color: #091a27 !important;
-  color: #ffffff !important;
-  border-bottom: 2px solid #1a4261 !important;
-}
-
-body.dark-theme tr {
-  border-bottom: 1px solid #14354e !important;
-}
-
-body.dark-theme tr[style*="background: #fafafa"] {
-  background: #0c2031 !important;
-}
-
-/* 8. معالجة زر سلة المهملات والأزرار المفرغة */
-body.dark-theme .btn-remove {
-  background: rgba(220, 38, 38, 0.2) !important;
-  color: #f87171 !important;
-}
-
-body.dark-theme .btn-outline {
-  border-color: #38bdf8 !important;
-  color: #38bdf8 !important;
-}
-</style>
+    body.dark-theme .btn-remove {
+      background: rgba(220, 38, 38, 0.2) !important;
+      color: #f87171 !important;
+    }
+    body.dark-theme .btn-outline {
+      border-color: #38bdf8 !important;
+      color: #38bdf8 !important;
+    }
+  </style>
 </head>
 <body>
 
+  <!-- شريط التنقل العلوي -->
   <nav class="navbar">
     <a href="#" class="brand">
       <img src="whitelogo.png" alt="كتلة أردننا" style="height: 42px; width: auto; object-fit: contain;">
@@ -803,35 +756,36 @@ body.dark-theme .btn-outline {
       <li><a href="#forms">تواصل معنا</a></li>
     </ul>
 
-  <!-- زر تفعيل الوضع المظلم -->
-  <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="تبديل المظهر" style="margin-right: 15px;">
-    <i class="fa-solid fa-moon"></i>
-  </button>
-</nav>
-      
+    <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="تبديل المظهر">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </nav>
+
+  <!-- قسم الهيرو -->
   <header class="hero">
-    <div class="fa-solid fa-award"></i> صوت الطالب .. وشريك البناء</div>
+    <div class="hero-badge"><i class="fa-solid fa-award"></i> صوت الطالب .. وشريك البناء</div>
     <h1>كتلة أردننا - جامعة اليرموك</h1>
     <div class="hero-slogan">"عِلْمٌ في القاعات .. إنتماءٌ في الساحات"</div>
     <p class="hero-desc">
       كتلة طلابية وطنية تمثل طلبة جامعة اليرموك بمختلف تخصصاتهم، تتبع لحزب الميثاق ومرخصة ومعتمدة من عمادة شؤون الطلبة، وتسعى لتمثيل الطلبة والدفاع عن حقوقهم.
     </p>
-<div class="hero-btns">
+    <div class="hero-btns">
       <a href="#forms" class="btn btn-red">
-        <i class="fa-solid fa-comment-dots" style="margin-left: 8px;"></i>
+        <i class="fa-solid fa-comment-dots"></i>
         <span>الانتساب وصندوق الاقتراحات</span>
       </a>
       <a href="#calendar" class="btn btn-outline">
-        <i class="fa-solid fa-calendar-days" style="margin-left: 8px;"></i>
+        <i class="fa-solid fa-calendar-days"></i>
         <span>التقويم الجامعي 2026 / 2027</span>
       </a>
     </div>
   </header>
 
+  <!-- حاسبة المعدل -->
   <section id="calculator" class="container">
     <div class="section-header">
       <h2 class="section-title">حاسبة المعدل وفحص التقدير</h2>
-      <p class="section-subtitle">احسب معدلك الفصلي والتراكمي من 100% بنظام الجامعة  </p>
+      <p class="section-subtitle">احسب معدلك الفصلي والتراكمي من 100% بنظام الجامعة</p>
     </div>
 
     <div class="calc-wrapper">
@@ -907,26 +861,24 @@ body.dark-theme .btn-outline {
       </div>
     </div>
 
-<div style="background: white; border-radius: 12px; padding: 1.2rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); max-width: 480px; margin: 1.5rem auto 0; text-align: center;">
-  <h4 style="color: var(--primary-navy); margin-bottom: 0.8rem; font-size: 1rem;">
-    <i class="fa-solid fa-magnifying-glass-chart" style="color: var(--accent-gold);"></i> فحص التقدير والوضع الأكاديمي
-  </h4>
-  
-  <div style="display: flex; gap: 8px; justify-content: center; align-items: center;">
-    <input type="number" id="quickGpaInput" placeholder="أدخل معدلك (مثلاً 78.5)" min="0" max="100" step="0.1" 
-       style="width: 60%; padding: 9px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 0.95rem; text-align: center; outline: none;"
-       onkeydown="if(event.key === 'Enter') checkGradeStatus()">
-    <button type="button" onclick="checkGradeStatus()" class="btn btn-navy" style="padding: 9px 15px; font-size: 0.9rem;">
-      فحص
-    </button>
-  </div>
-
-  <div id="gradeResultBox" style="display: none; margin-top: 1rem; padding: 10px; border-radius: 8px; font-size: 0.92rem; font-weight: bold;"></div>
-</div>
+    <!-- فحص التقدير والوضع الأكاديمي -->
+    <div style="background: white; border-radius: 12px; padding: 1.2rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); max-width: 480px; margin: 1.5rem auto 0; text-align: center;">
+      <h4 style="color: var(--primary-navy); margin-bottom: 0.8rem; font-size: 1rem;">
+        <i class="fa-solid fa-magnifying-glass-chart" style="color: var(--accent-gold);"></i> فحص التقدير والوضع الأكاديمي
+      </h4>
+      <div style="display: flex; gap: 8px; justify-content: center; align-items: center;">
+        <input type="number" id="quickGpaInput" placeholder="أدخل معدلك (مثلاً 78.5)" min="0" max="100" step="0.1" 
+               style="width: 60%; padding: 9px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 0.95rem; text-align: center; outline: none;"
+               onkeydown="if(event.key === 'Enter') checkGradeStatus()">
+        <button type="button" onclick="checkGradeStatus()" class="btn btn-navy" style="padding: 9px 15px; font-size: 0.9rem;">فحص</button>
+      </div>
+      <div id="gradeResultBox" style="display: none; margin-top: 1rem; padding: 10px; border-radius: 8px; font-size: 0.92rem; font-weight: bold;"></div>
+    </div>
   </section>
 
+  <!-- تبادل الكتب -->
   <section id="book-trade" class="container" style="padding-top: 2.5rem; padding-bottom: 3.5rem;">
-    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+    <div class="section-header">
       <h2 class="section-title">منصة تبادل الكتب والمراجع</h2>
       <p class="section-subtitle">بدّل مراجعك الدراسية مع زملائك بأمان تام مع الحفاظ على خصوصية معلومات التواصل</p>
     </div>
@@ -936,9 +888,9 @@ body.dark-theme .btn-outline {
         <i class="fa-solid fa-plus-circle" style="color: var(--accent-red);"></i> إضافة عرض تبادل كتاب جديد
       </h3>
       <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: #92400e;">
-  <i class="fa-solid fa-bell" style="color: var(--accent-gold); font-size: 1.1rem;"></i>
-  <span><strong>تنبيه مهم:</strong> لا تنسَ تحفظ رمز الـ <strong>PIN</strong>؛ وارجع شيّك على الموقع واضغط <strong>"إدارة العرض"</strong> لتشوف أرقام الطلاب المهتمين بالتبادل معك.</span>
-</div>
+        <i class="fa-solid fa-bell" style="color: var(--accent-gold); font-size: 1.1rem;"></i>
+        <span><strong>تنبيه مهم:</strong> لا تنسَ حفظ رمز الـ <strong>PIN</strong>؛ وارجع للموقع واضغط <strong>"إدارة العرض"</strong> للاطلاع على أرقام المهتمين.</span>
+      </div>
       <form id="addBookForm" onsubmit="handleCreateOffer(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
         <div>
           <label style="display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 4px; color: var(--primary-navy);">الكتاب المتوفر لديك *</label>
@@ -972,96 +924,69 @@ body.dark-theme .btn-outline {
     </div>
   </section>
 
+  <!-- شروحات الفيديو -->
   <section id="tutorials" class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
-    <div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
+    <div class="section-header">
       <h2 class="section-title">فيديوهات شرح</h2>
       <p class="section-subtitle">فيديوهات إرشادية وتوضيحية لتسهيل مسيرتك الأكاديمية واستخدام الخدمات الجامعية</p>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-      
       <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
-          <iframe src="https://www.youtube-nocookie.com/embed/U_OVnVL2NA8" 
-                  title="دليل تسجيل الدخول للتيمز" 
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/U_OVnVL2NA8" title="دليل تسجيل الدخول للتيمز" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
         </div>
-        <div style="padding: 1.2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <h4 style="color: var(--primary-navy); margin-bottom: 6px; font-size: 1.05rem;">
-              <i class="fa-solid fa-play" style="color: var(--accent-red); font-size: 0.85rem; margin-left: 6px;"></i>
-              دليل تسجيل الدخول للتيمز
-            </h4>
-            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
-              شرح تفصيلي لخطوات تسجيل الدخول للتيمز.
-            </p>
-          </div>
+        <div style="padding: 1.2rem;">
+          <h4 style="color: var(--primary-navy); margin-bottom: 6px; font-size: 1.05rem;">
+            <i class="fa-solid fa-play" style="color: var(--accent-red); font-size: 0.85rem; margin-left: 6px;"></i>
+            دليل تسجيل الدخول للتيمز
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">شرح تفصيلي لخطوات تسجيل الدخول للتيمز.</p>
         </div>
       </div>
 
       <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
-          <iframe src="https://www.youtube-nocookie.com/embed/wX16EapoF6g" 
-                  title="طريقة تسجيل الدخول للايميل الجامعي" 
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/wX16EapoF6g" title="طريقة تسجيل الدخول للايميل الجامعي" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
         </div>
-        <div style="padding: 1.2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <h4 style="color: var(--primary-navy); margin-bottom: 6px; font-size: 1.05rem;">
-              <i class="fa-solid fa-play" style="color: var(--accent-red); font-size: 0.85rem; margin-left: 6px;"></i>
-              طريقة تسجيل الدخول للايميل الجامعي
-            </h4>
-            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
-              كيفية تسجيل الدخول للايميل الجامعي.
-            </p>
-          </div>
+        <div style="padding: 1.2rem;">
+          <h4 style="color: var(--primary-navy); margin-bottom: 6px; font-size: 1.05rem;">
+            <i class="fa-solid fa-play" style="color: var(--accent-red); font-size: 0.85rem; margin-left: 6px;"></i>
+            طريقة تسجيل الدخول للايميل الجامعي
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">كيفية تسجيل الدخول للايميل الجامعي.</p>
         </div>
       </div>
 
       <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
-          <iframe src="https://www.youtube-nocookie.com/embed/2bajqrTSsNA" 
-                  title="طريقة تسجيل الدخول لموقع التعلم الإلكتروني" 
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/2bajqrTSsNA" title="طريقة تسجيل الدخول لموقع التعلم الإلكتروني" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
         </div>
-        <div style="padding: 1.2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <h4 style="color: var(--primary-navy); margin-bottom: 6px; font-size: 1.05rem;">
-              <i class="fa-solid fa-play" style="color: var(--accent-red); font-size: 0.85rem; margin-left: 6px;"></i>
-              طريقة تسجيل الدخول لموقع التعلم الإلكتروني
-            </h4>
-            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
-              شرح عملي لخطوات تسجيل الدخول واستخدام منصة التعلم الإلكتروني (E-Learning).
-            </p>
-          </div>
+        <div style="padding: 1.2rem;">
+          <h4 style="color: var(--primary-navy); margin-bottom: 6px; font-size: 1.05rem;">
+            <i class="fa-solid fa-play" style="color: var(--accent-red); font-size: 0.85rem; margin-left: 6px;"></i>
+            طريقة تسجيل الدخول لموقع التعلم الإلكتروني
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">شرح عملي لخطوات تسجيل الدخول واستخدام منصة التعلم الإلكتروني.</p>
         </div>
       </div>
-
     </div>
   </section>
 
+  <!-- خطط التخصصات الشجرية -->
   <section id="plan" class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
-    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+    <div class="section-header">
       <h2 class="section-title">خطط أقسام كلية الإعلام</h2>
       <p class="section-subtitle">خريطة المواد والمتطلبات</p>
     </div>
 
     <div class="calc-tabs" style="justify-content: center; margin-bottom: 1.5rem;">
-      <button class="calc-tab active" id="btnPlanRtv" onclick="switchPlanTab('rtv')">
-        <i style="margin-left: 6px;"></i> قسم الإذاعة والتلفزيون
-      </button>
-      <button class="calc-tab" id="btnPlanPra" onclick="switchPlanTab('pra')">
-        <i style="margin-left: 6px;"></i> قسم العلاقات العامة والإعلان
-      </button>
+      <button class="calc-tab active" id="btnPlanRtv" onclick="switchPlanTab('rtv')">قسم الإذاعة والتلفزيون</button>
+      <button class="calc-tab" id="btnPlanPra" onclick="switchPlanTab('pra')">قسم العلاقات العامة والإعلان</button>
     </div>
 
-<div id="planRtvView" class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
+    <!-- شجرة الإذاعة والتلفزيون -->
+    <div id="planRtvView" class="tree-canvas-wrapper" style="background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
       <svg viewBox="0 0 1150 720" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
         <defs>
           <marker id="arrow-rtv" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -1112,9 +1037,7 @@ body.dark-theme .btn-outline {
 
         <line x1="960" y1="273" x2="960" y2="290" class="rtv-line"/>
         <line x1="70" y1="290" x2="960" y2="290" class="rtv-line"/>
-
         <line x1="160" y1="123" x2="160" y2="290" class="rtv-line"/>
-
         <line x1="305" y1="223" x2="305" y2="430" class="rtv-line" marker-end="url(#arrow-rtv)"/>
 
         <line x1="960" y1="290" x2="960" y2="330" class="rtv-line"/>
@@ -1199,6 +1122,7 @@ body.dark-theme .btn-outline {
       </svg>
     </div>
 
+    <!-- شجرة العلاقات العامة -->
     <div id="planPraView" class="tree-canvas-wrapper" style="display: none; background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.5rem; overflow-x: auto; text-align: center;">
       <svg viewBox="0 0 1200 880" style="width: 100%; min-width: 980px; height: auto; font-family: inherit; direction: ltr;">
         <defs>
@@ -1206,7 +1130,6 @@ body.dark-theme .btn-outline {
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#102a43" />
           </marker>
         </defs>
-
         <style>
           .pra-title { font-size: 13.5px; font-weight: 800; fill: #102a43; text-anchor: middle; }
           .pra-code { font-size: 11px; font-weight: bold; fill: #c92a2a; text-anchor: middle; }
@@ -1224,9 +1147,8 @@ body.dark-theme .btn-outline {
         <rect x="80" y="150" width="160" height="45" class="pra-box"/>
         <text x="160" y="172" class="pra-title">مدخل إلى الإعلان</text>
         <text x="160" y="188" class="pra-code">PRA 122</text>
-        
         <line x1="160" y1="195" x2="160" y2="225" class="pra-line" marker-end="url(#arrow-pra)"/>
-        
+
         <rect x="80" y="230" width="160" height="45" class="pra-box"/>
         <text x="160" y="252" class="pra-title">تصميم الإعلان</text>
         <text x="160" y="268" class="pra-code">PRA 342</text>
@@ -1234,7 +1156,6 @@ body.dark-theme .btn-outline {
         <rect x="500" y="150" width="200" height="45" class="pra-box"/>
         <text x="600" y="172" class="pra-title">مدخل في الاتصال</text>
         <text x="600" y="188" class="pra-code">JRN 101</text>
-        
         <line x1="560" y1="195" x2="480" y2="225" class="pra-line" marker-end="url(#arrow-pra)"/>
         <line x1="640" y1="195" x2="720" y2="225" class="pra-line" marker-end="url(#arrow-pra)"/>
 
@@ -1260,7 +1181,6 @@ body.dark-theme .btn-outline {
         <rect x="920" y="150" width="200" height="45" class="pra-box"/>
         <text x="1020" y="172" class="pra-title">مبادئ التحرير الصحفي</text>
         <text x="1020" y="188" class="pra-code">JRN 111</text>
-
         <line x1="970" y1="195" x2="900" y2="225" class="pra-line" marker-end="url(#arrow-pra)"/>
         <line x1="1070" y1="195" x2="1140" y2="225" class="pra-line" marker-end="url(#arrow-pra)"/>
 
@@ -1271,7 +1191,6 @@ body.dark-theme .btn-outline {
         <rect x="1060" y="230" width="120" height="45" class="pra-box"/>
         <text x="1120" y="252" class="pra-title">الكتابة</text>
         <text x="1120" y="268" class="pra-code">PRA 244</text>
-
         <line x1="1120" y1="275" x2="1060" y2="315" class="pra-line" marker-end="url(#arrow-pra)"/>
 
         <rect x="980" y="320" width="160" height="45" class="pra-box"/>
@@ -1281,7 +1200,6 @@ body.dark-theme .btn-outline {
         <rect x="220" y="320" width="220" height="45" class="pra-box"/>
         <text x="330" y="342" class="pra-title">مهارات إعلامية باللغة الإنجليزية</text>
         <text x="330" y="358" class="pra-code">JRN 102</text>
-
         <line x1="330" y1="365" x2="330" y2="405" class="pra-line" marker-end="url(#arrow-pra)"/>
 
         <rect x="220" y="410" width="220" height="45" class="pra-box"/>
@@ -1291,7 +1209,6 @@ body.dark-theme .btn-outline {
         <rect x="520" y="440" width="160" height="45" fill="#e0f2fe" stroke="#0284c7" rx="8"/>
         <text x="600" y="462" class="pra-title">تدريب ميداني</text>
         <text x="600" y="478" class="pra-code">PRA 343</text>
-
         <line x1="600" y1="485" x2="600" y2="525" class="pra-line" marker-end="url(#arrow-pra)"/>
 
         <rect x="520" y="530" width="160" height="45" fill="#fee2e2" stroke="#dc2626" rx="8"/>
@@ -1327,7 +1244,7 @@ body.dark-theme .btn-outline {
         <text x="645" y="612" font-size="12px" font-weight="800" fill="#102a43" text-anchor="middle">إعداد وتنفيذ حملات العلاقات العامة</text>
         <text x="645" y="627" font-size="12px" font-weight="800" fill="#102a43" text-anchor="middle">والإعلان</text>
         <text x="645" y="642" class="pra-code">PAR 434</text>
-        
+
         <rect x="150" y="700" width="900" height="85" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,6" rx="12"/>
         <rect x="500" y="685" width="200" height="30" fill="#d97706" rx="8"/>
         <text x="600" y="705" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">مساقات بلا متطلب سابق</text>
@@ -1344,8 +1261,9 @@ body.dark-theme .btn-outline {
     </div>
   </section>
 
+  <!-- خرائط الحرم الجامعي -->
   <section id="campus-map" class="container" style="padding-top: 2rem; padding-bottom: 2.5rem;">
-    <div class="section-header" style="text-align: center; margin-bottom: 1.5rem;">
+    <div class="section-header">
       <h2 class="section-title">خرائط الحرم الجامعي</h2>
       <p class="section-subtitle">دليلك الجغرافي السريع لمرافق الجامعة ومسارات التسهيلات البيئية</p>
     </div>
@@ -1382,6 +1300,7 @@ body.dark-theme .btn-outline {
       </div>
     </div>
 
+    <!-- نافذة المودال للخرائط -->
     <div id="customMapModal" style="display: none; position: fixed; inset: 0; background: rgba(11, 29, 48, 0.88); backdrop-filter: blur(6px); z-index: 99999; align-items: center; justify-content: center; padding: 1rem;">
       <div style="background: white; width: 96%; max-width: 1200px; height: 92vh; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 25px 50px rgba(0,0,0,0.4);">
         <div style="height: 55px; padding: 0 18px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; direction: rtl; flex-shrink: 0;">
@@ -1413,7 +1332,8 @@ body.dark-theme .btn-outline {
     </div>
   </section>
 
-   <section id="calendar" class="container" style="padding-top: 2rem;">
+  <!-- التقويم الجامعي الرسمي (Soft UI) -->
+  <section id="calendar" class="container" style="padding-top: 2rem;">
     <div class="section-header">
       <h2 class="section-title">التقويم الجامعي 2026 / 2027</h2>
       <p class="section-subtitle">المواعيد الرسمية المعتمدة الصادرة عن دائرة القبول والتسجيل</p>
@@ -1425,247 +1345,258 @@ body.dark-theme .btn-outline {
       <button class="calc-tab" id="btnSummer" onclick="switchSemester('summer')">الفصل الصيفي 2026 / 2027</button>
     </div>
 
+    <!-- جدول الفصل الأول -->
     <div id="sem1Table" class="calendar-pane">
-      <div style="background: white; border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); overflow-x: auto;">
-        <h3 style="color: var(--primary-navy); margin-bottom: 1rem;"><i class="fa-solid fa-calendar-check" style="color: var(--accent-red);"></i> مواعيد الفصل الدراسي الأول</h3>
-        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.95rem;">
+      <div class="calendar-container">
+        <h3 style="color: var(--primary-navy); margin-bottom: 1.2rem; font-size: 1.2rem;">
+          <i class="fa-solid fa-calendar-check" style="color: var(--accent-red);"></i> مواعيد الفصل الدراسي الأول
+        </h3>
+        <table class="academic-table">
           <thead>
-            <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; color: var(--primary-navy);">
-              <th style="padding: 12px;">الحدث / الإجراء الأكاديمي</th>
-              <th style="padding: 12px;">التاريخ</th>
-              <th style="padding: 12px;">اليوم</th>
+            <tr>
+              <th>الحدث / الإجراء الأكاديمي</th>
+              <th>التاريخ</th>
+              <th>اليوم</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px; font-weight: bold;">بدء فترة الانسحاب والإضافة لمساقات الفصل الأول</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2026/09/27 - 2026/10/01</td>
-              <td style="padding: 12px;">الأحد - الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px;">مواعيد امتحانات غير مكتمل والامتحان التكميلي (Resit)</td>
-              <td style="padding: 12px; color: #0284c7; font-weight: bold;">2026/09/27 - 2026/10/01</td>
-              <td style="padding: 12px;">الأحد - الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px; font-weight: bold;">بدء التدريس لجميع الطلبة</td>
-              <td style="padding: 12px; color: #16a34a; font-weight: bold;">2026/10/04</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px;">آخر موعد للإضافة وتسجيل المساقات لجميع الطلبة</td>
-              <td style="padding: 12px;">2026/10/08</td>
-              <td style="padding: 12px;">الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: عيد الميلاد المجيد</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2026/12/25</td>
-              <td style="padding: 12px;">الجمعة</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px;">آخر موعد لاعتماد علامات امتحانات منتصف الفصل</td>
-              <td style="padding: 12px;">2026/12/26</td>
-              <td style="padding: 12px;">السبت</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: رأس السنة الميلادية</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/01/01</td>
-              <td style="padding: 12px;">الجمعة</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px; font-weight: bold;">بدء التسجيل الإلكتروني للفصل الدراسي الثاني</td>
-              <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/01/10</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px; font-weight: bold;">انتهاء فترة الانسحاب من المساقات (W) للطلبة</td>
-              <td style="padding: 12px; color: #dc2626; font-weight: bold;">2027/01/14</td>
-              <td style="padding: 12px;">الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px;">آخر يوم للتدريس في الفصل الدراسي الأول</td>
-              <td style="padding: 12px;">2027/01/14</td>
-              <td style="padding: 12px;">الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
-              <td style="padding: 12px; font-weight: bold;">امتحانات المساقات المحوسبة والمختبرات والمشاريع</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/01/16 - 2027/01/19</td>
-              <td style="padding: 12px;">السبت - الثلاثاء</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
-              <td style="padding: 12px; font-weight: bold;">الامتحانات النهائية الوجاهية</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: 800;">2027/01/20 - 2027/01/28</td>
-              <td style="padding: 12px;">الأربعاء - الخميس</td>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">بدء فترة الانسحاب والإضافة لمساقات الفصل الأول</td>
+              <td class="date-text">2026/09/27 - 2026/10/01</td>
+              <td>الأحد - الخميس</td>
             </tr>
             <tr>
-              <td style="padding: 12px;">آخر موعد لرصد واعتماد النتائج النهائية</td>
-              <td style="padding: 12px; font-weight: bold;">2027/01/31</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-  </section>
-
-    <div id="sem2Table" class="calendar-pane" style="display: none;">
-      <div style="background: white; border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); overflow-x: auto;">
-        <h3 style="color: var(--primary-navy); margin-bottom: 1rem;"><i class="fa-solid fa-calendar-check" style="color: var(--primary-navy);"></i> مواعيد الفصل الدراسي الثاني</h3>
-        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.95rem;">
-          <thead>
-            <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; color: var(--primary-navy);">
-              <th style="padding: 12px;">الحدث / الإجراء الأكاديمي</th>
-              <th style="padding: 12px;">التاريخ</th>
-              <th style="padding: 12px;">اليوم</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px; font-weight: bold;">فترة السحب والإضافة لمساقات الفصل الثاني</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/02/14 - 2027/02/18</td>
-              <td style="padding: 12px;">الأحد - الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px;">مواعيد امتحانات غير مكتمل والامتحان التكميلي (Resit)</td>
-              <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/02/14 - 2027/02/18</td>
-              <td style="padding: 12px;">الأحد - الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px; font-weight: bold;">بدء التدريس لجميع الطلبة</td>
-              <td style="padding: 12px; color: #16a34a; font-weight: bold;">2027/02/21</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px;">آخر موعد للإضافة وتسجيل المساقات</td>
-              <td style="padding: 12px;">2027/02/24</td>
-              <td style="padding: 12px;">الأربعاء</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): عيد الفطر السعيد</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/03/10 - 2027/03/12</td>
-              <td style="padding: 12px;">الأربعاء - الجمعة</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: يوم العمال العالمي</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/05/01</td>
-              <td style="padding: 12px;">السبت</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): عيد الأضحى المبارك</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/05/17 - 2027/05/20</td>
-              <td style="padding: 12px;">الاثنين - الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية: عيد الاستقلال للمملكة</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/05/25</td>
-              <td style="padding: 12px;">الثلاثاء</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px; font-weight: bold;">بدء التسجيل الإلكتروني للفصل الصيفي</td>
-              <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/05/30</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px; font-weight: bold;">انتهاء فترة الانسحاب من المساقات (W)</td>
-              <td style="padding: 12px; color: #dc2626; font-weight: bold;">2027/06/03</td>
-              <td style="padding: 12px;">الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px;">آخر يوم للتدريس في الفصل الثاني</td>
-              <td style="padding: 12px;">2027/06/03</td>
-              <td style="padding: 12px;">الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): رأس السنة الهجرية 1449هـ</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/06/06</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
-              <td style="padding: 12px; font-weight: bold;">امتحانات المساقات المحوسبة والمختبرات والمشاريع</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/06/07 - 2027/06/10</td>
-              <td style="padding: 12px;">الاثنين - الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
-              <td style="padding: 12px; font-weight: bold;">الامتحانات النهائية الوجاهية</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: 800;">2027/06/12 - 2027/06/19</td>
-              <td style="padding: 12px;">السبت - السبت</td>
+              <td>مواعيد امتحانات غير مكتمل والامتحان التكميلي (Resit)</td>
+              <td class="date-text">2026/09/27 - 2026/10/01</td>
+              <td>الأحد - الخميس</td>
             </tr>
             <tr>
-              <td style="padding: 12px;">آخر موعد لرصد واعتماد النتائج النهائية</td>
-              <td style="padding: 12px; font-weight: bold;">2027/06/22</td>
-              <td style="padding: 12px;">الثلاثاء</td>
+              <td class="text-start">بدء التدريس لجميع الطلبة</td>
+              <td class="date-text text-start">2026/10/04</td>
+              <td>الأحد</td>
+            </tr>
+            <tr>
+              <td>آخر موعد للإضافة وتسجيل المساقات لجميع الطلبة</td>
+              <td class="date-text">2026/10/08</td>
+              <td>الخميس</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية: عيد الميلاد المجيد</td>
+              <td class="date-text">2026/12/25</td>
+              <td>الجمعة</td>
+            </tr>
+            <tr>
+              <td>آخر موعد لاعتماد علامات امتحانات منتصف الفصل</td>
+              <td class="date-text">2026/12/26</td>
+              <td>السبت</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية: رأس السنة الميلادية</td>
+              <td class="date-text">2027/01/01</td>
+              <td>الجمعة</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">بدء التسجيل الإلكتروني للفصل الدراسي الثاني</td>
+              <td class="date-text" style="color: #0284c7;">2027/01/10</td>
+              <td>الأحد</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">انتهاء فترة الانسحاب من المساقات (W) للطلبة</td>
+              <td class="date-text">2027/01/14</td>
+              <td>الخميس</td>
+            </tr>
+            <tr>
+              <td>آخر يوم للتدريس في الفصل الدراسي الأول</td>
+              <td class="date-text">2027/01/14</td>
+              <td>الخميس</td>
+            </tr>
+            <tr class="row-exam">
+              <td>امتحانات المساقات المحوسبة والمختبرات والمشاريع</td>
+              <td class="date-text">2027/01/16 - 2027/01/19</td>
+              <td>السبت - الثلاثاء</td>
+            </tr>
+            <tr class="row-exam">
+              <td>الامتحانات النهائية الوجاهية</td>
+              <td class="date-text">2027/01/20 - 2027/01/28</td>
+              <td>الأربعاء - الخميس</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">آخر موعد لرصد واعتماد النتائج النهائية</td>
+              <td class="date-text">2027/01/31</td>
+              <td>الأحد</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <div id="summerTable" class="calendar-pane" style="display: none;">
-      <div style="background: white; border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); overflow-x: auto;">
-        <h3 style="color: var(--primary-navy); margin-bottom: 1rem;"><i class="fa-solid fa-calendar-check" style="color: var(--accent-gold);"></i> مواعيد الفصل الصيفي</h3>
-        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.95rem;">
+    <!-- جدول الفصل الثاني -->
+    <div id="sem2Table" class="calendar-pane" style="display: none;">
+      <div class="calendar-container">
+        <h3 style="color: var(--primary-navy); margin-bottom: 1.2rem; font-size: 1.2rem;">
+          <i class="fa-solid fa-calendar-check" style="color: var(--primary-navy);"></i> مواعيد الفصل الدراسي الثاني
+        </h3>
+        <table class="academic-table">
           <thead>
-            <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; color: var(--primary-navy);">
-              <th style="padding: 12px;">الحدث / الإجراء الأكاديمي</th>
-              <th style="padding: 12px;">التاريخ</th>
-              <th style="padding: 12px;">اليوم</th>
+            <tr>
+              <th>الحدث / الإجراء الأكاديمي</th>
+              <th>التاريخ</th>
+              <th>اليوم</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px;">أسبوع امتحانات غير المكتمل والامتحان التكميلي (Resit)</td>
-              <td style="padding: 12px; color: #0284c7; font-weight: bold;">2027/07/04 - 2027/07/10</td>
-              <td style="padding: 12px;">الأحد - السبت</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px; font-weight: bold;">بدء التدريس للفصل الصيفي</td>
-              <td style="padding: 12px; color: #16a34a; font-weight: bold;">2027/07/11</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px;">آخر موعد للإضافة وتسجيل مساقات الصيفي</td>
-              <td style="padding: 12px;">2027/07/14</td>
-              <td style="padding: 12px;">الأربعاء</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fefce8;">
-              <td style="padding: 12px; font-weight: bold;">بدء مراسم حفل تخريج الفوج (48)</td>
-              <td style="padding: 12px; color: var(--accent-gold); font-weight: bold;">2027/08/01</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fff1f2;">
-              <td style="padding: 12px; font-weight: bold; color: #9f1239;">عطلة رسمية (تقديراً): ذكرى المولد النبوي الشريف</td>
-              <td style="padding: 12px; color: #9f1239; font-weight: bold;">2027/08/15</td>
-              <td style="padding: 12px;">الأحد</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fafafa;">
-              <td style="padding: 12px; font-weight: bold;">انتهاء فترة الانسحاب من المساقات (W)</td>
-              <td style="padding: 12px; color: #dc2626; font-weight: bold;">2027/08/26</td>
-              <td style="padding: 12px;">الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 12px;">آخر يوم للتدريس في الفصل الصيفي</td>
-              <td style="padding: 12px;">2027/08/26</td>
-              <td style="padding: 12px;">الخميس</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
-              <td style="padding: 12px; font-weight: bold;">امتحانات المساقات المحوسبة والمختبرات والمشاريع</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: bold;">2027/08/28 - 2027/08/30</td>
-              <td style="padding: 12px;">السبت - الاثنين</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9; background: #fef2f2;">
-              <td style="padding: 12px; font-weight: bold;">الامتحانات النهائية الوجاهية للصيفي</td>
-              <td style="padding: 12px; color: var(--accent-red); font-weight: 800;">2027/08/31 - 2027/09/06</td>
-              <td style="padding: 12px;">الثلاثاء - الاثنين</td>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">فترة السحب والإضافة لمساقات الفصل الثاني</td>
+              <td class="date-text">2027/02/14 - 2027/02/18</td>
+              <td>الأحد - الخميس</td>
             </tr>
             <tr>
-              <td style="padding: 12px;">آخر موعد لاعتماد النتائج النهائية للفصل الصيفي</td>
-              <td style="padding: 12px; font-weight: bold;">2027/09/08</td>
-              <td style="padding: 12px;">الأربعاء</td>
+              <td>مواعيد امتحانات غير مكتمل والامتحان التكميلي (Resit)</td>
+              <td class="date-text">2027/02/14 - 2027/02/18</td>
+              <td>الأحد - الخميس</td>
+            </tr>
+            <tr>
+              <td class="text-start">بدء التدريس لجميع الطلبة</td>
+              <td class="date-text text-start">2027/02/21</td>
+              <td>الأحد</td>
+            </tr>
+            <tr>
+              <td>آخر موعد للإضافة وتسجيل المساقات</td>
+              <td class="date-text">2027/02/24</td>
+              <td>الأربعاء</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية (تقديراً): عيد الفطر السعيد</td>
+              <td class="date-text">2027/03/10 - 2027/03/12</td>
+              <td>الأربعاء - الجمعة</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية: يوم العمال العالمي</td>
+              <td class="date-text">2027/05/01</td>
+              <td>السبت</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية (تقديراً): عيد الأضحى المبارك</td>
+              <td class="date-text">2027/05/17 - 2027/05/20</td>
+              <td>الاثنين - الخميس</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية: عيد الاستقلال للمملكة</td>
+              <td class="date-text">2027/05/25</td>
+              <td>الثلاثاء</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">بدء التسجيل الإلكتروني للفصل الصيفي</td>
+              <td class="date-text" style="color: #0284c7;">2027/05/30</td>
+              <td>الأحد</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">انتهاء فترة الانسحاب من المساقات (W)</td>
+              <td class="date-text">2027/06/03</td>
+              <td>الخميس</td>
+            </tr>
+            <tr>
+              <td>آخر يوم للتدريس في الفصل الثاني</td>
+              <td class="date-text">2027/06/03</td>
+              <td>الخميس</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية (تقديراً): رأس السنة الهجرية 1449هـ</td>
+              <td class="date-text">2027/06/06</td>
+              <td>الأحد</td>
+            </tr>
+            <tr class="row-exam">
+              <td>امتحانات المساقات المحوسبة والمختبرات والمشاريع</td>
+              <td class="date-text">2027/06/07 - 2027/06/10</td>
+              <td>الاثنين - الخميس</td>
+            </tr>
+            <tr class="row-exam">
+              <td>الامتحانات النهائية الوجاهية</td>
+              <td class="date-text">2027/06/12 - 2027/06/19</td>
+              <td>السبت - السبت</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">آخر موعد لرصد واعتماد النتائج النهائية</td>
+              <td class="date-text">2027/06/22</td>
+              <td>الثلاثاء</td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+
+    <!-- جدول الفصل الصيفي -->
+    <div id="summerTable" class="calendar-pane" style="display: none;">
+      <div class="calendar-container">
+        <h3 style="color: var(--primary-navy); margin-bottom: 1.2rem; font-size: 1.2rem;">
+          <i class="fa-solid fa-calendar-check" style="color: var(--accent-gold);"></i> مواعيد الفصل الصيفي
+        </h3>
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>الحدث / الإجراء الأكاديمي</th>
+              <th>التاريخ</th>
+              <th>اليوم</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>أسبوع امتحانات غير المكتمل والامتحان التكميلي (Resit)</td>
+              <td class="date-text">2027/07/04 - 2027/07/10</td>
+              <td>الأحد - السبت</td>
+            </tr>
+            <tr>
+              <td class="text-start">بدء التدريس للفصل الصيفي</td>
+              <td class="date-text text-start">2027/07/11</td>
+              <td>الأحد</td>
+            </tr>
+            <tr>
+              <td>آخر موعد للإضافة وتسجيل مساقات الصيفي</td>
+              <td class="date-text">2027/07/14</td>
+              <td>الأربعاء</td>
+            </tr>
+            <tr style="background: #fefce8;">
+              <td style="font-weight: bold; color: #b45309;">بدء مراسم حفل تخريج الفوج (48)</td>
+              <td class="date-text" style="color: #b45309;">2027/08/01</td>
+              <td>الأحد</td>
+            </tr>
+            <tr class="row-holiday">
+              <td>عطلة رسمية (تقديراً): ذكرى المولد النبوي الشريف</td>
+              <td class="date-text">2027/08/15</td>
+              <td>الأحد</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">انتهاء فترة الانسحاب من المساقات (W)</td>
+              <td class="date-text">2027/08/26</td>
+              <td>الخميس</td>
+            </tr>
+            <tr>
+              <td>آخر يوم للتدريس في الفصل الصيفي</td>
+              <td class="date-text">2027/08/26</td>
+              <td>الخميس</td>
+            </tr>
+            <tr class="row-exam">
+              <td>امتحانات المساقات المحوسبة والمختبرات والمشاريع</td>
+              <td class="date-text">2027/08/28 - 2027/08/30</td>
+              <td>السبت - الاثنين</td>
+            </tr>
+            <tr class="row-exam">
+              <td>الامتحانات النهائية الوجاهية للصيفي</td>
+              <td class="date-text">2027/08/31 - 2027/09/06</td>
+              <td>الثلاثاء - الاثنين</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary-navy);">آخر موعد لاعتماد النتائج النهائية للفصل الصيفي</td>
+              <td class="date-text">2027/09/08</td>
+              <td>الأربعاء</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
 
+  <!-- عن الكتلة والتأسيس -->
   <section id="about" class="container">
     <div class="section-header">
       <h2 class="section-title">من نحن والتأسيس</h2>
@@ -1707,6 +1638,7 @@ body.dark-theme .btn-outline {
     </div>
   </section>
 
+  <!-- محاور العمل والقيم -->
   <section id="pillars" style="background: #f1f5f9; padding: 4rem 0;">
     <div class="container" style="padding-top: 0; padding-bottom: 0;">
       <div class="section-header">
@@ -1736,59 +1668,37 @@ body.dark-theme .btn-outline {
 
       <h3 style="margin-bottom: 1.2rem; color: var(--primary-navy);"><i class="fa-solid fa-star" style="color: var(--accent-gold);"></i> قِيَمُنا الأساسية:</h3>
       <div class="grid-5">
-        <div class="value-item">
-          <i class="fa-solid fa-award"></i>
-          <h4>التميز الأكاديمي</h4>
-        </div>
-        <div class="value-item">
-          <i class="fa-solid fa-heart"></i>
-          <h4>الانتماء</h4>
-        </div>
-        <div class="value-item">
-          <i class="fa-solid fa-scale-unbalanced-flip"></i>
-          <h4>التمثيل العادل</h4>
-        </div>
-        <div class="value-item">
-          <i class="fa-solid fa-shield-halved"></i>
-          <h4>المسؤولية</h4>
-        </div>
-        <div class="value-item">
-          <i class="fa-solid fa-people-group"></i>
-          <h4>العمل الجماعي</h4>
-        </div>
+        <div class="value-item"><i class="fa-solid fa-award"></i><h4>التميز الأكاديمي</h4></div>
+        <div class="value-item"><i class="fa-solid fa-heart"></i><h4>الانتماء</h4></div>
+        <div class="value-item"><i class="fa-solid fa-scale-unbalanced-flip"></i><h4>التمثيل العادل</h4></div>
+        <div class="value-item"><i class="fa-solid fa-shield-halved"></i><h4>المسؤولية</h4></div>
+        <div class="value-item"><i class="fa-solid fa-people-group"></i><h4>العمل الجماعي</h4></div>
       </div>
     </div>
   </section>
 
+  <!-- الخطة الاستراتيجية -->
   <section id="strategy" class="container">
     <div class="strategy-box">
       <span class="strategy-badge">وثيقة العمل المعتمدة</span>
       <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">الخطة الاستراتيجية للعام الجامعي 2026 / 2027</h2>
-      <p style="color: #cbd5e1; max-width: 800px;">
-        برنامج عملي متكامل يهدف للنهوض بكافة جوانب الحياة الجامعية لطلبة كلية الإعلام وجامعة اليرموك.
-      </p>
+      <p style="color: #cbd5e1; max-width: 800px;">برنامج عملي متكامل يهدف للنهوض بكافة جوانب الحياة الجامعية لطلبة كلية الإعلام وجامعة اليرموك.</p>
 
       <div class="strategy-grid">
         <div class="strategy-item">
           <h4><i class="fa-solid fa-eye"></i> الرؤية الاستراتيجية</h4>
-          <p style="color: #e2e8f0; font-size: 0.95rem;">
-            تطمح كتلة "أردننا" إلى أن تكون نموذجاً طلابياً ريادياً في جامعة اليرموك، من خلال بناء بيئة جامعية واعية ومُمكّنة سياسياً وثقافياً وأكاديمياً، وتعزيز الهوية الوطنية، وتمكين الطالب ليكون شريكاً فاعلاً في صناعة القرار.
-          </p>
+          <p style="color: #e2e8f0; font-size: 0.95rem;">تطمح كتلة "أردننا" إلى أن تكون نموذجاً طلابياً ريادياً في جامعة اليرموك، من خلال بناء بيئة جامعية واعية ومُمكّنة سياسياً وثقافياً وأكاديمياً، وتعزيز الهوية الوطنية، وتمكين الطالب ليكون شريكاً فاعلاً في صناعة القرار.</p>
         </div>
-
         <div class="strategy-item">
           <h4><i class="fa-solid fa-crosshairs"></i> الهدف الاستراتيجي</h4>
-          <p style="color: #e2e8f0; font-size: 0.95rem;">
-            تعزيز الوعي الطلابي الشامل لدى طلبة جامعة اليرموك، وتفعيل دورهم في الحياة الجامعية من خلال برامج ومبادرات نوعية تستهدف الجوانب الأكاديمية والتوعوية والخدمية.
-          </p>
+          <p style="color: #e2e8f0; font-size: 0.95rem;">تعزيز الوعي الطلابي الشامل لدى طلبة جامعة اليرموك، وتفعيل دورهم في الحياة الجامعية من خلال برامج ومبادرات نوعية تستهدف الجوانب الأكاديمية والتوعوية والخدمية.</p>
         </div>
-
         <div class="strategy-item">
           <h4><i class="fa-solid fa-chart-line"></i> مستهدفات العام الجامعي</h4>
           <ul class="target-list">
             <li>الوصول إلى أكثر من <strong>35%</strong> من طلبة الجامعة وتعزيز التفاعل المباشر معهم.</li>
             <li>تنفيذ <strong>15 برنامجاً ومبادرة</strong> تشمل المجالات الأكاديمية، التوعوية، والخدمية.</li>
-            <li>متابعة القضايا الطلابية والعمل على تحقيق نسبة إنجاز لا تقل عن <strong>80%</strong> بالتنسيق مع الجهات المعنية.</li>
+            <li>متابعة القضايا الطلابية وتحقيق نسبة إنجاز لا تقل عن <strong>80%</strong> بالتنسيق مع الجهات المعنية.</li>
           </ul>
         </div>
       </div>
@@ -1806,6 +1716,7 @@ body.dark-theme .btn-outline {
     </div>
   </section>
 
+  <!-- الهيئة الإدارية -->
   <section id="admin" class="container" style="padding-top: 1rem;">
     <div class="section-header">
       <h2 class="section-title">الهيئة الإدارية</h2>
@@ -1818,9 +1729,9 @@ body.dark-theme .btn-outline {
         <h3 class="admin-name">محمد ماجد الشديفات</h3>
         <div class="admin-role">منسق اللجنة</div>
         <div class="admin-dept">التخصص: الإذاعة والتلفزيون</div>
-    <a href="https://wa.me/962776760734" target="_blank" style="color: #25D366; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px;">
-      <i class="fa-brands fa-whatsapp"></i> تواصل عبر واتساب
-    </a>
+        <a href="https://wa.me/962776760734" target="_blank" style="color: #25D366; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px;">
+          <i class="fa-brands fa-whatsapp"></i> تواصل عبر واتساب
+        </a>
       </div>
     </div>
     
@@ -1831,39 +1742,37 @@ body.dark-theme .btn-outline {
         <div class="admin-role">عضو الهيئة الإدارية</div>
         <div class="admin-dept">التخصص: الإذاعة والتلفزيون</div>
       </div>
-
       <div class="admin-card">
         <div class="admin-avatar"><i class="fa-solid fa-user-check"></i></div>
         <h3 class="admin-name">محمد فايز العجارمة</h3>
         <div class="admin-role">عضو الهيئة الإدارية</div>
         <div class="admin-dept">التخصص: الإذاعة والتلفزيون</div>
       </div>
-
       <div class="admin-card">
         <div class="admin-avatar"><i class="fa-solid fa-user-check"></i></div>
         <h3 class="admin-name">حورية خالد حموده</h3>
         <div class="admin-role">عضو الهيئة الإدارية</div>
         <div class="admin-dept">التخصص: الإذاعة والتلفزيون</div>
       </div>
-
       <div class="admin-card">
         <div class="admin-avatar"><i class="fa-solid fa-user-check"></i></div>
         <h3 class="admin-name">يوسف أحمد العربيات</h3>
         <div class="admin-role">عضو الهيئة الإدارية</div>
         <div class="admin-dept">التخصص: الإذاعة والتلفزيون</div>
-<a href="https://wa.me/962771552006" target="_blank" style="color: #25D366; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px;">
-  <i class="fa-brands fa-whatsapp"></i> تواصل عبر واتساب
-</a>
+        <a href="https://wa.me/962771552006" target="_blank" style="color: #25D366; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px;">
+          <i class="fa-brands fa-whatsapp"></i> تواصل عبر واتساب
+        </a>
       </div>
-            <div class="admin-card">
+      <div class="admin-card">
         <div class="admin-avatar"><i class="fa-solid fa-user-check"></i></div>
         <h3 class="admin-name">ليان اياد الشلبي</h3>
         <div class="admin-role">عضو الهيئة الإدارية</div>
-        <div class="admin-dept">التخصص: العلاقات عامه والاعلان</div>
+        <div class="admin-dept">التخصص: العلاقات العامة والإعلان</div>
       </div>
     </div>
   </section>
 
+  <!-- نماذج الانتساب والتواصل -->
   <section id="forms" class="container" style="padding-top: 2rem;">
     <div class="section-header">
       <h2 class="section-title">شارك وتواصل معنا</h2>
@@ -1874,10 +1783,8 @@ body.dark-theme .btn-outline {
       <div class="card" style="border-top: 4px solid var(--accent-red); text-align: center;">
         <div class="icon-box red" style="margin: 0 auto 1rem;"><i class="fa-solid fa-user-plus"></i></div>
         <h3 style="color: var(--primary-navy); margin-bottom: 0.8rem;">طلب الانتساب للجنة والكتلة</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-          إذا كنت ترغب بالانضمام إلى فريق عمل الكتلة والمشاركة في تنظيم الأنشطة وتمثيل الطلبة، يرجى تعبئة النموذج التالي.
-        </p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLwjjcgEgwCvxnh7DCWEabUOEM_lxiyVFrrFbbDNi0k_qGYg/viewform?usp=publish-editor " target="_blank" class="btn btn-red" style="width: 100%; justify-content: center;">
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">إذا كنت ترغب بالانضمام إلى فريق عمل الكتلة والمشاركة في تنظيم الأنشطة وتمثيل الطلبة، يرجى تعبئة النموذج التالي.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLwjjcgEgwCvxnh7DCWEabUOEM_lxiyVFrrFbbDNi0k_qGYg/viewform?usp=publish-editor" target="_blank" class="btn btn-red" style="width: 100%; justify-content: center;">
           <i class="fa-solid fa-pen-to-square"></i> تعبئة طلب الانتساب
         </a>
       </div>
@@ -1885,15 +1792,15 @@ body.dark-theme .btn-outline {
       <div class="card" style="border-top: 4px solid var(--primary-navy); text-align: center;">
         <div class="icon-box gold" style="margin: 0 auto 1rem;"><i class="fa-solid fa-hand-holding-heart"></i></div>
         <h3 style="color: var(--primary-navy); margin-bottom: 0.8rem;">صندوق الاقتراحات والمساعدة</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-          لديك فكرة لتطوير الكلية؟ أو تواجه مشكلة أكاديمية أو في تسجيل المواد وتحتاج مساعدة؟ أرسل لنا تفاصيلها فوراً.
-        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">لديك فكرة لتطوير الكلية؟ أو تواجه مشكلة أكاديمية أو في تسجيل المواد وتحتاج مساعدة؟ أرسل لنا تفاصيلها فوراً.</p>
         <a href="https://forms.gle/qjKgozYavbnariEL9" target="_blank" class="btn btn-outline" style="width: 100%; justify-content: center; color: var(--primary-navy); border-color: var(--primary-navy);">
           <i class="fa-solid fa-comment-dots"></i> تقديم اقتراح أو طلب مساعدة
         </a>
       </div>
     </div>
   </section>
+
+  <!-- الفوتر -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -1901,7 +1808,7 @@ body.dark-theme .btn-outline {
         <p>الكتلة الوطنية المعتمدة في جامعة اليرموك - صوت الطالب وشريك البناء في خدمة المسيرة الأكاديمية والوطنية.</p>
         <div class="social-icons">
           <a href="https://www.instagram.com/our_jordan_yu/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61581737489708&ref=PROFILE_EDIT_xav_ig_profile_page_web#" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61581737489708" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="https://whatsapp.com/channel/0029VbDtR1YCXC3DUzNTHV2l" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
@@ -1936,6 +1843,7 @@ body.dark-theme .btn-outline {
     </div>
   </footer>
 
+  <!-- السكربتات التفاعلية والمنطق البرمجي -->
   <script>
     let currentCalcMode = 'semester';
 
@@ -2009,7 +1917,6 @@ body.dark-theme .btn-outline {
       }
 
       const semGPA = (currentTotalPoints / currentTotalHours);
-
       const resultBox = document.getElementById('resultContainer');
       const scoreOutput = document.getElementById('scoreOutput');
       const ratingOutput = document.getElementById('ratingOutput');
@@ -2091,7 +1998,6 @@ body.dark-theme .btn-outline {
       }
 
       const gpa = parseFloat(input);
-
       if (gpa < 0 || gpa > 100) {
         resultBox.style.display = 'block';
         resultBox.style.background = '#fef2f2';
@@ -2166,7 +2072,6 @@ body.dark-theme .btn-outline {
       var zoomControls = document.getElementById('zoomControls');
 
       if (!modal) return;
-
       resetZoom();
 
       if (type === 'iframe') {
@@ -2250,23 +2155,44 @@ body.dark-theme .btn-outline {
     window.addEventListener('scroll', function() {
       if (window.innerWidth <= 768 && navbar) {
         var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
         if (currentScroll <= 60) {
           navbar.classList.remove('nav-hidden');
           return;
         }
-
         if (currentScroll > lastScrollTop) {
           navbar.classList.add('nav-hidden');
         } else {
           navbar.classList.remove('nav-hidden');
         }
-
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
       }
     }, { passive: true });
+
+    /* دالة الدارك مود */
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.querySelector('#themeToggle i');
+      
+      body.classList.toggle('dark-theme');
+      const isDark = body.classList.contains('dark-theme');
+      localStorage.setItem('media-theme', isDark ? 'dark' : 'light');
+      
+      if (icon) {
+        icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('media-theme');
+      const icon = document.querySelector('#themeToggle i');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        if (icon) icon.className = 'fa-solid fa-sun';
+      }
+    });
   </script>
 
+  <!-- فايربيس وقاعدة البيانات -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
@@ -2306,7 +2232,7 @@ body.dark-theme .btn-outline {
               <div style="background: white; border-radius: 14px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <button onclick="checkOwnerStatus('${id}', '${item.pin}')" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: var(--primary-navy); padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; text-decoration: none;">
+                    <button onclick="checkOwnerStatus('${id}', '${item.pin}')" style="background: #f1f5f9; border: 1px solid #cbd5e1; color: var(--primary-navy); padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
                       <i class="fa-solid fa-key" style="color: var(--accent-gold); font-size: 0.75rem;"></i> إدارة العرض
                     </button>
                     <span style="font-size: 0.78rem; background: ${reqCount > 0 ? '#fef3c7' : '#e0f2fe'}; color: ${reqCount > 0 ? '#b45309' : '#0369a1'}; padding: 3px 8px; border-radius: 6px; font-weight: bold;">
@@ -2421,33 +2347,6 @@ body.dark-theme .btn-outline {
     }
 
     window.addEventListener('DOMContentLoaded', loadBookOffers);
-  function toggleTheme() {
-  const body = document.body;
-  const icon = document.querySelector('#themeToggle i');
-  
-  body.classList.toggle('dark-theme');
-  
-  const isDark = body.classList.contains('dark-theme');
-  localStorage.setItem('media-theme', isDark ? 'dark' : 'light');
-  
-  if (icon) {
-    if (isDark) {
-      icon.className = 'fa-solid fa-sun';
-    } else {
-      icon.className = 'fa-solid fa-moon';
-    }
-  }
-}
-
-// تطبيق الوضع المحفوظ تلقائياً عند فتح الموقع
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('media-theme');
-  const icon = document.querySelector('#themeToggle i');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-    if (icon) icon.className = 'fa-solid fa-sun';
-  }
-});
   </script>
 </body>
 </html>
