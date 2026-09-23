@@ -598,88 +598,37 @@
       .hero h1 { font-size: 2.1rem; }
       .course-row { grid-template-columns: 1fr 1fr; }
     }
-/* =========================================
-       تنسيقات التقويم الجامعي المريح للعين (Soft UI)
-       ========================================= */
-    .calendar-container {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      border: 1px solid #e2e8f0;
-      overflow-x: auto;
-    }
+/* الألوان عند تفعيل الوضع المظلم */
+body.dark-mode {
+  --bg-dark: #051622;         /* خلفية أغمق مريحة للعين */
+  --bg-panel: #0a2538;        /* خلفية الألواح والناف بار */
+  --bg-card: #0f334c;         /* خلفية البطاقات */
+  --border-color: #164e73;
+  --border-hover: #1f6288;
+  --text-main: #f8fafc;
+  --text-muted: #8eb3cb;
+}
 
-    .calendar-header-title {
-      color: #334155;
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+/* زر التبديل بين الوضعين في الناف بار */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--accent-gold);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
 
-    .calendar-header-title i {
-      color: #b45309; /* ذهبي هادئ */
-    }
-
-    .academic-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: right;
-    }
-
-    .academic-table th {
-      background-color: #f8fafc;
-      color: #334155;
-      font-weight: 800;
-      padding: 16px 18px;
-      border-bottom: 2px solid #e2e8f0;
-      font-size: 0.95rem;
-    }
-
-    .academic-table td {
-      padding: 14px 18px;
-      border-bottom: 1px solid #f1f5f9;
-      color: #475569;
-      font-size: 0.95rem;
-      font-weight: 500;
-      vertical-align: middle;
-    }
-
-    .academic-table tbody tr:hover {
-      background-color: #f8fafc;
-      transition: background-color 0.2s ease;
-    }
-
-    /* الألوان الهادئة للحالات المختلفة */
-    .date-text {
-      color: #64748b;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .text-start {
-      color: #15803d; /* أخضر هادئ دافئ */
-      font-weight: 800;
-    }
-
-    .row-holiday {
-      background-color: #fff1f2 !important; 
-    }
-    .row-holiday td, .row-holiday .date-text {
-      color: #be123c; /* أحمر توتي هادئ */
-      font-weight: 700;
-    }
-
-    .row-exam {
-      background-color: #fffbeb !important;
-    }
-    .row-exam td, .row-exam .date-text {
-      color: #b45309; /* برتقالي دافئ هادئ */
-      font-weight: 700;
-    }
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
   </style>
 </head>
 <body>
