@@ -154,17 +154,19 @@
       transform: scale(1.05);
     }
 
+    /* قسم الواجهة العلوية (الهيرو) - أبيض في الوضع العادي */
     .hero {
-      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--primary-navy) 60%, #1a365d 100%);
-      color: white;
+      background: #ffffff;
+      color: var(--text-main);
       padding: 4.5rem 5% 4rem;
       text-align: center;
       position: relative;
+      border-bottom: 1px solid var(--border-color);
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(201, 42, 42, 0.25);
-      color: #ff8787;
+      background: rgba(201, 42, 42, 0.1);
+      color: var(--accent-red);
       border: 1px solid var(--accent-red);
       padding: 6px 18px;
       border-radius: 50px;
@@ -177,6 +179,7 @@
       font-weight: 900;
       margin-bottom: 0.5rem;
       letter-spacing: -0.5px;
+      color: var(--primary-navy);
     }
     .hero-slogan {
       font-size: 1.4rem;
@@ -188,7 +191,7 @@
       max-width: 800px;
       margin: 0 auto 2rem;
       font-size: 1.1rem;
-      color: #e2e8f0;
+      color: var(--text-muted);
     }
     .hero-btns {
       display: flex;
@@ -223,12 +226,12 @@
     }
     .btn-outline {
       background: transparent;
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: var(--primary-navy);
+      border: 2px solid var(--primary-navy);
     }
     .btn-outline:hover {
-      border-color: white;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(16, 42, 67, 0.05);
+      transform: translateY(-2px);
     }
 
     .container {
